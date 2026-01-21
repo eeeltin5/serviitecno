@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Servitecno | Soluciones Tecnológicas</title>
+    <title>Servitecno | Master Platinum 2026</title>
     <link rel="icon" type="image/x-icon" href="icono.ico">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -12,11 +12,9 @@
             --primary: #1a4a8e;
             --secondary: #00d2ff;
             --success: #25d366;
-            --platinum: #e2e8f0;
-            --gold: #f9d71c;
-            --insta: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
-            --bg: #f8fafc;
+            --bg: #f0f4f8;
             --text: #1e293b;
+            --white: #ffffff;
         }
 
         body {
@@ -30,175 +28,250 @@
         header {
             background: linear-gradient(135deg, var(--primary), var(--secondary));
             color: white;
-            padding: 3rem 1rem 6rem;
+            padding: 2rem 1rem 5rem;
             text-align: center;
-            clip-path: ellipse(150% 100% at 50% 0%);
+            position: relative;
+        }
+
+        .header-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
         }
 
         .logo-wrapper {
             background: white;
-            display: inline-block;
             padding: 15px 30px;
             border-radius: 15px;
             box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-            margin-bottom: 20px;
         }
 
-        .header-logo {
-            max-width: 250px;
-            height: auto;
-            display: block;
+        .header-logo { max-width: 220px; height: auto; }
+
+        /* PERSONAJE */
+        .personaje-img {
+            max-width: 180px;
+            filter: drop-shadow(0 10px 15px rgba(0,0,0,0.2));
+            margin-top: 10px;
         }
 
-        .container { max-width: 1000px; margin: -60px auto 50px; padding: 0 1rem; }
+        .container { max-width: 1000px; margin: -40px auto 50px; padding: 0 1rem; position: relative; z-index: 10; }
 
-        /* SECCIÓN SOFTWARE DESTACADO */
+        /* SECCIÓN SOFTWARE PLATINUM (DESTACADA) */
         .software-card {
-            background: #050a14;
+            background: linear-gradient(145deg, #1a4a8e, #0d2a54);
             color: white;
-            padding: 3rem;
-            border-radius: 30px;
-            border: 3px solid var(--gold);
+            padding: 2.5rem;
+            border-radius: 24px;
+            border: 2px solid var(--secondary);
             margin-bottom: 3rem;
             display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 40px;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+            grid-template-columns: 120px 1fr 280px;
+            gap: 30px;
+            box-shadow: 0 20px 40px rgba(26, 74, 142, 0.4);
             align-items: center;
         }
 
-        .software-info h2 { color: var(--gold); font-size: 2.2rem; margin-top: 0; }
-        .software-info ul { list-style: none; padding: 0; margin: 20px 0; }
-        .software-info li { margin-bottom: 12px; display: flex; align-items: center; gap: 10px; }
-        .software-info li i { color: var(--gold); }
+        .software-icon-img { width: 100%; border-radius: 15px; }
+
+        .software-info h2 { 
+            color: var(--secondary); 
+            font-size: 1.8rem; 
+            margin: 0; 
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .software-info p { font-weight: 300; opacity: 0.9; margin: 10px 0; }
+        .software-info ul { list-style: none; padding: 0; margin: 15px 0; display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+        .software-info li { font-size: 0.85rem; display: flex; align-items: center; gap: 8px; }
+        .software-info li i { color: var(--secondary); }
 
         .buy-box {
-            background: rgba(255,255,255,0.05);
+            background: rgba(255,255,255,0.1);
             padding: 20px;
             border-radius: 20px;
-            text-align: center;
+            backdrop-filter: blur(10px);
         }
 
-        .modalidad-selector {
-            margin-bottom: 20px;
-            text-align: left;
-        }
-
-        .modalidad-selector label { display: block; margin-bottom: 10px; font-weight: bold; color: var(--gold); }
+        .modalidad-label { display: block; margin-bottom: 10px; font-weight: 600; font-size: 0.9rem; }
         
         select {
             width: 100%;
             padding: 12px;
             border-radius: 10px;
-            border: none;
+            border: 1px solid var(--secondary);
             background: white;
-            font-size: 1rem;
-            cursor: pointer;
+            margin-bottom: 15px;
+            font-weight: 600;
         }
 
         .btn-buy {
             background: var(--success);
             color: white;
             text-decoration: none;
-            padding: 15px 30px;
+            padding: 15px;
             border-radius: 12px;
             display: block;
             font-weight: 700;
-            font-size: 1.2rem;
+            text-align: center;
             transition: 0.3s;
             border: none;
             width: 100%;
             cursor: pointer;
+            font-size: 1rem;
         }
 
-        .btn-buy:hover { transform: scale(1.05); background: #1eb954; }
+        .btn-buy:hover { background: #1eb954; transform: translateY(-3px); }
 
-        /* RESTO DE ESTILOS */
-        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; margin-bottom: 40px; }
-        .card { background: white; padding: 2.5rem 1.5rem; border-radius: 20px; text-align: center; transition: 0.3s; border: 1px solid #f1f5f9; display: flex; flex-direction: column; }
-        .card:hover { transform: translateY(-5px); box-shadow: 0 15px 30px rgba(0,0,0,0.1); }
-        .card i { font-size: 2.5rem; color: var(--primary); margin-bottom: 1.5rem; }
+        /* GRID DE SERVICIOS ADICIONALES */
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; }
+
+        .card {
+            background: white;
+            padding: 2rem;
+            border-radius: 20px;
+            transition: 0.3s;
+            border-bottom: 4px solid var(--primary);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+        }
+
+        .card h3 { color: var(--primary); margin-top: 0; display: flex; align-items: center; gap: 10px; }
+        .card p { font-size: 0.95rem; font-weight: 600; color: #334155; margin-bottom: 10px; }
         
-        .btn { display: flex; align-items: center; justify-content: center; gap: 12px; max-width: 400px; margin: 15px auto; padding: 18px; border-radius: 50px; color: white; text-decoration: none; font-weight: 700; transition: 0.3s; }
-        .btn-wpp { background-color: var(--success); }
-        .btn-insta { background: var(--insta); }
+        .list-items { color: #64748b; font-size: 0.9rem; margin-bottom: 20px; }
 
-        @media (max-width: 768px) { .software-card { grid-template-columns: 1fr; padding: 2rem; } }
+        .btn-consultar {
+            display: inline-block;
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 700;
+            border: 2px solid var(--primary);
+            padding: 8px 20px;
+            border-radius: 50px;
+            transition: 0.3s;
+        }
+
+        .btn-consultar:hover { background: var(--primary); color: white; }
+
+        .social-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            background: var(--insta);
+            color: white;
+            text-decoration: none;
+            padding: 15px;
+            border-radius: 50px;
+            max-width: 300px;
+            margin: 40px auto;
+            font-weight: 700;
+        }
+
+        footer { text-align: center; padding: 2rem; color: #94a3b8; font-size: 0.8rem; }
+
+        @media (max-width: 850px) {
+            .software-card { grid-template-columns: 1fr; text-align: center; }
+            .software-icon-img { max-width: 100px; margin: 0 auto; }
+            .software-info ul { grid-template-columns: 1fr; }
+        }
     </style>
 </head>
 <body>
 
 <header>
-    <div class="logo-wrapper">
-        <img src="aaa.png" alt="Servitecno" class="header-logo">
+    <div class="header-content">
+        <div class="logo-wrapper">
+            <img src="aaa.png" alt="Servitecno" class="header-logo">
+        </div>
+        <img src="personaje.png" alt="Técnico Servitecno" class="personaje-img">
     </div>
 </header>
 
 <div class="container">
     
     <div class="software-card">
+        <img src="icono.ico" alt="Icono Master Platinum" class="software-icon-img">
         <div class="software-info">
-            <h2><i class="fas fa-crown"></i> SERVITECNO MASTER 2026</h2>
-            <p>Obtené la licencia del optimizador más potente del mercado. Limpieza de Kernel en tiempo real y aceleración total.</p>
+            <h2>Servitecno Master Platinum 2026</h2>
+            <p>El optimizador definitivo para que tu PC vuele. Tecnología de punta desarrollada por expertos.</p>
             <ul>
-                <li><i class="fas fa-check-circle"></i> Optimización Platinum</li>
-                <li><i class="fas fa-check-circle"></i> Liberación de RAM Real-Time</li>
-                <li><i class="fas fa-check-circle"></i> Monitorización Estilo CPU-Z</li>
-                <li><i class="fas fa-check-circle"></i> Limpieza de Archivos Basura</li>
+                <li><i class="fas fa-bolt"></i> Optimización Platinum</li>
+                <li><i class="fas fa-memory"></i> Limpieza RAM Real-Time</li>
+                <li><i class="fas fa-search"></i> Monitor CPU-Z Integrado</li>
+                <li><i class="fas fa-trash"></i> Borrado de Basura</li>
             </ul>
         </div>
         
         <div class="buy-box">
-            <div class="modalidad-selector">
-                <label>Seleccionar Modalidad:</label>
-                <select id="modalidad">
-                    <option value="A Distancia (AnyDesk)">A Distancia (AnyDesk)</option>
-                    <option value="Presencial (Pendrive)">Presencial (Rafaela y zona)</option>
-                </select>
-            </div>
+            <label class="modalidad-label">¿Cómo lo querés?</label>
+            <select id="modalidad">
+                <option value="A Distancia (AnyDesk)">A Distancia (AnyDesk)</option>
+                <option value="Presencial (Rafaela y zona)">Presencial (Rafaela y zona)</option>
+            </select>
             <button onclick="comprarSoftware()" class="btn-buy">
-                <i class="fab fa-whatsapp"></i> SOLICITAR AHORA
+                <i class="fab fa-whatsapp"></i> COMPRAR AHORA
             </button>
-            <p style="font-size: 0.8rem; margin-top: 10px; color: #94a3b8;">Pago seguro por Mercado Pago</p>
         </div>
     </div>
 
     <div class="grid">
         <div class="card">
-            <i class="fas fa-tools"></i>
-            <h3>Servicio Técnico</h3>
+            <h3><i class="fas fa-tools"></i> Servicio Técnico</h3>
             <p>Reparación de PC y Notebooks. Instalación de sistemas y armado a medida.</p>
-            <a href="https://wa.me/543492589451?text=Hola!%20Necesito%20Servicio%20Técnico." class="btn">Consultar</a>
+            <div class="list-items">
+                - reparacion de pc <br>
+                - limpieza y armado <br>
+                - reparacion celulares
+            </div>
+            <a href="https://wa.me/543492589451?text=Hola!%20Me%20interesa%20el%20Servicio%20Técnico." class="btn-consultar">Consultar</a>
         </div>
 
         <div class="card">
-            <i class="fas fa-laptop-code"></i>
-            <h3>Web y Software</h3>
-            <p>Creamos tu presencia digital y herramientas de gestión personalizada.</p>
-            <a href="https://wa.me/543492589451?text=Hola!%20Quiero%20una%20web/software." class="btn">Consultar</a>
+            <h3><i class="fas fa-code"></i> Web y Software</h3>
+            <p>Creamos tu página web o programa a medida.</p>
+            <div class="list-items">
+                - Diseño web responsivo <br>
+                - Programas de gestión <br>
+                - Automatización de procesos
+            </div>
+            <a href="https://wa.me/543492589451?text=Hola!%20Me%20interesa%20una%20Web%20o%20Programa." class="btn-consultar">Consultar</a>
+        </div>
+
+        <div class="card">
+            <h3><i class="fas fa-paint-brush"></i> Diseño</h3>
+            <p>Logos, folletos y armado de cv profesionales.</p>
+            <div class="list-items">
+                - Identidad visual <br>
+                - Flyers publicitarios <br>
+                - CV de alto impacto
+            </div>
+            <a href="https://wa.me/543492589451?text=Hola!%20Me%20interesa%20el%20servicio%20de%20Diseño." class="btn-consultar">Consultar</a>
         </div>
     </div>
 
-    <a href="https://www.instagram.com/serviitecno/" target="_blank" class="btn btn-insta">
+    <a href="https://www.instagram.com/serviitecno/" target="_blank" class="social-btn">
         <i class="fab fa-instagram fa-xl"></i> SEGUINOS EN INSTAGRAM
     </a>
 
 </div>
 
 <footer>
-    © 2026 Servitecno | Desarrollado por Agustin Gutierrez.
+    © 2026 Servitecno | Rafaela, Santa Fe.
 </footer>
 
 <script>
     function comprarSoftware() {
         const modalidad = document.getElementById('modalidad').value;
         const numTel = "543492589451";
-        const mensaje = `Hola Agustin! 👋 Vengo de la web y quiero comprar el *Software SERVITECNO MASTER 2026*.%0A%0A📍 *Modalidad:* ${modalidad}%0A%0A¿Cómo coordinamos el pago?`;
-        
+        const mensaje = `Hola Agustin! 👋 Vengo de la web y quiero el *Software SERVITECNO MASTER PLATINUM 2026*.%0A%0A📍 *Modalidad:* ${modalidad}%0A%0A¿Cómo realizo el pago?`;
         window.open(`https://wa.me/${numTel}?text=${mensaje}`, '_blank');
     }
 </script>
 
 </body>
 </html>
+
 
