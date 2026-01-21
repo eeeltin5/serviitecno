@@ -51,7 +51,6 @@
 
         .header-logo { max-width: 200px; height: auto; }
 
-        /* PERSONAJE - Mejor posicionado */
         .personaje-img {
             max-width: 220px;
             height: auto;
@@ -62,7 +61,7 @@
 
         .container { max-width: 1000px; margin: -50px auto 50px; padding: 0 1rem; position: relative; z-index: 10; }
 
-        /* SECCIÓN SOFTWARE PLATINUM (DESTACADA) */
+        /* SECCIÓN SOFTWARE PLATINUM */
         .software-card {
             background: linear-gradient(145deg, #0f2647, #1a4a8e);
             color: white;
@@ -70,7 +69,7 @@
             border-radius: 24px;
             border: 2px solid var(--secondary);
             margin-bottom: 3rem;
-            display: flex; /* Cambiado a Flex para mejor control del icono */
+            display: flex;
             flex-wrap: wrap;
             gap: 30px;
             box-shadow: 0 20px 40px rgba(26, 74, 142, 0.4);
@@ -78,7 +77,6 @@
             justify-content: center;
         }
 
-        /* Ajuste para que el icono se vea sí o sí */
         .software-icon-wrapper {
             flex: 0 0 140px;
             text-align: center;
@@ -88,10 +86,8 @@
             width: 130px; 
             height: 130px;
             object-fit: contain;
-            border-radius: 20px; 
-            background: rgba(255,255,255,0.1);
-            padding: 10px;
-            border: 1px solid var(--secondary);
+            /* Cambiado a PNG para mejor calidad */
+            filter: drop-shadow(0 0 10px var(--secondary));
         }
 
         .software-info { flex: 1; min-width: 280px; }
@@ -150,7 +146,7 @@
 
         .btn-buy:hover { background: #1eb954; transform: scale(1.03); }
 
-        /* GRID DE SERVICIOS */
+        /* GRID DE SERVICIOS CORREGIDO */
         .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; }
 
         .card {
@@ -167,7 +163,7 @@
         .card h3 { color: var(--primary); margin-top: 0; display: flex; align-items: center; gap: 10px; }
         .card p { font-size: 0.9rem; font-weight: 700; color: #334155; margin-bottom: 10px; }
         
-        .list-items { color: #64748b; font-size: 0.95rem; margin-bottom: 20px; flex-grow: 1; }
+        .list-items { color: #64748b; font-size: 0.95rem; margin-bottom: 20px; flex-grow: 1; line-height: 1.8; }
 
         .btn-consultar {
             display: block;
@@ -221,12 +217,12 @@
     
     <div class="software-card">
         <div class="software-icon-wrapper">
-            <img src="icono.ico" alt="Icono Master Platinum" class="software-icon-img">
+            <img src="icono.png" alt="Master Platinum" class="software-icon-img">
         </div>
         
         <div class="software-info">
             <h2>Master Platinum 2026</h2>
-            <p>Servicio Técnico de Reparación de PC y Notebooks. Instalación de sistemas y armado a medida.</p>
+            <p>Optimización avanzada para PC y Notebooks. Tecnología de alto rendimiento para maximizar tu equipo.</p>
             <ul>
                 <li><i class="fas fa-check-circle"></i> Optimización Platinum</li>
                 <li><i class="fas fa-check-circle"></i> Liberación de RAM Real-Time</li>
@@ -242,7 +238,7 @@
                 <option value="Presencial (Pendrive)">Presencial (Rafaela y zona)</option>
             </select>
             <button onclick="comprarSoftware()" class="btn-buy">
-                <i class="fab fa-whatsapp fa-lg"></i> SOLICITAR AHORA
+                <i class="fab fa-whatsapp fa-lg"></i> ADQUIRIR AHORA
             </button>
         </div>
     </div>
@@ -252,31 +248,31 @@
             <h3><i class="fas fa-tools"></i> Servicio Técnico</h3>
             <p>Soporte integral para tus equipos.</p>
             <div class="list-items">
-                - reparacion de pc <br>
-                - limpieza y armado <br>
-                - reparacion celulares
+                • Reparación de PC <br>
+                • Limpieza y Armado <br>
+                • Reparación de Celulares
             </div>
             <a href="https://wa.me/543492589451?text=Hola!%20Me%20interesa%20el%20Servicio%20Técnico." class="btn-consultar">Consultar</a>
         </div>
 
         <div class="card">
             <h3><i class="fas fa-code"></i> Web y Software</h3>
-            <p>Creamos tu pagina web o programa aa medida.</p>
+            <p>Soluciones digitales a medida.</p>
             <div class="list-items">
-                - Sitios Web Corporativos <br>
-                - Sistemas de Gestión <br>
-                - Landing Pages
+                • Diseño Web Responsivo <br>
+                • Programas de Gestión <br>
+                • Automatización de Procesos
             </div>
             <a href="https://wa.me/543492589451?text=Hola!%20Me%20interesa%20una%20Web%20o%20Programa." class="btn-consultar">Consultar</a>
         </div>
 
         <div class="card">
-            <h3><i class="fas fa-palette"></i> Diseño</h3>
-            <p>Logos, foilletos y armado de cv profesionales.</p>
+            <h3><i class="fas fa-palette"></i> Diseño Gráfico</h3>
+            <p>Imagen profesional para tu marca.</p>
             <div class="list-items">
-                - Identidad Visual <br>
-                - Diseño de CV <br>
-                - Publicidad Digital
+                • Identidad Visual y Logos <br>
+                • Flyers Publicitarios <br>
+                • Currículums de Alto Impacto
             </div>
             <a href="https://wa.me/543492589451?text=Hola!%20Me%20interesa%20el%20servicio%20de%20Diseño." class="btn-consultar">Consultar</a>
         </div>
@@ -289,7 +285,7 @@
 </div>
 
 <footer>
-    © 2026 Servitecno | Desarrollado por Agustin Gutierrez.
+    © 2026 Servitecno | Rafaela, Santa Fe.
 </footer>
 
 <script>
@@ -303,5 +299,6 @@
 
 </body>
 </html>
+
 
 
