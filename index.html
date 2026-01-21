@@ -63,6 +63,8 @@
 
         .intro-text h2 { color: var(--primary); margin-top: 0; font-size: 2rem; margin-bottom: 15px; }
         .intro-text p { font-size: 1.05rem; color: #475569; margin-bottom: 15px; }
+        
+        /* ESTA ES LA PARTE DE LA PREGUNTA CON LA FLECHA */
         .intro-text .highlight-question { 
             font-weight: 700; 
             color: var(--primary); 
@@ -70,6 +72,21 @@
             border-top: 2px solid #f1f5f9;
             padding-top: 15px;
             margin-top: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between; /* Para que la flecha quede a la derecha */
+        }
+
+        .arrow-down {
+            color: var(--secondary);
+            font-size: 1.8rem;
+            animation: bounce 2s infinite;
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {transform: translateY(0);}
+            40% {transform: translateY(10px);}
+            60% {transform: translateY(5px);}
         }
         
         .intro-image img { width: 100%; border-radius: 20px; display: block; }
@@ -78,9 +95,9 @@
             .intro-box { grid-template-columns: 1fr; text-align: center; }
             .intro-image { order: -1; }
             .intro-image img { max-width: 200px; margin: 0 auto; }
+            .intro-text .highlight-question { flex-direction: column; gap: 10px; }
         }
 
-        /* Grilla de Servicios */
         .grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -106,7 +123,6 @@
         .card ul li { margin-bottom: 10px; font-size: 0.9rem; display: flex; align-items: start; }
         .card ul li::before { content: "✓"; color: var(--success); font-weight: bold; margin-right: 8px; }
 
-        /* Botón interno de la tarjeta */
         .btn-card {
             background-color: var(--primary);
             color: white;
@@ -119,7 +135,6 @@
         }
         .btn-card:hover { background-color: var(--secondary); }
 
-        /* Botones Generales */
         .btn {
             display: flex;
             align-items: center;
@@ -167,7 +182,11 @@
             <h2>¡Impulsamos tu éxito digital!</h2>
             <p>En <b>Servitecno</b> somos tu aliado tecnológico integral. Nos encargamos de que tu negocio nunca se frene: desde la reparación de tus equipos en el acto hasta el desarrollo de tu web y software a medida para vender más.</p>
             <p>Además, te damos facilidades con <b>Mercado Crédito</b> para que puedas invertir en tecnología sin vueltas.</p>
-            <p class="highlight-question">¿En qué área necesitás ayuda hoy?</p>
+            
+            <div class="highlight-question">
+                <span>¿En qué área necesitás ayuda hoy?</span>
+                <i class="fas fa-arrow-down arrow-down"></i>
+            </div>
         </div>
         <div class="intro-image">
             <img src="banner.jpg" alt="Servitecno">
