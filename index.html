@@ -29,7 +29,7 @@
             scroll-behavior: smooth;
         }
 
-        /* NAVBAR MODERNA */
+        /* NAVBAR */
         nav {
             background: rgba(26, 74, 142, 0.95);
             padding: 1rem;
@@ -73,7 +73,6 @@
             text-shadow: 0 2px 10px rgba(0,0,0,0.2);
         }
 
-        /* HERO SPLIT PARA SOFTWARE Y HARDWARE */
         .hero-visuals {
             display: flex;
             justify-content: center;
@@ -83,6 +82,7 @@
         }
 
         .personaje-img { max-width: 200px; height: auto; filter: drop-shadow(0 10px 15px rgba(0,0,0,0.3)); }
+        
         .code-mockup {
             background: #1e1e1e;
             border-radius: 10px;
@@ -115,7 +115,7 @@
             border: 2px solid rgba(0, 210, 255, 0.2);
         }
 
-        /* SECCIÓN MAYORISTA BANNER */
+        /* BANNER MAYORISTA */
         .wholesale-banner {
             background: linear-gradient(90deg, #1e293b, #334155);
             color: white;
@@ -130,92 +130,7 @@
             border: 1px solid var(--secondary);
         }
 
-        /* SECCIÓN SOFTWARE SOLUTIONS (DARK MODE) */
-        .solutions-section {
-            background: var(--dark-section);
-            padding: 60px 20px;
-            margin: 50px -20px;
-            border-radius: 40px;
-            color: white;
-        }
-
-        .solutions-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 25px;
-            margin-top: 40px;
-        }
-
-        .solution-card {
-            background: rgba(255,255,255,0.05);
-            padding: 30px;
-            border-radius: 20px;
-            border-left: 4px solid var(--secondary);
-            transition: 0.3s;
-        }
-
-        .solution-card:hover { transform: translateY(-5px); background: rgba(255,255,255,0.1); }
-
-        .tech-stack {
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-            margin-top: 30px;
-            font-size: 2rem;
-            color: var(--secondary);
-        }
-
-        /* FAB - FLOATING ACTION BUTTON */
-        .fab-container {
-            position: fixed;
-            bottom: 30px;
-            right: 30px;
-            z-index: 9999;
-        }
-
-        .fab-main {
-            width: 60px;
-            height: 60px;
-            background: var(--success);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-size: 30px;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.3);
-            cursor: pointer;
-            transition: 0.3s;
-        }
-
-        .fab-options {
-            position: absolute;
-            bottom: 70px;
-            right: 0;
-            display: none;
-            flex-direction: column;
-            gap: 10px;
-            width: 260px;
-        }
-
-        .fab-option {
-            background: white;
-            padding: 12px 15px;
-            border-radius: 12px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-            text-decoration: none;
-            color: var(--text);
-            font-weight: 700;
-            font-size: 0.85rem;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            border-right: 4px solid var(--secondary);
-        }
-
-        .fab-container:hover .fab-options { display: flex; }
-
-        /* PRODUCTOS & OTROS (Tus estilos originales optimizados) */
+        /* PRODUCTOS GRID */
         .product-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 25px; margin-bottom: 50px; }
         .product-card { background: white; border-radius: 20px; overflow: hidden; box-shadow: 0 10px 25px rgba(0,0,0,0.05); transition: transform 0.3s ease; display: flex; flex-direction: column; position: relative; }
         .product-card:hover { transform: translateY(-10px); }
@@ -226,43 +141,50 @@
         .product-name { font-weight: 700; font-size: 1.1rem; margin-bottom: 10px; color: var(--primary); }
         .product-price { font-size: 1.4rem; font-weight: 800; color: var(--text); margin-bottom: 15px; }
         .product-promo-text { font-size: 0.85rem; color: #059669; font-weight: 600; margin-bottom: 15px; background: #ecfdf5; padding: 5px 10px; border-radius: 8px; }
-        .btn-order { background: #f1f5f9; color: var(--primary); text-decoration: none; padding: 12px; border-radius: 12px; text-align: center; font-weight: 700; transition: 0.3s; display: flex; align-items: center; justify-content: center; gap: 8px; border: 1px solid #e2e8f0; }
+
+        .btn-order { background: #f1f5f9; color: var(--primary); text-decoration: none; padding: 12px; border-radius: 12px; text-align: center; font-weight: 700; transition: 0.3s; display: flex; align-items: center; justify-content: center; gap: 8px; border: 1px solid #e2e8f0; cursor: pointer; }
         .btn-order:hover { background: var(--primary); color: white; }
 
+        /* SECCIÓN SOFTWARE SOLUTIONS (DARK) */
+        .solutions-section { background: var(--dark-section); padding: 60px 20px; margin: 50px -20px; border-radius: 40px; color: white; }
+        .solutions-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 25px; margin-top: 40px; }
+        .solution-card { background: rgba(255,255,255,0.05); padding: 30px; border-radius: 20px; border-left: 4px solid var(--secondary); }
+        .tech-stack { display: flex; justify-content: center; gap: 20px; margin-top: 30px; font-size: 2rem; color: var(--secondary); }
+
+        /* MASTER PLATINUM CARD */
         .software-card { background: linear-gradient(145deg, #0f2647, #1a4a8e); color: white; padding: 2.5rem; border-radius: 24px; border: 2px solid var(--secondary); margin: 40px 0 3rem; display: flex; flex-wrap: wrap; gap: 30px; box-shadow: 0 20px 40px rgba(26, 74, 142, 0.4); align-items: center; justify-content: center; }
         .software-icon-img { width: 220px; filter: drop-shadow(0 0 15px rgba(0, 210, 255, 0.4)); }
         .software-info { flex: 1; min-width: 280px; }
         .software-info h2 { color: var(--secondary); font-size: 1.8rem; font-weight: 800; margin: 0; }
-        
+
+        /* FAB - BOTÓN WHATSAPP MEJORADO */
+        .fab-container { position: fixed; bottom: 30px; right: 30px; z-index: 9999; }
+        .fab-main { width: 60px; height: 60px; background: var(--success); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-size: 30px; box-shadow: 0 5px 20px rgba(0,0,0,0.3); cursor: pointer; transition: 0.3s; }
+        .fab-options { position: absolute; bottom: 75px; right: 0; display: none; flex-direction: column; gap: 10px; width: 220px; pointer-events: none; }
+        .fab-container:hover .fab-options { display: flex; pointer-events: auto; }
+        .fab-option { background: white; padding: 12px 15px; border-radius: 12px; box-shadow: 0 5px 15px rgba(0,0,0,0.2); text-decoration: none; color: var(--text); font-weight: 700; font-size: 0.85rem; display: flex; align-items: center; gap: 10px; border-right: 4px solid var(--secondary); transition: 0.2s; }
+        .fab-option:hover { transform: scale(1.05); background: #f8fafc; }
+
         .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; }
         .card { background: white; padding: 2rem; border-radius: 20px; border-bottom: 4px solid var(--primary); box-shadow: 0 10px 20px rgba(0,0,0,0.05); }
-        .card h3 { color: var(--primary); margin-top: 0; display: flex; align-items: center; gap: 10px; }
+        .card h3 { color: var(--primary); margin: 0 0 15px; display: flex; align-items: center; gap: 10px; }
         
         .social-btn { display: flex; align-items: center; justify-content: center; gap: 10px; background: var(--insta); color: white; text-decoration: none; padding: 15px; border-radius: 50px; max-width: 320px; margin: 40px auto; font-weight: 800; }
         footer { text-align: center; padding: 2rem; color: #94a3b8; font-size: 0.85rem; font-weight: 600; }
 
-        @media (max-width: 850px) {
-            .product-grid { grid-template-columns: 1fr 1fr; }
-            .hero-visuals { gap: 20px; }
-        }
-        @media (max-width: 500px) {
-            .product-grid { grid-template-columns: 1fr; }
-            .catalog-title { font-size: 1.5rem; width: 90%; }
-            nav { font-size: 0.7rem; gap: 10px; }
-        }
+        @media (max-width: 850px) { .product-grid { grid-template-columns: 1fr 1fr; } }
+        @media (max-width: 500px) { .product-grid { grid-template-columns: 1fr; } .catalog-title { font-size: 1.5rem; width: 90%; } }
     </style>
 </head>
 <body>
 
 <div class="fab-container">
     <div class="fab-options">
-        <a href="#accesorios" class="fab-option"><i class="fas fa-mobile-alt"></i> Comprar Accesorios</a>
-        <a href="#software" class="fab-option"><i class="fas fa-code"></i> Presupuesto Software</a>
-        <a href="#" onclick="pedirMayorista()" class="fab-option"><i class="fas fa-boxes"></i> Lista Mayorista</a>
+        <a href="#accesorios" class="fab-option"><i class="fas fa-mobile-alt"></i> Accesorios</a>
+        <a href="#software" class="fab-option"><i class="fas fa-code"></i> Software</a>
+        <a href="#" onclick="pedirMayorista()" class="fab-option"><i class="fas fa-boxes"></i> Mayoristas</a>
     </div>
-    <div class="fab-main">
-        <i class="fab fa-whatsapp"></i>
-    </div>
+    <div class="fab-main"><i class="fab fa-whatsapp"></i></div>
 </div>
 
 <nav>
@@ -274,21 +196,14 @@
 
 <header id="inicio">
     <div class="header-content">
-        <div class="logo-wrapper">
-            <img src="aaa.png" alt="Servitecno" class="header-logo">
-        </div>
-        <div class="hero-tagline">
-            Elevamos tu estándar digital: <br>
-            <span style="color: var(--secondary);">Hardware Premium & Software a medida.</span>
-        </div>
-        
+        <div class="logo-wrapper"><img src="aaa.png" alt="Servitecno" class="header-logo"></div>
+        <div class="hero-tagline">Elevamos tu estándar digital: <br><span style="color: var(--secondary);">Hardware Premium & Software a medida.</span></div>
         <div class="hero-visuals">
             <img src="personaje.png" alt="Técnico Servitecno" class="personaje-img">
             <div class="code-mockup">
                 <span style="color: #569cd6;">const</span> servitecno = {<br>
                 &nbsp;&nbsp;performance: <span style="color: #ce9178;">'Ultra'</span>,<br>
-                &nbsp;&nbsp;quality: <span style="color: #ce9178;">'Premium'</span>,<br>
-                &nbsp;&nbsp;status: <span style="color: #ce9178;">'Ready'</span><br>
+                &nbsp;&nbsp;quality: <span style="color: #ce9178;">'Premium'</span><br>
                 };<br>
                 <span style="color: #dcdcaa;">optimizeSystem</span>(servitecno);
             </div>
@@ -297,15 +212,9 @@
 </header>
 
 <div class="container">
-    
     <div class="wholesale-banner" id="mayorista">
-        <div>
-            <h3 style="margin:0; font-size: 1.4rem;">🚀 ¿Tenés un local o sos revendedor?</h3>
-            <p style="margin:5px 0 0; opacity: 0.8;">Potenciá tu negocio con precios B2B exclusivos.</p>
-        </div>
-        <a href="#" onclick="pedirMayorista()" class="btn-order" style="background: var(--secondary); color: var(--primary); border:none; min-width: 200px;">
-            VER LISTA MAYORISTA
-        </a>
+        <div><h3 style="margin:0;">🚀 ¿Tenés un local o sos revendedor?</h3><p style="margin:5px 0 0; opacity: 0.8;">Precios B2B exclusivos.</p></div>
+        <button onclick="pedirMayorista()" class="btn-order" style="background: var(--secondary); color: var(--primary); border:none; padding: 15px 30px;">LISTA MAYORISTA</button>
     </div>
 
     <h2 class="catalog-title" id="accesorios"><i class="fas fa-bolt"></i> Accesorios Premium</h2>
@@ -313,94 +222,77 @@
     <div class="product-grid">
         <div class="product-card">
             <div class="badge-promo">OFERTA</div>
-            <div class="product-img-box"><img src="CABEZAL CON CABLE  .jpeg" alt="Cargador iPhone 14 Pro Max"></div>
+            <div class="product-img-box"><img src="CABEZAL CON CABLE  .jpeg" alt="iPhone 14 Charger"></div>
             <div class="product-content">
                 <div class="product-name">iPhone 14 Pro Max (20W)<br><small>USB-C a Lightning</small></div>
                 <div class="product-price">$25.000</div>
                 <div class="product-promo-text">🔥 Llevando 2: $46.000</div>
-                <a href="#" onclick="pedirProducto('Cargador iPhone 14 Pro Max 20W')" class="btn-order">
-                    <i class="fab fa-whatsapp"></i> Lo quiero
-                </a>
+                <button onclick="pedirProducto('Cargador iPhone 14 Pro Max 20W')" class="btn-order"><i class="fab fa-whatsapp"></i> Lo quiero</button>
             </div>
         </div>
-
         <div class="product-card">
             <div class="badge-promo" style="background: #000;">NUEVO</div>
-            <div class="product-img-box"><img src="CABEZAL CON CABLE C A C.jpeg" alt="Cargador iPhone 16 Pro Max"></div>
+            <div class="product-img-box"><img src="CABEZAL CON CABLE C A C.jpeg" alt="iPhone 16 Charger"></div>
             <div class="product-content">
                 <div class="product-name">iPhone 15/16 Pro Max (45W)<br><small>USB-C a USB-C</small></div>
                 <div class="product-price">$28.000</div>
                 <div class="product-promo-text">¡Últimas unidades!</div>
-                <a href="#" onclick="pedirProducto('Cargador iPhone 16 Pro Max 45W')" class="btn-order">
-                    <i class="fab fa-whatsapp"></i> Lo quiero
-                </a>
+                <button onclick="pedirProducto('Cargador iPhone 16 Pro Max 45W')" class="btn-order"><i class="fab fa-whatsapp"></i> Lo quiero</button>
             </div>
         </div>
-
         <div class="product-card">
-            <div class="product-img-box"><img src="SAMSUNG C A C.jpeg" alt="Cargador Samsung 25W"></div>
+            <div class="product-img-box"><img src="SAMSUNG C A C.jpeg" alt="Samsung Charger"></div>
             <div class="product-content">
                 <div class="product-name">Samsung Travel Adapter (25W)<br><small>Super Fast Charging</small></div>
                 <div class="product-price">$18.000</div>
-                <div class="product-promo-text">🎁 Combo 2 unidades: $32.000</div>
-                <a href="#" onclick="pedirProducto('Cargador Samsung 25W')" class="btn-order">
-                    <i class="fab fa-whatsapp"></i> Lo quiero
-                </a>
+                <div class="product-promo-text">🎁 Combo 2: $32.000</div>
+                <button onclick="pedirProducto('Cargador Samsung 25W')" class="btn-order"><i class="fab fa-whatsapp"></i> Lo quiero</button>
             </div>
         </div>
-
         <div class="product-card">
             <div class="badge-promo">BEST SELLER</div>
             <div class="product-img-box"><img src="CABEZAL COMUN.jpeg" alt="Cabezal iPhone"></div>
             <div class="product-content">
-                <div class="product-name">Cabezal iPhone 20W<br><small>Pata Oblicua (Homologado)</small></div>
+                <div class="product-name">Cabezal iPhone 20W<br><small>Pata Oblicua</small></div>
                 <div class="product-price">$18.000</div>
                 <div class="product-promo-text">🌟 Combo con Cable: $30.000</div>
-                <a href="#" onclick="pedirProducto('Cabezal iPhone 20W')" class="btn-order">
-                    <i class="fab fa-whatsapp"></i> Lo quiero
-                </a>
+                <button onclick="pedirProducto('Cabezal iPhone 20W')" class="btn-order"><i class="fab fa-whatsapp"></i> Lo quiero</button>
+            </div>
+        </div>
+        <div class="product-card">
+            <div class="product-img-box"><img src="USB C A LIGHTNING.jpeg" alt="Cable Lightning"></div>
+            <div class="product-content">
+                <div class="product-name">Cable iPhone Premium<br><small>USB-C a Lightning (1m)</small></div>
+                <div class="product-price">$16.000</div>
+                <div class="product-promo-text">📩 Pack 2 Cables: $30.000</div>
+                <button onclick="pedirProducto('Cable USB-C a Lightning')" class="btn-order"><i class="fab fa-whatsapp"></i> Lo quiero</button>
+            </div>
+        </div>
+        <div class="product-card">
+            <div class="product-img-box"><img src="USB C A C .jpeg" alt="Cable USB-C a C"></div>
+            <div class="product-content">
+                <div class="product-name">Cable iPhone Mallado<br><small>USB-C a USB-C (Reforzado)</small></div>
+                <div class="product-price">$18.000</div>
+                <div class="product-promo-text">Durabilidad extrema</div>
+                <button onclick="pedirProducto('Cable Mallado USB-C a USB-C')" class="btn-order"><i class="fab fa-whatsapp"></i> Lo quiero</button>
             </div>
         </div>
     </div>
 
     <div class="solutions-section" id="software">
-        <h2 style="text-align: center; font-weight: 800; font-size: 2rem; margin-bottom: 10px;">ServiTecno Solutions</h2>
-        <p style="text-align: center; opacity: 0.7; max-width: 600px; margin: 0 auto;">Donde el estilo se encuentra con la funcionalidad. Desarrollamos el futuro de tu empresa.</p>
-        
+        <h2 style="text-align: center; font-weight: 800; font-size: 2rem;">ServiTecno Solutions</h2>
         <div class="solutions-grid">
-            <div class="solution-card">
-                <i class="fas fa-layer-group fa-2x" style="color: var(--secondary); margin-bottom: 15px;"></i>
-                <h4>Sistemas a Medida</h4>
-                <p style="font-size: 0.9rem; opacity: 0.8;">Automatización de procesos, sistemas de stock e inventarios inteligentes para tu negocio.</p>
-            </div>
-            <div class="solution-card">
-                <i class="fas fa-rocket fa-2x" style="color: var(--secondary); margin-bottom: 15px;"></i>
-                <h4>Webs de Alto Impacto</h4>
-                <p style="font-size: 0.9rem; opacity: 0.8;">Landing Pages profesionales optimizadas para convertir visitantes en clientes reales.</p>
-            </div>
-            <div class="solution-card">
-                <i class="fas fa-file-excel fa-2x" style="color: var(--secondary); margin-bottom: 15px;"></i>
-                <h4>Automatización Office</h4>
-                <p style="font-size: 0.9rem; opacity: 0.8;">Hacemos que Excel trabaje por vos. Macros y scripts para ahorrar horas de trabajo manual.</p>
-            </div>
+            <div class="solution-card"><h4>Sistemas a Medida</h4><p>Automatización de procesos y control de stock.</p></div>
+            <div class="solution-card"><h4>Webs de Impacto</h4><p>Landing Pages optimizadas para ventas.</p></div>
+            <div class="solution-card"><h4>Excel Pro</h4><p>Macros y scripts para ahorrar tiempo manual.</p></div>
         </div>
-
-        <div class="tech-stack">
-            <i class="fab fa-python" title="Python"></i>
-            <i class="fab fa-react" title="React"></i>
-            <i class="fab fa-js-square" title="JavaScript"></i>
-            <i class="fab fa-node-js" title="Node.js"></i>
-            <i class="fas fa-database" title="SQL"></i>
-        </div>
+        <div class="tech-stack"><i class="fab fa-python"></i><i class="fab fa-react"></i><i class="fab fa-js"></i><i class="fas fa-database"></i></div>
     </div>
 
     <div class="software-card">
-        <div class="software-icon-wrapper">
-            <img src="icono.png" alt="Master Platinum" class="software-icon-img">
-        </div>
+        <img src="icono.png" alt="Master Platinum" class="software-icon-img">
         <div class="software-info">
             <h2>Master Platinum 2026</h2>
-            <p>Optimización avanzada para PC y Notebooks. Tecnología de alto rendimiento para maximizar tu equipo.</p>
             <ul style="list-style: none; padding: 0; display: grid; grid-template-columns: 1fr 1fr; gap: 10px;">
                 <li><i class="fas fa-bolt" style="color:var(--secondary)"></i> RAM Real-Time</li>
                 <li><i class="fas fa-microchip" style="color:var(--secondary)"></i> Monitor CPU-Z</li>
@@ -408,69 +300,41 @@
                 <li><i class="fas fa-rocket" style="color:var(--secondary)"></i> Ultra Agilidad</li>
             </ul>
         </div>
-        <div style="flex: 0 0 280px; background: rgba(255,255,255,0.1); padding: 20px; border-radius: 20px; backdrop-filter: blur(10px);">
-            <label style="color: var(--secondary); font-weight: 800; font-size: 0.8rem;">MODALIDAD</label>
-            <select id="modalidad" style="width:100%; padding:12px; margin: 10px 0; border-radius:10px; font-weight:700;">
+        <div style="flex: 0 0 280px; background: rgba(255,255,255,0.1); padding: 20px; border-radius: 20px;">
+            <select id="modalidad" style="width:100%; padding:12px; margin-bottom: 10px; border-radius:10px; font-weight:700;">
                 <option value="A Distancia (AnyDesk)">A Distancia (AnyDesk)</option>
-                <option value="Presencial (Pendrive)">Presencial (Rafaela y zona)</option>
+                <option value="Presencial">Presencial (Rafaela)</option>
             </select>
-            <button onclick="comprarSoftware()" style="width:100%; background:var(--success); color:white; border:none; padding:15px; border-radius:12px; font-weight:800; cursor:pointer;">
-                <i class="fab fa-whatsapp"></i> ADQUIRIR SOFTWARE
-            </button>
+            <button onclick="comprarSoftware()" style="width:100%; background:var(--success); color:white; border:none; padding:15px; border-radius:12px; font-weight:800; cursor:pointer;">ADQUIRIR SOFTWARE</button>
         </div>
     </div>
 
     <div class="grid">
-        <div class="card">
-            <h3><i class="fas fa-tools"></i> Servicio Técnico</h3>
-            <div style="font-size: 0.9rem; color: #64748b; margin: 15px 0;">
-                • Reparación de PC y Notebooks <br>
-                • Limpieza y Cambio de Pasta Térmica <br>
-                • Pantallas y Baterías Celulares
-            </div>
-            <a href="https://wa.me/543492589451?text=Hola!%20Necesito%20servicio%20técnico." class="btn-order">Consultar</a>
-        </div>
-        <div class="card">
-            <h3><i class="fas fa-code"></i> Desarrollo Profesional</h3>
-            <div style="font-size: 0.9rem; color: #64748b; margin: 15px 0;">
-                • Páginas Web Profesionales <br>
-                • Programas a Medida <br>
-                • Automatización de Tareas
-            </div>
-            <a href="https://wa.me/543492589451?text=Hola!%20Me%20interesa%20un%20desarrollo%20de%20software." class="btn-order">Consultar</a>
-        </div>
+        <div class="card"><h3>Servicio Técnico</h3><p>PC, Notebooks y Celulares.</p><button onclick="window.open('https://wa.me/543492589451')" class="btn-order">Consultar</button></div>
+        <div class="card"><h3>Desarrollo Web</h3><p>Páginas y Programas a medida.</p><button onclick="window.open('https://wa.me/543492589451')" class="btn-order">Consultar</button></div>
     </div>
 
-    <a href="https://www.instagram.com/serviitecno/" target="_blank" class="social-btn">
-        <i class="fab fa-instagram fa-xl"></i> SEGUINOS EN INSTAGRAM
-    </a>
-
+    <a href="https://www.instagram.com/serviitecno/" target="_blank" class="social-btn"><i class="fab fa-instagram fa-xl"></i> SEGUINOS EN INSTAGRAM</a>
 </div>
 
-<footer>
-    © 2026 Servitecno | Hardware Premium & Desarrollo de Software de Alto Rendimiento.
-</footer>
+<footer>© 2026 Servitecno | Tecnología y Software de Alto Rendimiento.</footer>
 
 <script>
     const numTel = "543492589451";
-
     function comprarSoftware() {
-        const modalidad = document.getElementById('modalidad').value;
-        const mensaje = `Hola Agustin! 👋 Vengo de la web y quiero el *Software SERVITECNO MASTER PLATINUM 2026*.%0A%0A📍 *Modalidad:* ${modalidad}%0A%0A¿Cómo coordinamos el pago?`;
-        window.open(`https://wa.me/${numTel}?text=${mensaje}`, '_blank');
+        const mod = document.getElementById('modalidad').value;
+        const msg = `Hola Agustin! 👋 Quiero el *Software MASTER PLATINUM 2026*. Modalidad: ${mod}`;
+        window.open(`https://wa.me/${numTel}?text=${encodeURIComponent(msg)}`, '_blank');
     }
-
-    function pedirProducto(nombre) {
-        const mensaje = `Hola Agustin! 👋 Me interesa comprar este producto de la web: %0A%0A⚡ *${nombre}*%0A%0A¿Tenés stock disponible?`;
-        window.open(`https://wa.me/${numTel}?text=${mensaje}`, '_blank');
+    function pedirProducto(prod) {
+        const msg = `Hola Agustin! 👋 Me interesa: *${prod}* ¿Tenés stock?`;
+        window.open(`https://wa.me/${numTel}?text=${encodeURIComponent(msg)}`, '_blank');
     }
-    
     function pedirMayorista() {
-        const mensaje = `Hola Agustin! 👋 Me interesa información para *VENTA POR MAYOR*.%0A%0AQuisiera recibir el catálogo de precios para revendedores de Servitecno.`;
-        window.open(`https://wa.me/${numTel}?text=${mensaje}`, '_blank');
+        const msg = `Hola Agustin! 👋 Me interesa información para *VENTA POR MAYOR*.`;
+        window.open(`https://wa.me/${numTel}?text=${encodeURIComponent(msg)}`, '_blank');
     }
 </script>
-
 </body>
 </html>
 
