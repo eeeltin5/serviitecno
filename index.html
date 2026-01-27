@@ -179,6 +179,15 @@
 <div class="container">
     
     <h2 class="catalog-title">⚡ Accesorios Premium</h2>
+
+<div style="text-align: center; margin-bottom: 40px;">
+    <div style="display: inline-flex; background: #ebf4ff; padding: 10px 20px; border-radius: 15px; border: 1px dashed var(--primary); align-items: center; gap: 10px;">
+        <i class="fas fa-boxes-stacked" style="color: var(--primary);"></i>
+        <span style="font-weight: 700; color: var(--primary); font-size: 0.9rem;">
+            ¿Sos revendedor? <a href="#" onclick="pedirMayorista()" style="color: var(--secondary); text-decoration: underline;">Consultá lista de Precios por Mayor</a>
+        </span>
+    </div>
+</div>
     
     <div class="product-grid">
         <div class="product-card">
@@ -341,10 +350,16 @@
         const mensaje = `Hola Agustin! 👋 Me interesa comprar este producto de la web: %0A%0A⚡ *${nombre}*%0A%0A¿Tenés stock disponible?`;
         window.open(`https://wa.me/${numTel}?text=${mensaje}`, '_blank');
     }
+    
+    function pedirMayorista() {
+    const mensaje = `Hola Agustin! 👋 Me interesa información para *VENTA POR MAYOR*.%0A%0AQuisiera recibir el catálogo de precios para revendedores de Servitecno.`;
+    window.open(`https://wa.me/${numTel}?text=${mensaje}`, '_blank');
+}
 </script>
 
 </body>
 </html>
+
 
 
 
