@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Servitecno | Master Platinum 2026</title>
     <link rel="icon" type="image/x-icon" href="icono.ico">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         :root {
@@ -15,6 +15,7 @@
             --bg: #f0f4f8;
             --text: #1e293b;
             --white: #ffffff;
+            --accent: #ff4757;
             --insta: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
         }
 
@@ -34,32 +35,12 @@
             position: relative;
         }
 
-        .header-content {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 15px;
-        }
-
-        .logo-wrapper {
-            background: white;
-            padding: 12px 25px;
-            border-radius: 15px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-            z-index: 5;
-        }
-
+        .header-content { display: flex; flex-direction: column; align-items: center; gap: 15px; }
+        .logo-wrapper { background: white; padding: 12px 25px; border-radius: 15px; box-shadow: 0 5px 15px rgba(0,0,0,0.1); z-index: 5; }
         .header-logo { max-width: 200px; height: auto; }
+        .personaje-img { max-width: 220px; height: auto; filter: drop-shadow(0 10px 15px rgba(0,0,0,0.3)); margin-top: -10px; z-index: 1; }
 
-        .personaje-img {
-            max-width: 220px;
-            height: auto;
-            filter: drop-shadow(0 10px 15px rgba(0,0,0,0.3));
-            margin-top: -10px;
-            z-index: 1;
-        }
-
-        .container { max-width: 1000px; margin: -50px auto 50px; padding: 0 1rem; position: relative; z-index: 10; }
+        .container { max-width: 1100px; margin: -50px auto 50px; padding: 0 1rem; position: relative; z-index: 10; }
 
         /* SECCIÓN SOFTWARE PLATINUM */
         .software-card {
@@ -77,128 +58,95 @@
             justify-content: center;
         }
 
-        .software-icon-wrapper {
-            flex: 0 0 210px;
-            text-align: center;
-        }
-
-        .software-icon-img { 
-            width: 280px; 
-            height: 280px;
-            object-fit: contain;
-            /* Cambiado a PNG para mejor calidad */
-            filter: drop-shadow(0 0 15px rgba(0, 210, 255, 0.4));
-        }
-
+        .software-icon-img { width: 220px; filter: drop-shadow(0 0 15px rgba(0, 210, 255, 0.4)); }
         .software-info { flex: 1; min-width: 280px; }
-
-        .software-info h2 { 
-            color: var(--secondary); 
-            font-size: 1.8rem; 
-            margin: 0; 
-            text-transform: uppercase;
-            font-weight: 800;
-        }
+        .software-info h2 { color: var(--secondary); font-size: 1.8rem; font-weight: 800; margin: 0; }
         
-        .software-info ul { list-style: none; padding: 0; margin: 15px 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 10px; }
-        .software-info li { font-size: 0.9rem; display: flex; align-items: center; gap: 8px; }
-        .software-info li i { color: var(--secondary); }
-
-        .buy-box {
-            flex: 0 0 280px;
-            background: rgba(255,255,255,0.1);
-            padding: 20px;
-            border-radius: 20px;
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255,255,255,0.2);
-        }
-
-        .modalidad-label { display: block; margin-bottom: 8px; font-weight: 700; font-size: 0.85rem; color: var(--secondary); }
+        /* CATALOGO DE PRODUCTOS ⚡ */
+        .catalog-title { text-align: center; margin: 40px 0 20px; font-weight: 800; font-size: 2rem; color: var(--primary); }
         
-        select {
-            width: 100%;
-            padding: 12px;
-            border-radius: 10px;
-            border: none;
+        .product-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 25px; margin-bottom: 50px; }
+        
+        .product-card {
             background: white;
-            margin-bottom: 15px;
-            font-weight: 700;
-            color: var(--primary);
-        }
-
-        .btn-buy {
-            background: var(--success);
-            color: white;
-            text-decoration: none;
-            padding: 15px;
-            border-radius: 12px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 10px;
-            font-weight: 800;
-            transition: 0.3s;
-            border: none;
-            width: 100%;
-            cursor: pointer;
-            font-size: 1rem;
-        }
-
-        .btn-buy:hover { background: #1eb954; transform: scale(1.03); }
-
-        /* GRID DE SERVICIOS CORREGIDO */
-        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; }
-
-        .card {
-            background: white;
-            padding: 2rem;
             border-radius: 20px;
-            transition: 0.3s;
-            border-bottom: 4px solid var(--primary);
-            box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+            overflow: hidden;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+            transition: transform 0.3s ease;
             display: flex;
             flex-direction: column;
+            position: relative;
         }
 
-        .card h3 { color: var(--primary); margin-top: 0; display: flex; align-items: center; gap: 10px; }
-        .card p { font-size: 0.9rem; font-weight: 700; color: #334155; margin-bottom: 10px; }
-        
-        .list-items { color: #64748b; font-size: 0.95rem; margin-bottom: 20px; flex-grow: 1; line-height: 1.8; }
+        .product-card:hover { transform: translateY(-10px); }
 
-        .btn-consultar {
-            display: block;
-            text-align: center;
-            color: var(--primary);
-            text-decoration: none;
-            font-weight: 800;
-            border: 2px solid var(--primary);
-            padding: 10px;
-            border-radius: 50px;
-            transition: 0.3s;
-        }
-
-        .btn-consultar:hover { background: var(--primary); color: white; }
-
-        .social-btn {
+        .product-img-box {
+            width: 100%;
+            height: 250px;
+            background: #f8fafc;
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 10px;
-            background: var(--insta);
+            overflow: hidden;
+        }
+
+        .product-img-box img { width: 100%; height: 100%; object-fit: cover; }
+
+        .badge-promo {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: var(--accent);
             color: white;
-            text-decoration: none;
-            padding: 15px;
+            padding: 5px 12px;
             border-radius: 50px;
-            max-width: 320px;
-            margin: 40px auto;
+            font-size: 0.75rem;
             font-weight: 800;
+            z-index: 2;
+        }
+
+        .product-content { padding: 20px; flex-grow: 1; display: flex; flex-direction: column; }
+        .product-name { font-weight: 700; font-size: 1.1rem; margin-bottom: 10px; color: var(--primary); }
+        .product-price { font-size: 1.4rem; font-weight: 800; color: var(--text); margin-bottom: 15px; }
+        .product-promo-text { font-size: 0.85rem; color: #059669; font-weight: 600; margin-bottom: 15px; background: #ecfdf5; padding: 5px 10px; border-radius: 8px; }
+
+        .btn-order {
+            background: #f1f5f9;
+            color: var(--primary);
+            text-decoration: none;
+            padding: 12px;
+            border-radius: 12px;
+            text-align: center;
+            font-weight: 700;
+            transition: 0.3s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            border: 1px solid #e2e8f0;
+        }
+
+        .btn-order:hover { background: var(--primary); color: white; }
+
+        /* GRID DE SERVICIOS */
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; }
+        .card { background: white; padding: 2rem; border-radius: 20px; border-bottom: 4px solid var(--primary); box-shadow: 0 10px 20px rgba(0,0,0,0.05); }
+        .card h3 { color: var(--primary); margin-top: 0; display: flex; align-items: center; gap: 10px; }
+        
+        .social-btn {
+            display: flex; align-items: center; justify-content: center; gap: 10px;
+            background: var(--insta); color: white; text-decoration: none;
+            padding: 15px; border-radius: 50px; max-width: 320px; margin: 40px auto; font-weight: 800;
         }
 
         footer { text-align: center; padding: 2rem; color: #94a3b8; font-size: 0.85rem; font-weight: 600; }
 
         @media (max-width: 850px) {
             .software-card { padding: 1.5rem; }
-            .buy-box { flex: 1 1 100%; }
+            .product-grid { grid-template-columns: 1fr 1fr; }
+        }
+        @media (max-width: 500px) {
+            .product-grid { grid-template-columns: 1fr; }
         }
     </style>
 </head>
@@ -223,58 +171,135 @@
         <div class="software-info">
             <h2>Master Platinum 2026</h2>
             <p>Optimización avanzada para PC y Notebooks. Tecnología de alto rendimiento para maximizar tu equipo.</p>
-            <ul>
-                <li><i class="fas fa-check-circle"></i> Optimización Platinum</li>
-                <li><i class="fas fa-check-circle"></i> Liberación de RAM Real-Time</li>
-                <li><i class="fas fa-check-circle"></i> Monitorización Estilo CPU-Z</li>
-                <li><i class="fas fa-check-circle"></i> Limpieza de Archivos Basura</li>
+            <ul style="list-style: none; padding: 0; display: grid; grid-template-columns: 1fr 1fr; gap: 10px;">
+                <li><i class="fas fa-bolt" style="color:var(--secondary)"></i> RAM Real-Time</li>
+                <li><i class="fas fa-microchip" style="color:var(--secondary)"></i> Monitor CPU-Z</li>
+                <li><i class="fas fa-trash-alt" style="color:var(--secondary)"></i> Limpieza Deep</li>
+                <li><i class="fas fa-rocket" style="color:var(--secondary)"></i> Ultra Agilidad</li>
             </ul>
         </div>
         
-        <div class="buy-box">
-            <label class="modalidad-label">MODALIDAD DE INSTALACIÓN</label>
-            <select id="modalidad">
+        <div style="flex: 0 0 280px; background: rgba(255,255,255,0.1); padding: 20px; border-radius: 20px; backdrop-filter: blur(10px);">
+            <label style="color: var(--secondary); font-weight: 800; font-size: 0.8rem;">MODALIDAD</label>
+            <select id="modalidad" style="width:100%; padding:12px; margin: 10px 0; border-radius:10px; font-weight:700;">
                 <option value="A Distancia (AnyDesk)">A Distancia (AnyDesk)</option>
                 <option value="Presencial (Pendrive)">Presencial (Rafaela y zona)</option>
             </select>
-            <button onclick="comprarSoftware()" class="btn-buy">
-                <i class="fab fa-whatsapp fa-lg"></i> ADQUIRIR AHORA
+            <button onclick="comprarSoftware()" style="width:100%; background:var(--success); color:white; border:none; padding:15px; border-radius:12px; font-weight:800; cursor:pointer;">
+                <i class="fab fa-whatsapp"></i> ADQUIRIR SOFTWARE
             </button>
+        </div>
+    </div>
+
+    <h2 class="catalog-title">⚡ Accesorios Premium</h2>
+    
+    <div class="product-grid">
+        <div class="product-card">
+            <div class="badge-promo">OFERTA</div>
+            <div class="product-img-box">
+                <img src="CABEZAL CON CABLE  .jpeg" alt="Cargador iPhone 14 Pro Max">
+            </div>
+            <div class="product-content">
+                <div class="product-name">iPhone 14 Pro Max (20W)<br><small>USB-C a Lightning</small></div>
+                <div class="product-price">$25.000</div>
+                <div class="product-promo-text">🔥 Llevando 2: $46.000</div>
+                <a href="#" onclick="pedirProducto('Cargador iPhone 14 Pro Max 20W')" class="btn-order">
+                    <i class="fab fa-whatsapp"></i> Lo quiero
+                </a>
+            </div>
+        </div>
+
+        <div class="product-card">
+            <div class="badge-promo" style="background: #000;">STOCK LIMITADO</div>
+            <div class="product-img-box">
+                <img src="CABEZAL CON CABLE C A C.jpeg" alt="Cargador iPhone 15/16 Pro Max">
+            </div>
+            <div class="product-content">
+                <div class="product-name">iPhone 15/16 Pro Max (35W/45W)<br><small>USB-C a USB-C</small></div>
+                <div class="product-price">$28.000</div>
+                <div class="product-promo-text">¡Última unidad en stock!</div>
+                <a href="#" onclick="pedirProducto('Cargador iPhone 16 Pro Max 35W')" class="btn-order">
+                    <i class="fab fa-whatsapp"></i> Lo quiero
+                </a>
+            </div>
+        </div>
+
+        <div class="product-card">
+            <div class="product-img-box">
+                <img src="SAMSUNG C A C.jpeg" alt="Cargador Samsung 25W">
+            </div>
+            <div class="product-content">
+                <div class="product-name">Samsung Travel Adapter (25W)<br><small>Salida USB-C a C</small></div>
+                <div class="product-price">$18.000</div>
+                <div class="product-promo-text">🎁 Combo 2 unidades: $32.000</div>
+                <a href="#" onclick="pedirProducto('Cargador Samsung 25W')" class="btn-order">
+                    <i class="fab fa-whatsapp"></i> Lo quiero
+                </a>
+            </div>
+        </div>
+
+        <div class="product-card">
+            <div class="badge-promo">BEST SELLER</div>
+            <div class="product-img-box">
+                <img src="CABEZAL COMUN.jpeg" alt="Cabezal iPhone">
+            </div>
+            <div class="product-content">
+                <div class="product-name">Cabezal iPhone 20W<br><small>Pata Oblicua (Homologado)</small></div>
+                <div class="product-price">$18.000</div>
+                <div class="product-promo-text">🌟 Combo con Cable: $30.000</div>
+                <a href="#" onclick="pedirProducto('Cabezal iPhone 20W')" class="btn-order">
+                    <i class="fab fa-whatsapp"></i> Lo quiero
+                </a>
+            </div>
+        </div>
+
+        <div class="product-card">
+            <div class="product-img-box">
+                <img src="USB C A LIGHTNING.jpeg" alt="Cable Lightning">
+            </div>
+            <div class="product-content">
+                <div class="product-name">Cable iPhone Premium<br><small>USB-C a Lightning (1m)</small></div>
+                <div class="product-price">$16.000</div>
+                <div class="product-promo-text">📩 Pack 2 Cables: $30.000</div>
+                <a href="#" onclick="pedirProducto('Cable USB-C a Lightning')" class="btn-order">
+                    <i class="fab fa-whatsapp"></i> Lo quiero
+                </a>
+            </div>
+        </div>
+
+        <div class="product-card">
+            <div class="product-img-box">
+                <img src="USB C A C .jpeg" alt="Cable USB-C a C">
+            </div>
+            <div class="product-content">
+                <div class="product-name">Cable iPhone Mallado<br><small>USB-C a USB-C (Reforzado)</small></div>
+                <div class="product-price">$18.000</div>
+                <div class="product-promo-text">Durabilidad extrema</div>
+                <a href="#" onclick="pedirProducto('Cable Mallado USB-C a USB-C')" class="btn-order">
+                    <i class="fab fa-whatsapp"></i> Lo quiero
+                </a>
+            </div>
         </div>
     </div>
 
     <div class="grid">
         <div class="card">
             <h3><i class="fas fa-tools"></i> Servicio Técnico</h3>
-            <p>Soporte integral para tus equipos.</p>
-            <div class="list-items">
-                • Reparación de PC <br>
-                • Limpieza y Armado <br>
-                • Reparación de Celulares
+            <div style="font-size: 0.9rem; color: #64748b; margin: 15px 0;">
+                • Reparación de PC y Notebooks <br>
+                • Limpieza y Cambio de Pasta Térmica <br>
+                • Pantallas y Baterías Celulares
             </div>
-            <a href="https://wa.me/543492589451?text=Hola!%20Me%20interesa%20el%20Servicio%20Técnico." class="btn-consultar">Consultar</a>
+            <a href="https://wa.me/543492589451?text=Hola!%20Necesito%20servicio%20técnico." class="btn-order">Consultar</a>
         </div>
-
         <div class="card">
-            <h3><i class="fas fa-code"></i> Web y Software</h3>
-            <p>Soluciones digitales a medida.</p>
-            <div class="list-items">
-                • Diseño Web Responsivo <br>
-                • Programas de Gestión <br>
-                • Automatización de Procesos
+            <h3><i class="fas fa-code"></i> Software y Web</h3>
+            <div style="font-size: 0.9rem; color: #64748b; margin: 15px 0;">
+                • Páginas Web Profesionales <br>
+                • Programas a Medida <br>
+                • Automatización de Excel/Tareas
             </div>
-            <a href="https://wa.me/543492589451?text=Hola!%20Me%20interesa%20una%20Web%20o%20Programa." class="btn-consultar">Consultar</a>
-        </div>
-
-        <div class="card">
-            <h3><i class="fas fa-palette"></i> Diseño Gráfico</h3>
-            <p>Imagen profesional para tu marca.</p>
-            <div class="list-items">
-                • Identidad Visual y Logos <br>
-                • Flyers Publicitarios <br>
-                • Currículums de Alto Impacto
-            </div>
-            <a href="https://wa.me/543492589451?text=Hola!%20Me%20interesa%20el%20servicio%20de%20Diseño." class="btn-consultar">Consultar</a>
+            <a href="https://wa.me/543492589451?text=Hola!%20Me%20interesa%20un%20desarrollo%20de%20software." class="btn-order">Consultar</a>
         </div>
     </div>
 
@@ -285,20 +310,27 @@
 </div>
 
 <footer>
-    © 2026 Servitecno | Rafaela, Santa Fe.
+    © 2026 Servitecno | Tecnología y Software de Alto Rendimiento.
 </footer>
 
 <script>
+    const numTel = "543492589451";
+
     function comprarSoftware() {
         const modalidad = document.getElementById('modalidad').value;
-        const numTel = "543492589451";
         const mensaje = `Hola Agustin! 👋 Vengo de la web y quiero el *Software SERVITECNO MASTER PLATINUM 2026*.%0A%0A📍 *Modalidad:* ${modalidad}%0A%0A¿Cómo coordinamos el pago?`;
+        window.open(`https://wa.me/${numTel}?text=${mensaje}`, '_blank');
+    }
+
+    function pedirProducto(nombre) {
+        const mensaje = `Hola Agustin! 👋 Me interesa comprar este producto de la web: %0A%0A⚡ *${nombre}*%0A%0A¿Tenés stock disponible?`;
         window.open(`https://wa.me/${numTel}?text=${mensaje}`, '_blank');
     }
 </script>
 
 </body>
 </html>
+
 
 
 
