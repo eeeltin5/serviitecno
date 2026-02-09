@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Servitecno | Pro Ecosystem 2026</title>
-    <link rel="icon" type="image/x-icon" href="icono.ico">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
@@ -16,11 +15,11 @@
             --bg: #0b0f1a;
             --card-bg: #1e293b;
             --text: #f8fafc;
+            --sidebar-width: 280px;
             --accent: #ff4757;
-            --sidebar-width: 260px;
         }
 
-        * { box-sizing: border-box; }
+        * { box-sizing: border-box; scroll-behavior: smooth; }
 
         body {
             font-family: 'Inter', sans-serif;
@@ -29,278 +28,339 @@
             color: var(--text);
             display: flex;
             min-height: 100vh;
-            overflow-x: hidden;
         }
 
-        /* --- SIDEBAR NAVIGATION --- */
+        /* --- SIDEBAR MEJORADA --- */
         .sidebar {
             width: var(--sidebar-width);
             background: var(--primary);
             height: 100vh;
             position: fixed;
-            left: 0;
-            top: 0;
-            border-right: 1px solid rgba(0, 210, 255, 0.2);
+            border-right: 1px solid rgba(0, 210, 255, 0.1);
             display: flex;
             flex-direction: column;
-            padding: 20px;
-            z-index: 1001;
-            transition: 0.3s;
+            z-index: 1000;
+            transition: 0.4s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
-        .sidebar-logo {
-            padding: 20px 0;
-            text-align: center;
-            border-bottom: 1px solid rgba(255,255,255,0.1);
-            margin-bottom: 20px;
-        }
+        .sidebar-header { padding: 30px; text-align: center; border-bottom: 1px solid rgba(255,255,255,0.05); }
+        .sidebar-header img { width: 160px; filter: drop-shadow(0 0 10px rgba(0,210,255,0.3)); }
 
-        .sidebar-logo img { width: 150px; }
-
-        .nav-links { list-style: none; padding: 0; flex-grow: 1; }
-        
-        .nav-links li { margin-bottom: 10px; }
-
-        .nav-links a {
-            color: #94a3b8;
-            text-decoration: none;
+        .nav-menu { flex-grow: 1; padding: 20px 15px; list-style: none; }
+        .nav-item { margin-bottom: 8px; }
+        .nav-link {
             display: flex;
             align-items: center;
             gap: 15px;
-            padding: 12px 15px;
+            padding: 14px 20px;
+            color: #94a3b8;
+            text-decoration: none;
             border-radius: 12px;
             font-weight: 600;
             transition: 0.3s;
         }
-
-        .nav-links a:hover, .nav-links a.active {
+        .nav-link:hover, .nav-link.active {
             background: rgba(0, 210, 255, 0.1);
             color: var(--secondary);
+            box-shadow: inset 4px 0 0 var(--secondary);
         }
 
-        /* --- MAIN CONTENT AREA --- */
+        /* --- CONTENIDO PRINCIPAL --- */
         .main-content {
             margin-left: var(--sidebar-width);
             flex-grow: 1;
+            padding: 40px;
             width: calc(100% - var(--sidebar-width));
-            padding: 30px;
         }
 
-        /* --- LOGIN / REGISTER TABS --- */
-        .auth-container {
-            max-width: 400px;
-            margin: 50px auto;
+        .section { display: none; animation: fadeIn 0.5s ease; }
+        .section.active { display: block; }
+
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+
+        /* --- AUTH SYSTEM (LOGIN/REGISTRO) --- */
+        .auth-card {
+            max-width: 450px;
+            margin: 40px auto;
             background: var(--card-bg);
             padding: 40px;
             border-radius: 24px;
-            border: 1px solid rgba(0,210,255,0.2);
-            box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+            border: 1px solid rgba(0, 210, 255, 0.2);
+            box-shadow: 0 25px 50px rgba(0,0,0,0.5);
         }
-
-        .auth-tabs {
-            display: flex;
-            gap: 10px;
-            margin-bottom: 30px;
-        }
-
-        .auth-tab {
-            flex: 1;
-            padding: 10px;
-            text-align: center;
-            cursor: pointer;
-            border-bottom: 2px solid transparent;
-            font-weight: 800;
-        }
-
-        .auth-tab.active {
-            border-color: var(--secondary);
-            color: var(--secondary);
-        }
+        .auth-tabs { display: flex; gap: 10px; margin-bottom: 30px; background: #0f172a; padding: 5px; border-radius: 12px; }
+        .auth-tab { flex: 1; padding: 12px; text-align: center; cursor: pointer; border-radius: 8px; font-weight: 700; transition: 0.3s; }
+        .auth-tab.active { background: var(--brand-blue); color: white; }
 
         .form-group { margin-bottom: 20px; }
-        .form-group label { display: block; margin-bottom: 8px; font-size: 0.9rem; }
-        .form-group input {
-            width: 100%;
-            padding: 12px;
-            border-radius: 8px;
-            border: 1px solid #334155;
-            background: #0f172a;
-            color: white;
+        .form-group label { display: block; margin-bottom: 8px; font-size: 0.85rem; color: var(--secondary); font-weight: 700; }
+        .form-group input, .form-group select {
+            width: 100%; padding: 14px; border-radius: 10px; border: 1px solid #334155; background: #0f172a; color: white; outline: none;
         }
 
-        /* --- UTILITIES --- */
-        .hidden { display: none; }
-        
-        .section-header {
-            margin-bottom: 40px;
-            border-left: 5px solid var(--secondary);
-            padding-left: 20px;
+        /* --- CATALOGO & CARDS --- */
+        .product-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 25px; }
+        .product-card { 
+            background: var(--card-bg); border-radius: 20px; padding: 20px; 
+            border: 1px solid rgba(255,255,255,0.05); transition: 0.3s;
+            display: flex; flex-direction: column;
+        }
+        .product-card:hover { transform: translateY(-10px); border-color: var(--secondary); }
+        .product-card img { width: 100%; height: 180px; object-fit: contain; margin-bottom: 15px; }
+
+        .btn-action {
+            width: 100%; padding: 14px; border-radius: 12px; border: none;
+            background: var(--brand-blue); color: white; font-weight: 800;
+            cursor: pointer; transition: 0.3s; text-transform: uppercase;
+        }
+        .btn-action:hover { background: var(--secondary); color: var(--primary); transform: scale(1.02); }
+
+        /* --- USER INFO BAR --- */
+        .user-status-bar {
+            background: rgba(0, 210, 255, 0.1);
+            padding: 15px 25px;
+            border-radius: 15px;
+            margin-bottom: 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border: 1px solid rgba(0,210,255,0.2);
         }
 
-        /* --- RESPONSIVE --- */
+        /* Responsive */
         @media (max-width: 992px) {
-            .sidebar { transform: translateX(-100%); }
-            .sidebar.active { transform: translateX(0); }
-            .main-content { margin-left: 0; width: 100%; }
-            .menu-toggle { display: block; }
-        }
-
-        /* Re-usando estilos de tu código anterior para coherencia */
-        .product-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 25px; }
-        .product-card { background: var(--card-bg); border-radius: 20px; padding: 20px; border: 1px solid rgba(255,255,255,0.05); }
-        .btn-action { 
-            width: 100%; padding: 12px; border-radius: 12px; border: none; 
-            background: var(--brand-blue); color: white; font-weight: 700; cursor: pointer;
+            .sidebar { transform: translateX(-100%); width: 240px; }
+            .sidebar.open { transform: translateX(0); }
+            .main-content { margin-left: 0; width: 100%; padding: 20px; }
+            .mobile-nav { display: block; }
         }
     </style>
 </head>
 <body>
 
-<div class="menu-toggle" style="position: fixed; top: 20px; left: 20px; z-index: 1002; display: none;">
-    <i class="fas fa-bars fa-2xl" onclick="toggleSidebar()"></i>
-</div>
-
 <aside class="sidebar" id="sidebar">
-    <div class="sidebar-logo">
+    <div class="sidebar-header">
         <img src="aaa.png" alt="Servitecno">
     </div>
-    <ul class="nav-links">
-        <li><a href="#" class="active" onclick="showSection('inicio')"><i class="fas fa-home"></i> Inicio</a></li>
-        <li><a href="#" onclick="showSection('catalogo')"><i class="fas fa-box-open"></i> Catálogo</a></li>
-        <li><a href="#" onclick="showSection('mayorista')"><i class="fas fa-handshake"></i> Mayorista</a></li>
-        <li><a href="#" onclick="showSection('software')"><i class="fas fa-code"></i> Software</a></li>
-        <li><a href="#" onclick="showSection('cuenta')"><i class="fas fa-user-circle"></i> Mi Cuenta</a></li>
+    <ul class="nav-menu">
+        <li class="nav-item"><a href="#" class="nav-link active" onclick="nav('inicio')"><i class="fas fa-home"></i> Inicio</a></li>
+        <li class="nav-item"><a href="#" class="nav-link" onclick="nav('catalogo')"><i class="fas fa-bolt"></i> Accesorios</a></li>
+        <li class="nav-item"><a href="#" class="nav-link" onclick="nav('software')"><i class="fas fa-code"></i> Software Elite</a></li>
+        <li class="nav-item"><a href="#" class="nav-link" onclick="nav('mayorista')"><i class="fas fa-shuttle-van"></i> Mayoristas</a></li>
+        <li class="nav-item" style="margin-top: 50px;"><a href="#" class="nav-link" onclick="nav('cuenta')"><i class="fas fa-user-circle"></i> Mi Cuenta</a></li>
     </ul>
-    <div style="padding: 20px; font-size: 0.7rem; opacity: 0.5;">
-        v3.0.1 Global Sale Edition
-    </div>
 </aside>
 
 <main class="main-content">
     
-    <section id="section-inicio">
-        <div class="section-header">
-            <h1>Bienvenido al Ecosistema Servitecno</h1>
-            <p>Rendimiento extremo y hardware certificado.</p>
+    <div id="user-bar" class="user-status-bar" style="display: none;">
+        <div><i class="fas fa-user-check text-secondary"></i> Hola, <span id="display-user-name">Invitado</span>!</div>
+        <div id="badge-tipo" style="background: var(--brand-blue); padding: 5px 12px; border-radius: 20px; font-size: 0.7rem; font-weight: 800;">CLIENTE</div>
+    </div>
+
+    <section id="sec-inicio" class="section active">
+        <div style="text-align: center; padding: 60px 0;">
+            <h1 style="font-size: 3rem; font-weight: 800; margin-bottom: 10px;">PRO ECOSYSTEM <span style="color: var(--secondary);">2026</span></h1>
+            <p style="opacity: 0.7; font-size: 1.2rem;">Hardware Seleccionado & Software de Alto Rendimiento para el Mundo.</p>
         </div>
         <div class="product-grid">
+            <div class="product-card">
+                <img src="AirPods 4GEN.jpeg" alt="">
+                <h3>AirPods 4ta Gen</h3>
+                <p>Novedad Mundial</p>
+                <button class="btn-action" onclick="pedir('AirPods 4ta Gen')">Ver Detalle</button>
             </div>
-    </section>
-
-    <section id="section-mayorista" class="hidden">
-        <div class="section-header">
-            <h1>Panel Mayorista</h1>
-            <p>Acceso exclusivo para revendedores internacionales.</p>
-        </div>
-        <div style="background: linear-gradient(45deg, #1a4a8e, #0f172a); padding: 40px; border-radius: 24px; text-align: center;">
-            <i class="fas fa-lock fa-4x" style="margin-bottom: 20px; color: var(--secondary);"></i>
-            <h2>Área Restringida</h2>
-            <p>Debes iniciar sesión para ver la lista de precios mayorista y el stock en tiempo real.</p>
-            <button class="btn-action" style="max-width: 200px; margin-top: 20px;" onclick="showSection('cuenta')">LOGIN MAYORISTA</button>
+            <div class="product-card">
+                <img src="icono.png" alt="">
+                <h3>Master Platinum</h3>
+                <p>Optimización Real</p>
+                <button class="btn-action" onclick="nav('software')">Optimizar PC</button>
+            </div>
         </div>
     </section>
 
-    <section id="section-cuenta" class="hidden">
-        <div class="auth-container">
+    <section id="sec-catalogo" class="section">
+        <h2 class="section-title"><i class="fas fa-list"></i> Catálogo Premium</h2>
+        <div class="product-grid" id="contenedor-productos">
+            <div class="product-card">
+                <img src="CABEZAL CON CABLE.jpeg" alt="">
+                <h3>Combo Carga Pro</h3>
+                <p style="color: var(--secondary); font-weight: 800;">$35.000</p>
+                <button class="btn-action" onclick="pedir('Combo Carga Pro')">Comprar</button>
+            </div>
+            <div class="product-card">
+                <img src="SAMSUNG C A C.jpeg" alt="">
+                <h3>Samsung 25W</h3>
+                <p style="color: var(--secondary); font-weight: 800;">$18.000</p>
+                <button class="btn-action" onclick="pedir('Cargador Samsung')">Comprar</button>
+            </div>
+        </div>
+    </section>
+
+    <section id="sec-software" class="section">
+        <div style="background: linear-gradient(135deg, #0f172a, #1a4a8e); padding: 50px; border-radius: 30px; border: 1px solid var(--secondary);">
+            <div style="display: flex; flex-wrap: wrap; gap: 30px; align-items: center;">
+                <img src="icono.png" style="width: 150px;" alt="">
+                <div style="flex: 1;">
+                    <h2 style="color: var(--secondary); font-size: 2.5rem;">MASTER PLATINUM 2026</h2>
+                    <p>Optimización nivel CPU-Z y limpieza de RAM en tiempo real.</p>
+                    <ul style="padding: 0; list-style: none; display: grid; grid-template-columns: 1fr 1fr; gap: 10px;">
+                        <li><i class="fas fa-check-circle text-success"></i> Monitor de Hardware</li>
+                        <li><i class="fas fa-check-circle text-success"></i> RAM Cleaner Pro</li>
+                    </ul>
+                    <button class="btn-action" style="max-width: 300px; background: var(--success);" onclick="pedir('Software Master Platinum')">OBTENER LICENCIA</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="sec-mayorista" class="section">
+        <div id="mayorista-lock" style="text-align: center; padding: 100px 20px;">
+            <i class="fas fa-lock fa-4x" style="color: var(--accent); margin-bottom: 20px;"></i>
+            <h2>Acceso para Mayoristas</h2>
+            <p>Debes estar registrado como "Mayorista" para ver la lista de precios de importación.</p>
+            <button class="btn-action" style="max-width: 200px;" onclick="nav('cuenta')">IR A MI CUENTA</button>
+        </div>
+        <div id="mayorista-content" style="display: none;">
+            <h2>📦 Panel de Importación Directa</h2>
+            <div class="user-status-bar" style="background: #059669;">
+                Línea Mayorista Habilitada - Precios en USD/ARS para Revendedores.
+            </div>
+            <button class="btn-action" onclick="pedir('Lista Mayorista Completa')">DESCARGAR EXCEL DE PRECIOS</button>
+        </div>
+    </section>
+
+    <section id="sec-cuenta" class="section">
+        <div class="auth-card">
             <div class="auth-tabs">
-                <div class="auth-tab active" id="tab-login" onclick="switchAuth('login')">Ingresar</div>
-                <div class="auth-tab" id="tab-register" onclick="switchAuth('register')">Registrarse</div>
+                <div id="tab-login" class="auth-tab active" onclick="switchTab('login')">Ingresar</div>
+                <div id="tab-reg" class="auth-tab" onclick="switchTab('reg')">Registrarse</div>
             </div>
 
-            <form id="form-login">
+            <div id="form-login">
                 <div class="form-group">
                     <label>Email</label>
-                    <input type="email" placeholder="ejemplo@correo.com">
+                    <input type="email" id="l-email" placeholder="tu@email.com">
                 </div>
                 <div class="form-group">
                     <label>Contraseña</label>
-                    <input type="password" placeholder="••••••••">
+                    <input type="password" id="l-pass" placeholder="••••••••">
                 </div>
-                <button type="button" class="btn-action" onclick="alert('Login en proceso...')">ENTRAR</button>
-            </form>
+                <button class="btn-action" onclick="login()">ACCEDER AL ECOSISTEMA</button>
+            </div>
 
-            <form id="form-register" class="hidden">
+            <div id="form-reg" style="display: none;">
                 <div class="form-group">
                     <label>Nombre Completo / Empresa</label>
-                    <input type="text" placeholder="Juan Perez">
+                    <input type="text" id="r-nombre" placeholder="Nombre o Razón Social">
                 </div>
                 <div class="form-group">
-                    <label>Email</label>
-                    <input type="email" placeholder="negocio@correo.com">
+                    <label>Email Internacional</label>
+                    <input type="email" id="r-email" placeholder="ejemplo@web.com">
                 </div>
                 <div class="form-group">
-                    <label>WhatsApp (Internacional)</label>
-                    <input type="tel" placeholder="+54 9 ...">
+                    <label>WhatsApp (Con código de país)</label>
+                    <input type="tel" id="r-tel" placeholder="+54 9 ...">
                 </div>
                 <div class="form-group">
-                    <label>Tipo de Cliente</label>
-                    <select style="width: 100%; padding: 12px; border-radius: 8px; background: #0f172a; color: white;">
-                        <option>Particular (Final)</option>
-                        <option>Revendedor (Mayorista)</option>
+                    <label>Tipo de Perfil</label>
+                    <select id="r-tipo">
+                        <option value="Cliente Final">Cliente Final (Retail)</option>
+                        <option value="Mayorista">Mayorista (Revendedor)</option>
                     </select>
                 </div>
-                <button type="button" class="btn-action" style="background: var(--success);" onclick="alert('Registro enviado...')">CREAR CUENTA</button>
-            </form>
+                <button class="btn-action" style="background: var(--success);" onclick="registrar()">CREAR CUENTA PRO</button>
+            </div>
         </div>
     </section>
 
-    </main>
+</main>
 
 <script>
-    // Navegación ágil entre secciones (SPA)
-    function showSection(sectionId) {
-        // Ocultar todas las secciones
-        document.querySelectorAll('main section').forEach(section => {
-            section.classList.add('hidden');
-        });
+    // BASE DE DATOS LOCAL (Simulada para que funcione el Login)
+    let userData = JSON.parse(localStorage.getItem('user_servitecno')) || null;
+
+    // NAVEGACIÓN SPA
+    function nav(section) {
+        document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
+        document.getElementById(`sec-${section}`).classList.add('active');
         
-        // Mostrar la elegida
-        const target = document.getElementById(`section-${sectionId}`);
-        if(target) target.classList.remove('hidden');
+        document.querySelectorAll('.nav-link').forEach(l => l.classList.remove('active'));
+        event.currentTarget.classList.add('active');
 
-        // Actualizar links de sidebar
-        document.querySelectorAll('.nav-links a').forEach(link => {
-            link.classList.remove('active');
-            if(link.textContent.toLowerCase().includes(sectionId)) link.classList.add('active');
-        });
-
-        // Cerrar sidebar en móvil si se hace click
-        if(window.innerWidth < 992) {
-            document.getElementById('sidebar').classList.remove('active');
-        }
+        checkAccess();
     }
 
-    // Switch entre Login y Registro
-    function switchAuth(type) {
-        const loginForm = document.getElementById('form-login');
-        const regForm = document.getElementById('form-register');
-        const tabL = document.getElementById('tab-login');
-        const tabR = document.getElementById('tab-register');
+    // SWITCH LOGIN/REG
+    function switchTab(type) {
+        document.getElementById('form-login').style.display = type === 'login' ? 'block' : 'none';
+        document.getElementById('form-reg').style.display = type === 'reg' ? 'block' : 'none';
+        document.getElementById('tab-login').classList.toggle('active', type === 'login');
+        document.getElementById('tab-reg').classList.toggle('active', type === 'reg');
+    }
 
-        if(type === 'login') {
-            loginForm.classList.remove('hidden');
-            regForm.classList.add('hidden');
-            tabL.classList.add('active');
-            tabR.classList.remove('active');
+    // REGISTRO
+    function registrar() {
+        const user = {
+            nombre: document.getElementById('r-nombre').value,
+            email: document.getElementById('r-email').value,
+            tel: document.getElementById('r-tel').value,
+            tipo: document.getElementById('r-tipo').value
+        };
+
+        if(!user.nombre || !user.email) return alert("Por favor completa los datos básicos.");
+
+        localStorage.setItem('user_servitecno', JSON.stringify(user));
+        userData = user;
+        alert("¡Cuenta creada con éxito!");
+        updateUI();
+        nav('inicio');
+    }
+
+    // LOGIN
+    function login() {
+        if(userData) {
+            updateUI();
+            nav('inicio');
         } else {
-            loginForm.classList.add('hidden');
-            regForm.classList.remove('hidden');
-            tabL.classList.remove('active');
-            tabR.classList.add('active');
+            alert("No hay cuentas registradas. Por favor regístrate.");
+            switchTab('reg');
         }
     }
 
-    function toggleSidebar() {
-        document.getElementById('sidebar').classList.toggle('active');
+    // ACTUALIZAR INTERFAZ SEGUN USUARIO
+    function updateUI() {
+        if(userData) {
+            document.getElementById('user-bar').style.display = 'flex';
+            document.getElementById('display-user-name').innerText = userData.nombre;
+            document.getElementById('badge-tipo').innerText = userData.tipo.toUpperCase();
+            
+            if(userData.tipo === 'Mayorista') {
+                document.getElementById('mayorista-lock').style.display = 'none';
+                document.getElementById('mayorista-content').style.display = 'block';
+            }
+        }
     }
+
+    // CONTROL DE ACCESO
+    function checkAccess() {
+        updateUI();
+    }
+
+    // PEDIR POR WHATSAPP (Con datos de usuario para que sepas quién es)
+    function pedir(item) {
+        const num = "543492697600";
+        let userString = userData ? `Soy ${userData.nombre} (${userData.tipo})` : "Soy un nuevo cliente";
+        const msg = `Hola Agustin! 👋 ${userString}. Me interesa: *${item}*. ¿Me das más info?`;
+        window.open(`https://wa.me/${num}?text=${encodeURIComponent(msg)}`, '_blank');
+    }
+
+    // Inicializar
+    checkAccess();
 </script>
 
 </body>
 </html>
-
-
-
-
 
 
 
