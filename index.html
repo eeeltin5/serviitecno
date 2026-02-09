@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Servitecno | Ecosistema Tecnológico 2026</title>
+    <title>Servitecno | Pro Ecosystem 2026</title>
     <link rel="icon" type="image/x-icon" href="icono.ico">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -13,265 +13,291 @@
             --brand-blue: #1a4a8e;
             --secondary: #00d2ff;
             --success: #25d366;
-            --bg: #f8fafc;
-            --text: #1e293b;
-            --white: #ffffff;
+            --bg: #0b0f1a;
+            --card-bg: #1e293b;
+            --text: #f8fafc;
             --accent: #ff4757;
-            --dark-section: #0f172a;
-            --insta: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+            --sidebar-width: 260px;
         }
 
-        body { font-family: 'Inter', sans-serif; margin: 0; background-color: var(--bg); color: var(--text); line-height: 1.6; scroll-behavior: smooth; overflow-x: hidden; }
+        * { box-sizing: border-box; }
 
-        /* --- LOGIN OVERLAY (ACCESO EXCLUSIVO) --- */
-        #login-overlay {
-            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-            background: radial-gradient(circle at center, var(--brand-blue), var(--primary));
-            z-index: 10000; display: flex; align-items: center; justify-content: center; backdrop-filter: blur(20px);
+        body {
+            font-family: 'Inter', sans-serif;
+            margin: 0;
+            background-color: var(--bg);
+            color: var(--text);
+            display: flex;
+            min-height: 100vh;
+            overflow-x: hidden;
         }
-        .login-card {
-            background: white; padding: 50px; border-radius: 35px; width: 90%; max-width: 480px;
-            text-align: center; box-shadow: 0 40px 100px rgba(0,0,0,0.6); position: relative;
-        }
-        .login-card h2 { color: var(--primary); font-weight: 800; margin-bottom: 10px; font-size: 1.8rem; }
-        .login-card input {
-            width: 100%; padding: 18px; margin: 12px 0; border-radius: 15px;
-            border: 2px solid #eee; box-sizing: border-box; font-size: 1rem; outline: none; transition: 0.3s;
-        }
-        .login-card input:focus { border-color: var(--secondary); }
-        .btn-entrar {
-            width: 100%; background: var(--primary); color: var(--secondary); border: none;
-            padding: 20px; border-radius: 15px; font-weight: 800; cursor: pointer;
-            margin-top: 15px; font-size: 1.1rem; transition: 0.3s;
-        }
-        .btn-entrar:hover { background: var(--brand-blue); color: white; transform: scale(1.02); }
 
-        /* --- NAVBAR --- */
-        nav {
-            background: rgba(15, 23, 42, 0.9); padding: 1.2rem; position: sticky; top: 0;
-            z-index: 1000; backdrop-filter: blur(12px); display: flex; justify-content: center;
-            gap: 25px; border-bottom: 1px solid rgba(0, 210, 255, 0.2);
+        /* --- SIDEBAR NAVIGATION --- */
+        .sidebar {
+            width: var(--sidebar-width);
+            background: var(--primary);
+            height: 100vh;
+            position: fixed;
+            left: 0;
+            top: 0;
+            border-right: 1px solid rgba(0, 210, 255, 0.2);
+            display: flex;
+            flex-direction: column;
+            padding: 20px;
+            z-index: 1001;
+            transition: 0.3s;
         }
-        nav a { color: white; text-decoration: none; font-weight: 700; font-size: 0.85rem; letter-spacing: 1px; transition: 0.3s; text-transform: uppercase; }
-        nav a:hover { color: var(--secondary); }
 
-        /* --- HEADER --- */
-        header {
-            background: radial-gradient(circle at top right, var(--brand-blue), var(--primary));
-            color: white; padding: 6rem 1rem 12rem; text-align: center; position: relative; overflow: hidden;
+        .sidebar-logo {
+            padding: 20px 0;
+            text-align: center;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            margin-bottom: 20px;
         }
-        .logo-wrapper { background: white; padding: 15px 30px; border-radius: 20px; display: inline-block; box-shadow: 0 10px 30px rgba(0,0,0,0.2); }
-        .header-logo { max-width: 220px; height: auto; }
-        .hero-tagline { font-weight: 800; font-size: 2rem; margin-top: 25px; text-shadow: 0 2px 15px rgba(0,0,0,0.3); }
-        .hero-visuals { display: flex; justify-content: center; gap: 40px; margin-top: 40px; flex-wrap: wrap; align-items: center; }
-        .personaje-img { max-width: 200px; filter: drop-shadow(0 15px 25px rgba(0,0,0,0.4)); }
+
+        .sidebar-logo img { width: 150px; }
+
+        .nav-links { list-style: none; padding: 0; flex-grow: 1; }
         
-        .code-mockup {
-            background: #0d1117; border-radius: 12px; padding: 20px; box-shadow: 0 25px 50px rgba(0,0,0,0.5);
-            font-family: 'Fira Code', monospace; font-size: 0.85rem; text-align: left; border: 1px solid #30363d;
-            max-width: 300px; color: #c9d1d9;
+        .nav-links li { margin-bottom: 10px; }
+
+        .nav-links a {
+            color: #94a3b8;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            padding: 12px 15px;
+            border-radius: 12px;
+            font-weight: 600;
+            transition: 0.3s;
         }
 
-        /* --- CONTENIDO --- */
-        .container { max-width: 1200px; margin: -80px auto 50px; padding: 0 1.5rem; position: relative; z-index: 10; }
-
-        .catalog-title { 
-            text-align: center; margin: 60px auto 40px; padding: 15px 40px; background: white;
-            width: fit-content; border-radius: 100px; box-shadow: 0 15px 35px rgba(0,0,0,0.1);
-            font-weight: 800; font-size: 1.8rem; color: var(--brand-blue); display: flex; align-items: center; gap: 15px;
-            border: 1px solid rgba(0, 210, 255, 0.3);
+        .nav-links a:hover, .nav-links a.active {
+            background: rgba(0, 210, 255, 0.1);
+            color: var(--secondary);
         }
 
-        /* --- GRID PRODUCTOS --- */
-        .product-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 30px; }
-        .product-card { 
-            background: white; border-radius: 24px; overflow: hidden; box-shadow: 0 10px 20px rgba(0,0,0,0.04); 
-            transition: 0.4s; display: flex; flex-direction: column; position: relative; border: 1px solid #edf2f7;
+        /* --- MAIN CONTENT AREA --- */
+        .main-content {
+            margin-left: var(--sidebar-width);
+            flex-grow: 1;
+            width: calc(100% - var(--sidebar-width));
+            padding: 30px;
         }
-        .product-card:hover { transform: translateY(-12px); box-shadow: 0 20px 40px rgba(0,0,0,0.1); }
-        .product-img-box { width: 100%; height: 260px; display: flex; align-items: center; justify-content: center; padding: 20px; }
-        .product-img-box img { max-width: 100%; max-height: 100%; object-fit: contain; }
-        .product-content { padding: 25px; flex-grow: 1; }
-        .product-price { font-size: 1.6rem; font-weight: 800; color: var(--primary); margin: 10px 0; }
+
+        /* --- LOGIN / REGISTER TABS --- */
+        .auth-container {
+            max-width: 400px;
+            margin: 50px auto;
+            background: var(--card-bg);
+            padding: 40px;
+            border-radius: 24px;
+            border: 1px solid rgba(0,210,255,0.2);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+        }
+
+        .auth-tabs {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 30px;
+        }
+
+        .auth-tab {
+            flex: 1;
+            padding: 10px;
+            text-align: center;
+            cursor: pointer;
+            border-bottom: 2px solid transparent;
+            font-weight: 800;
+        }
+
+        .auth-tab.active {
+            border-color: var(--secondary);
+            color: var(--secondary);
+        }
+
+        .form-group { margin-bottom: 20px; }
+        .form-group label { display: block; margin-bottom: 8px; font-size: 0.9rem; }
+        .form-group input {
+            width: 100%;
+            padding: 12px;
+            border-radius: 8px;
+            border: 1px solid #334155;
+            background: #0f172a;
+            color: white;
+        }
+
+        /* --- UTILITIES --- */
+        .hidden { display: none; }
         
-        .badge-mayorista { position: absolute; top: 15px; left: 15px; background: var(--success); color: white; padding: 5px 12px; border-radius: 50px; font-size: 0.7rem; font-weight: 800; }
-
-        /* --- SOFTWARE SECCION --- */
-        .solutions-section { background: var(--dark-section); padding: 80px 30px; border-radius: 50px; color: white; margin: 80px 0; }
-        .solutions-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; margin-top: 40px; }
-        .solution-card { background: rgba(255,255,255,0.03); padding: 30px; border-radius: 24px; border-left: 5px solid var(--secondary); transition: 0.3s; cursor: pointer; }
-        .solution-card:hover { background: rgba(255,255,255,0.08); transform: scale(1.03); }
-
-        .software-card { 
-            background: linear-gradient(145deg, #0f172a, #1e293b); color: white; padding: 3rem; 
-            border-radius: 30px; border: 1px solid rgba(0, 210, 255, 0.4); margin: 50px 0; 
-            display: flex; flex-wrap: wrap; gap: 40px; align-items: center;
+        .section-header {
+            margin-bottom: 40px;
+            border-left: 5px solid var(--secondary);
+            padding-left: 20px;
         }
 
-        /* --- FOOTER --- */
-        footer { text-align: center; padding: 4rem 2rem; background: #fff; border-top: 1px solid #eee; }
-        .social-btn { display: flex; align-items: center; justify-content: center; gap: 12px; background: var(--insta); color: white; text-decoration: none; padding: 18px 40px; border-radius: 100px; max-width: 350px; margin: 30px auto; font-weight: 800; }
+        /* --- RESPONSIVE --- */
+        @media (max-width: 992px) {
+            .sidebar { transform: translateX(-100%); }
+            .sidebar.active { transform: translateX(0); }
+            .main-content { margin-left: 0; width: 100%; }
+            .menu-toggle { display: block; }
+        }
 
-        .fab-whatsapp { position: fixed; bottom: 30px; right: 30px; background: var(--success); color: white; width: 65px; height: 65px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 35px; box-shadow: 0 10px 25px rgba(37, 211, 102, 0.4); z-index: 999; cursor: pointer; }
-
-        @media (max-width: 768px) { .product-grid { grid-template-columns: 1fr 1fr; } .hero-tagline { font-size: 1.5rem; } }
+        /* Re-usando estilos de tu código anterior para coherencia */
+        .product-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 25px; }
+        .product-card { background: var(--card-bg); border-radius: 20px; padding: 20px; border: 1px solid rgba(255,255,255,0.05); }
+        .btn-action { 
+            width: 100%; padding: 12px; border-radius: 12px; border: none; 
+            background: var(--brand-blue); color: white; font-weight: 700; cursor: pointer;
+        }
     </style>
 </head>
 <body>
 
-<div id="login-overlay">
-    <div class="login-card">
-        <img src="aaa.png" alt="Servitecno" style="width: 180px; margin-bottom: 20px;">
-        <h2>ACCESO EXCLUSIVO</h2>
-        <p>Registrate para acceder al Ecosistema de Software y Catálogo Mayorista 2026.</p>
-        <input type="text" id="reg-nombre" placeholder="Tu Nombre o Negocio">
-        <input type="text" id="reg-ciudad" placeholder="Ciudad / Provincia">
-        <button class="btn-entrar" onclick="activarEcosistema()">INGRESAR AL SISTEMA</button>
-        <p style="font-size: 0.8rem; margin-top: 15px; color: #666;">Al ingresar, aceptas los términos de distribución de Servitecno.</p>
-    </div>
+<div class="menu-toggle" style="position: fixed; top: 20px; left: 20px; z-index: 1002; display: none;">
+    <i class="fas fa-bars fa-2xl" onclick="toggleSidebar()"></i>
 </div>
 
-<div class="fab-whatsapp" onclick="window.open('https://wa.me/543492697600')"><i class="fab fa-whatsapp"></i></div>
-
-<nav>
-    <a href="#inicio">Inicio</a>
-    <a href="#accesorios">Hardware</a>
-    <a href="#software">Software</a>
-    <a href="#servicio">Servicio Técnico</a>
-</nav>
-
-<header id="inicio">
-    <div class="header-content">
-        <div class="logo-wrapper"><img src="aaa.png" alt="Servitecno" class="header-logo"></div>
-        <div class="hero-tagline">Rendimiento Extremo: <br><span style="color: var(--secondary);">Hardware Seleccionado & Software de Elite.</span></div>
-        <div class="hero-visuals">
-            <img src="personaje.png" alt="Técnico" class="personaje-img">
-            <div class="code-mockup">
-                <span style="color: #569cd6;">class</span> <span style="color: #4ec9b0;">MasterPlatinum</span> {<br>
-                &nbsp;&nbsp;power() { <span style="color: #ce9178;">'100%'</span>; }<br>
-                &nbsp;&nbsp;ram() { <span style="color: #ce9178;">'Optimized'</span>; }<br>
-                }
-            </div>
-        </div>
+<aside class="sidebar" id="sidebar">
+    <div class="sidebar-logo">
+        <img src="aaa.png" alt="Servitecno">
     </div>
-</header>
+    <ul class="nav-links">
+        <li><a href="#" class="active" onclick="showSection('inicio')"><i class="fas fa-home"></i> Inicio</a></li>
+        <li><a href="#" onclick="showSection('catalogo')"><i class="fas fa-box-open"></i> Catálogo</a></li>
+        <li><a href="#" onclick="showSection('mayorista')"><i class="fas fa-handshake"></i> Mayorista</a></li>
+        <li><a href="#" onclick="showSection('software')"><i class="fas fa-code"></i> Software</a></li>
+        <li><a href="#" onclick="showSection('cuenta')"><i class="fas fa-user-circle"></i> Mi Cuenta</a></li>
+    </ul>
+    <div style="padding: 20px; font-size: 0.7rem; opacity: 0.5;">
+        v3.0.1 Global Sale Edition
+    </div>
+</aside>
 
-<div class="container">
+<main class="main-content">
     
-    <h2 class="catalog-title" id="accesorios"><i class="fas fa-bolt"></i> Catálogo de Distribución</h2>
-    <div class="product-grid">
-        <div class="product-card">
-            <div class="badge-mayorista">NUEVO</div>
-            <div class="product-img-box"><img src="AirPods 4GEN.jpeg"></div>
-            <div class="product-content">
-                <div style="font-weight: 700;">AirPods 4ta Generación<small style="display:block; color:#666;">Audio Espacial / USB-C</small></div>
-                <div class="product-price">Consultar</div>
-                <button onclick="pedir('AirPods 4')" class="btn-entrar" style="padding:12px; font-size: 0.9rem;">CONSULTAR STOCK</button>
-            </div>
+    <section id="section-inicio">
+        <div class="section-header">
+            <h1>Bienvenido al Ecosistema Servitecno</h1>
+            <p>Rendimiento extremo y hardware certificado.</p>
         </div>
-
-        <div class="product-card">
-            <div class="badge-mayorista">MÍNIMO 5u</div>
-            <div class="product-img-box"><img src="CABEZAL CON CABLE.jpeg"></div>
-            <div class="product-content">
-                <div style="font-weight: 700;">Combo Carga iPhone 20W<small style="display:block; color:#666;">Cabezal + Cable Lightning</small></div>
-                <div class="product-price">$35.000</div>
-                <button onclick="pedir('Combo iPhone 20W')" class="btn-entrar" style="padding:12px; font-size: 0.9rem;">PEDIR AHORA</button>
+        <div class="product-grid">
             </div>
-        </div>
+    </section>
 
-        <div class="product-card">
-            <div class="product-img-box"><img src="SAMSUNG C A C.jpeg"></div>
-            <div class="product-content">
-                <div style="font-weight: 700;">Cargador Samsung 25W<small style="display:block; color:#666;">Tipo C a C / Carga Ultra</small></div>
-                <div class="product-price">$18.000</div>
-                <button onclick="pedir('Cargador Samsung')" class="btn-entrar" style="padding:12px; font-size: 0.9rem;">PEDIR AHORA</button>
+    <section id="section-mayorista" class="hidden">
+        <div class="section-header">
+            <h1>Panel Mayorista</h1>
+            <p>Acceso exclusivo para revendedores internacionales.</p>
+        </div>
+        <div style="background: linear-gradient(45deg, #1a4a8e, #0f172a); padding: 40px; border-radius: 24px; text-align: center;">
+            <i class="fas fa-lock fa-4x" style="margin-bottom: 20px; color: var(--secondary);"></i>
+            <h2>Área Restringida</h2>
+            <p>Debes iniciar sesión para ver la lista de precios mayorista y el stock en tiempo real.</p>
+            <button class="btn-action" style="max-width: 200px; margin-top: 20px;" onclick="showSection('cuenta')">LOGIN MAYORISTA</button>
+        </div>
+    </section>
+
+    <section id="section-cuenta" class="hidden">
+        <div class="auth-container">
+            <div class="auth-tabs">
+                <div class="auth-tab active" id="tab-login" onclick="switchAuth('login')">Ingresar</div>
+                <div class="auth-tab" id="tab-register" onclick="switchAuth('register')">Registrarse</div>
             </div>
-        </div>
-    </div>
 
-    <div class="solutions-section" id="software">
-        <h2 style="text-align: center; font-size: 2.5rem; font-weight: 800; margin: 0;">Servitecno Solutions</h2>
-        <p style="text-align: center; color: var(--secondary);">Desarrollo y Optimización de Alto Nivel</p>
-        <div class="solutions-grid">
-            <div class="solution-card" onclick="pedir('Software a Medida')">
-                <i class="fas fa-layer-group fa-2x" style="color:var(--secondary)"></i>
-                <h3>Software a Medida</h3>
-                <p>Sistemas exactos para escalar tu negocio al siguiente nivel.</p>
-            </div>
-            <div class="solution-card" onclick="pedir('Webs Impacto')">
-                <i class="fas fa-rocket fa-2x" style="color:var(--secondary)"></i>
-                <h3>Webs de Impacto</h3>
-                <p>Landing pages diseñadas para convertir visitas en ventas.</p>
-            </div>
-            <div class="solution-card" onclick="pedir('Excel Pro')">
-                <i class="fas fa-file-excel fa-2x" style="color:var(--secondary)"></i>
-                <h3>Excel & Macros</h3>
-                <p>Automatización total de procesos administrativos.</p>
-            </div>
-        </div>
-    </div>
+            <form id="form-login">
+                <div class="form-group">
+                    <label>Email</label>
+                    <input type="email" placeholder="ejemplo@correo.com">
+                </div>
+                <div class="form-group">
+                    <label>Contraseña</label>
+                    <input type="password" placeholder="••••••••">
+                </div>
+                <button type="button" class="btn-action" onclick="alert('Login en proceso...')">ENTRAR</button>
+            </form>
 
-    <div class="software-card">
-        <div style="flex: 1; min-width: 300px;">
-            <h2 style="color: var(--secondary); font-size: 2.2rem; margin: 0;">Master Platinum 2026</h2>
-            <p>La suite definitiva para llevar tu PC al 100% de su capacidad real.</p>
-            <ul style="list-style: none; padding: 0; display: grid; grid-template-columns: 1fr 1fr; gap: 15px; font-weight: 600;">
-                <li><i class="fas fa-microchip" style="color:var(--secondary)"></i> Monitor CPU-Z Style</li>
-                <li><i class="fas fa-memory" style="color:var(--secondary)"></i> Limpieza RAM</li>
-                <li><i class="fas fa-broom" style="color:var(--secondary)"></i> Deep Junk Clean</li>
-                <li><i class="fas fa-tachometer-alt" style="color:var(--secondary)"></i> FPS Boost</li>
-            </ul>
+            <form id="form-register" class="hidden">
+                <div class="form-group">
+                    <label>Nombre Completo / Empresa</label>
+                    <input type="text" placeholder="Juan Perez">
+                </div>
+                <div class="form-group">
+                    <label>Email</label>
+                    <input type="email" placeholder="negocio@correo.com">
+                </div>
+                <div class="form-group">
+                    <label>WhatsApp (Internacional)</label>
+                    <input type="tel" placeholder="+54 9 ...">
+                </div>
+                <div class="form-group">
+                    <label>Tipo de Cliente</label>
+                    <select style="width: 100%; padding: 12px; border-radius: 8px; background: #0f172a; color: white;">
+                        <option>Particular (Final)</option>
+                        <option>Revendedor (Mayorista)</option>
+                    </select>
+                </div>
+                <button type="button" class="btn-action" style="background: var(--success);" onclick="alert('Registro enviado...')">CREAR CUENTA</button>
+            </form>
         </div>
-        <div style="background: rgba(255,255,255,0.05); padding: 30px; border-radius: 24px; border: 1px solid rgba(0,210,255,0.3);">
-            <select id="modalidad" style="width:100%; padding:15px; border-radius:12px; margin-bottom:15px; font-weight:700;">
-                <option>A Distancia (AnyDesk)</option>
-                <option>Presencial (Rafaela)</option>
-            </select>
-            <button onclick="comprarMaster()" class="btn-entrar" style="background: var(--success); color: white; margin: 0;">OBTENER AHORA</button>
-        </div>
-    </div>
+    </section>
 
-    <a href="https://www.instagram.com/serviitecno/" target="_blank" class="social-btn">
-        <i class="fab fa-instagram fa-2xl"></i> SEGUINOS EN INSTAGRAM
-    </a>
-</div>
-
-<footer>
-    <p>© 2026 Servitecno | Tecnología y Software de Alto Rendimiento.</p>
-    <p style="font-size: 0.7rem; opacity: 0.5;">Desarrollado con precisión quirúrgica en Rafaela, SF.</p>
-</footer>
+    </main>
 
 <script>
-    const numTel = "543492697600";
-    let cliente = "";
+    // Navegación ágil entre secciones (SPA)
+    function showSection(sectionId) {
+        // Ocultar todas las secciones
+        document.querySelectorAll('main section').forEach(section => {
+            section.classList.add('hidden');
+        });
+        
+        // Mostrar la elegida
+        const target = document.getElementById(`section-${sectionId}`);
+        if(target) target.classList.remove('hidden');
 
-    function activarEcosistema() {
-        const n = document.getElementById('reg-nombre').value;
-        const c = document.getElementById('reg-ciudad').value;
-        if(n && c) {
-            cliente = n;
-            document.getElementById('login-overlay').style.opacity = '0';
-            setTimeout(() => document.getElementById('login-overlay').style.display = 'none', 500);
-            console.log("Acceso concedido a:", n);
-        } else {
-            alert("Por favor, ingresá tus datos para el registro de cliente.");
+        // Actualizar links de sidebar
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.classList.remove('active');
+            if(link.textContent.toLowerCase().includes(sectionId)) link.classList.add('active');
+        });
+
+        // Cerrar sidebar en móvil si se hace click
+        if(window.innerWidth < 992) {
+            document.getElementById('sidebar').classList.remove('active');
         }
     }
 
-    function pedir(prod) {
-        const msg = `Hola Agustin! 👋 Soy ${cliente}. Me interesa: *${prod}*`;
-        window.open(`https://wa.me/${numTel}?text=${encodeURIComponent(msg)}`, '_blank');
+    // Switch entre Login y Registro
+    function switchAuth(type) {
+        const loginForm = document.getElementById('form-login');
+        const regForm = document.getElementById('form-register');
+        const tabL = document.getElementById('tab-login');
+        const tabR = document.getElementById('tab-register');
+
+        if(type === 'login') {
+            loginForm.classList.remove('hidden');
+            regForm.classList.add('hidden');
+            tabL.classList.add('active');
+            tabR.classList.remove('active');
+        } else {
+            loginForm.classList.add('hidden');
+            regForm.classList.remove('hidden');
+            tabL.classList.remove('active');
+            tabR.classList.add('active');
+        }
     }
 
-    function comprarMaster() {
-        const mod = document.getElementById('modalidad').value;
-        const msg = `Hola Agustin! 👋 Soy ${cliente}. Quiero el *Master Platinum 2026* (${mod})`;
-        window.open(`https://wa.me/${numTel}?text=${encodeURIComponent(msg)}`, '_blank');
+    function toggleSidebar() {
+        document.getElementById('sidebar').classList.toggle('active');
     }
 </script>
+
 </body>
 </html>
+
 
 
 
