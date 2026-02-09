@@ -3,91 +3,115 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Servitecno | Master Platinum 2026</title>
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <title>Servitecno | Ecosistema Mayorista 2026</title>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         :root {
-            --primary: #050a14;
+            --primary: #020617;
             --brand-blue: #0062ff;
             --secondary: #00d2ff;
             --success: #25d366;
-            --bg: #03070d;
-            --card-bg: #0f172a;
+            --bg: #020617;
+            --card-bg: rgba(30, 41, 59, 0.5);
             --text: #f8fafc;
-            --accent: #ff4757;
-            --sidebar-width: 260px;
             --gold: #ffcf4b;
+            --sidebar-width: 280px;
         }
 
         * { box-sizing: border-box; scroll-behavior: smooth; }
-        body { font-family: 'Inter', sans-serif; margin: 0; background: var(--bg); color: var(--text); display: flex; overflow-x: hidden; }
+        body { 
+            font-family: 'Inter', sans-serif; 
+            margin: 0; 
+            background: var(--bg); 
+            color: var(--text); 
+            display: flex;
+            background-image: radial-gradient(circle at 50% 50%, #1e293b 0%, #020617 100%);
+        }
 
         /* --- SIDEBAR --- */
         .sidebar {
             width: var(--sidebar-width);
-            background: var(--primary);
+            background: rgba(2, 6, 23, 0.95);
             height: 100vh;
             position: fixed;
-            border-right: 1px solid rgba(0, 210, 255, 0.1);
+            border-right: 1px solid rgba(0, 210, 255, 0.2);
             display: flex;
             flex-direction: column;
+            backdrop-filter: blur(10px);
             z-index: 1000;
         }
-        .sidebar-header { padding: 30px; text-align: center; }
-        .sidebar-header img { width: 100%; filter: drop-shadow(0 0 10px var(--secondary)); }
+        .sidebar-header { padding: 40px 20px; text-align: center; }
+        .logo-main { width: 120px; filter: drop-shadow(0 0 15px var(--secondary)); margin-bottom: 10px; }
         
-        .nav-menu { flex-grow: 1; padding: 10px; list-style: none; }
+        .nav-menu { flex-grow: 1; padding: 20px; }
         .nav-link {
-            display: flex; align-items: center; gap: 12px; padding: 15px;
-            color: #94a3b8; text-decoration: none; border-radius: 12px;
-            font-weight: 600; transition: 0.3s; margin-bottom: 5px;
+            display: flex; align-items: center; gap: 15px; padding: 18px;
+            color: #94a3b8; text-decoration: none; border-radius: 15px;
+            font-weight: 700; transition: 0.3s; margin-bottom: 10px;
+            text-transform: uppercase; letter-spacing: 1px; font-size: 0.85rem;
         }
-        .nav-link:hover, .nav-link.active { background: rgba(0, 210, 255, 0.1); color: var(--secondary); box-shadow: inset 4px 0 0 var(--secondary); }
+        .nav-link:hover, .nav-link.active { 
+            background: linear-gradient(90deg, rgba(0, 98, 255, 0.2), transparent); 
+            color: var(--secondary);
+            border-left: 4px solid var(--secondary);
+        }
 
         /* --- MAIN CONTENT --- */
-        .main-content { margin-left: var(--sidebar-width); flex-grow: 1; padding: 30px; width: calc(100% - var(--sidebar-width)); }
-        .section { display: none; animation: fadeIn 0.5s ease-out; }
+        .main-content { margin-left: var(--sidebar-width); flex-grow: 1; padding: 40px; width: calc(100% - var(--sidebar-width)); }
+        .section { display: none; animation: slideUp 0.6s cubic-bezier(0.23, 1, 0.32, 1); }
         .section.active { display: block; }
-        @keyframes fadeIn { from { opacity: 0; transform: translateY(15px); } to { opacity: 1; transform: translateY(0); } }
+        @keyframes slideUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
 
-        /* --- HARDWARE MONITOR (CPU-Z STYLE) --- */
-        .hw-monitor {
-            background: #000; border: 1px solid var(--secondary); padding: 20px;
-            border-radius: 10px; font-family: 'monospace'; font-size: 0.9rem;
-            box-shadow: 0 0 15px rgba(0, 210, 255, 0.2);
+        /* --- HERO BANNER --- */
+        .hero-banner {
+            background: linear-gradient(135deg, rgba(0,98,255,0.8) 0%, rgba(0,210,255,0.4) 100%), url('https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&q=80');
+            background-size: cover; background-position: center;
+            padding: 80px 50px; border-radius: 30px; margin-bottom: 50px;
+            position: relative; overflow: hidden; border: 1px solid rgba(255,255,255,0.1);
         }
-        .hw-row { display: flex; justify-content: space-between; border-bottom: 1px dotted #334155; padding: 5px 0; }
-        .stat-bar { height: 8px; background: #1e293b; border-radius: 4px; overflow: hidden; margin-top: 5px; }
-        .stat-progress { height: 100%; background: var(--secondary); width: 45%; }
+        .hero-content { position: relative; z-index: 2; max-width: 600px; }
+        .hero-title { font-family: 'Orbitron'; font-size: 3.5rem; font-weight: 900; margin: 0; line-height: 1; }
 
-        /* --- PRODUCT CARDS --- */
-        .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 20px; }
+        /* --- PRODUCT GRID --- */
+        .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 30px; }
         .card { 
-            background: var(--card-bg); border-radius: 15px; padding: 15px; 
-            border: 1px solid rgba(255,255,255,0.05); transition: 0.4s; position: relative;
+            background: var(--card-bg); border-radius: 25px; padding: 20px; 
+            border: 1px solid rgba(255,255,255,0.05); transition: 0.5s;
+            backdrop-filter: blur(5px); display: flex; flex-direction: column; align-items: center; text-align: center;
         }
-        .card:hover { transform: translateY(-10px); border-color: var(--secondary); background: #161e2e; }
-        .card img { width: 100%; height: 180px; object-fit: contain; border-radius: 10px; margin-bottom: 12px; background: #fff; }
-        .badge { position: absolute; top: 10px; right: 10px; background: var(--brand-blue); font-size: 0.7rem; padding: 4px 8px; border-radius: 5px; font-weight: 800; }
+        .card:hover { 
+            transform: translateY(-15px) scale(1.02); 
+            border-color: var(--secondary);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.4), 0 0 20px rgba(0,210,255,0.1);
+        }
+        .card img { width: 100%; height: 220px; object-fit: contain; margin-bottom: 20px; border-radius: 15px; }
+        .card h4 { font-family: 'Orbitron'; font-size: 1.1rem; margin: 10px 0; color: var(--text); }
 
         /* --- BOTONES --- */
         .btn {
-            width: 100%; padding: 12px; border-radius: 10px; border: none;
+            width: 100%; padding: 15px; border-radius: 12px; border: none;
             font-weight: 800; cursor: pointer; transition: 0.3s;
-            display: flex; align-items: center; justify-content: center; gap: 8px;
-            text-decoration: none; text-transform: uppercase; letter-spacing: 1px;
+            display: flex; align-items: center; justify-content: center; gap: 10px;
+            text-decoration: none; text-transform: uppercase; font-size: 0.8rem;
         }
-        .btn-blue { background: linear-gradient(90deg, var(--brand-blue), var(--secondary)); color: white; }
-        .btn-green { background: var(--success); color: white; }
-        .btn-gold { background: var(--gold); color: #000; }
-        .btn:hover { filter: brightness(1.2); transform: scale(1.02); }
+        .btn-blue { background: var(--brand-blue); color: white; box-shadow: 0 4px 15px rgba(0, 98, 255, 0.4); }
+        .btn-gold { background: var(--gold); color: #000; font-family: 'Orbitron'; }
+        .btn-whatsapp { background: var(--success); color: white; }
+        .btn:hover { filter: brightness(1.2); transform: translateY(-2px); }
 
-        /* --- RESPONSIVE --- */
-        @media (max-width: 900px) {
-            .sidebar { width: 70px; }
-            .sidebar span, .sidebar-header { display: none; }
-            .main-content { margin-left: 70px; width: calc(100% - 70px); }
+        /* --- INFO SECTIONS --- */
+        .info-panel {
+            background: linear-gradient(90deg, #0f172a, #1e293b);
+            padding: 30px; border-radius: 20px; border-left: 5px solid var(--gold);
+            display: flex; align-items: center; justify-content: space-between; margin-bottom: 40px;
+        }
+
+        @media (max-width: 1024px) {
+            .sidebar { width: 80px; }
+            .sidebar span, .sidebar-header small { display: none; }
+            .main-content { margin-left: 80px; width: calc(100% - 80px); }
+            .logo-main { width: 50px; }
         }
     </style>
 </head>
@@ -95,18 +119,20 @@
 
 <aside class="sidebar">
     <div class="sidebar-header">
-        <h2 style="font-family: 'Orbitron'; color: var(--secondary); margin: 0; font-size: 1.2rem;">SERVITECNO</h2>
-        <small style="letter-spacing: 2px;">GLOBAL TECH</small>
+        <img src="icono.png" alt="Servitecno Logo" class="logo-main">
+        <h2 style="font-family: 'Orbitron'; color: var(--secondary); margin: 0; font-size: 1rem;">SERVITECNO</h2>
+        <small style="color: var(--gold); letter-spacing: 2px; font-weight: 800;">MAYORISTA 2026</small>
     </div>
+    
     <nav class="nav-menu">
-        <a href="#" class="nav-link active" onclick="nav('inicio')"><i class="fas fa-home"></i> <span>Dashboard</span></a>
-        <a href="#" class="nav-link" onclick="nav('accesorios')"><i class="fas fa-box-open"></i> <span>Importados</span></a>
-        <a href="#" class="nav-link" onclick="nav('software')"><i class="fas fa-rocket"></i> <span>Master Platinum</span></a>
-        <a href="#" class="nav-link" onclick="nav('hardware')"><i class="fas fa-microchip"></i> <span>Hardware Pro</span></a>
-        <a href="#" class="nav-link" onclick="nav('cuenta')"><i class="fas fa-user-shield"></i> <span>Mayorista VIP</span></a>
+        <a href="#" class="nav-link active" onclick="nav('inicio')"><i class="fas fa-th-large"></i> <span>Dashboard</span></a>
+        <a href="#" class="nav-link" onclick="nav('stock')"><i class="fas fa-boxes"></i> <span>Stock Real</span></a>
+        <a href="#" class="nav-link" onclick="nav('software')"><i class="fas fa-microchip"></i> <span>Master Platinum</span></a>
+        <a href="#" class="nav-link" onclick="nav('mayorista')"><i class="fas fa-handshake"></i> <span>Canal Mayorista</span></a>
     </nav>
-    <div style="padding: 15px;">
-        <a href="https://whatsapp.com/channel/0029VbByJuH9MF8z9ucnXj1B" target="_blank" class="btn btn-green" style="font-size: 0.6rem;">
+
+    <div style="padding: 20px;">
+        <a href="https://whatsapp.com/channel/0029VbByJuH9MF8z9ucnXj1B" target="_blank" class="btn btn-whatsapp">
             <i class="fab fa-whatsapp"></i> CANAL OFICIAL
         </a>
     </div>
@@ -115,153 +141,123 @@
 <main class="main-content">
 
     <section id="sec-inicio" class="section active">
-        <div style="background: linear-gradient(45deg, #0f172a, #0062ff); padding: 50px; border-radius: 25px; margin-bottom: 30px; position: relative; overflow: hidden;">
-            <div style="position: relative; z-index: 2;">
-                <h1 style="font-family: 'Orbitron'; font-size: 2.5rem; margin-bottom: 5px;">SERVITECNO <span style="color: var(--gold);">2026</span></h1>
-                <p>Bienvenido al hub de tecnología más potente del mercado internacional.</p>
-                <div style="display: flex; gap: 15px; margin-top: 20px;">
-                    <button onclick="nav('software')" class="btn btn-gold" style="width: auto;">Optimizar PC</button>
-                    <button onclick="nav('accesorios')" class="btn btn-blue" style="width: auto;">Ver Catálogo</button>
+        <div class="hero-banner">
+            <div class="hero-content">
+                <div style="background: var(--gold); color: #000; display: inline-block; padding: 5px 15px; border-radius: 5px; font-weight: 900; margin-bottom: 20px;">
+                    IMPORTACIÓN DIRECTA
                 </div>
+                <h1 class="hero-title">ECOSISTEMA <br><span style="color: var(--gold);">SERVITECNO</span></h1>
+                <p style="font-size: 1.2rem; opacity: 0.9; margin: 20px 0;">Distribución global de tecnología, software de alto rendimiento y accesorios premium.</p>
+                <button onclick="nav('stock')" class="btn btn-gold" style="width: auto; padding: 15px 40px;">EXPLORAR CATÁLOGO</button>
             </div>
-            <i class="fas fa-globe-americas" style="position: absolute; right: -20px; bottom: -20px; font-size: 12rem; opacity: 0.1;"></i>
         </div>
 
-        <h3 style="display: flex; align-items: center; gap: 10px;"><i class="fas fa-bolt text-gold"></i> PRODUCTOS VIRALES</h3>
+        <div class="info-panel">
+            <div>
+                <h3 style="margin: 0; font-family: 'Orbitron'; color: var(--gold);">LISTA DE PRECIOS 2026</h3>
+                <p style="margin: 5px 0; opacity: 0.8;">Actualizada diariamente según cotización internacional.</p>
+            </div>
+            <a href="https://wa.me/543492697600?text=Hola%20Agustin!%20Quiero%20la%20lista%20de%20precios%20actualizada." class="btn btn-blue" style="width: auto; padding: 15px 30px;">SOLICITAR EXCEL</a>
+        </div>
+
+        <h2 style="font-family: 'Orbitron'; margin-bottom: 30px;"><i class="fas fa-star" style="color: var(--gold);"></i> TOP VENTAS MAYORISTA</h2>
         <div class="grid">
             <div class="card">
-                <div class="badge">APPLE</div>
-                <img src="https://m.media-amazon.com/images/I/61SUj2W96aL._AC_SL1500_.jpg" alt="AirPods">
-                <h4>AirPods Pro Series</h4>
-                <button onclick="pedir('AirPods Pro')" class="btn btn-blue">Consultar Mayorista</button>
+                <img src="https://i.ibb.co/L9B6X7X/perfume.jpg" alt="Lattafa">
+                <h4>Perfumes Árabes</h4>
+                <p style="font-size: 0.8rem; opacity: 0.6;">Lattafa & Maison Alhambra</p>
+                <button onclick="pedir('Perfumes Árabes')" class="btn btn-blue">CONSULTAR</button>
             </div>
             <div class="card">
-                <div class="badge">JBL</div>
-                <img src="https://www.jbl.com.ar/dw/image/v2/AAUJ_PRD/on/demandware.static/-/Sites-masterCatalog_Harman/default/dw10620251/JBL_GO_4_HERO_BLUE_0126_x1.png" alt="JBL">
-                <h4>JBL GO 4 Original</h4>
-                <button onclick="pedir('JBL GO 4')" class="btn btn-blue">Consultar Mayorista</button>
+                <img src="https://i.ibb.co/vYm6vMv/charger.jpg" alt="Apple">
+                <h4>Combo Carga Apple</h4>
+                <p style="font-size: 0.8rem; opacity: 0.6;">Cargador 20W + Cable Lightning</p>
+                <button onclick="pedir('Combos Apple')" class="btn btn-blue">CONSULTAR</button>
             </div>
             <div class="card">
-                <div class="badge">STANLEY</div>
-                <img src="https://www.stanley1913.com/cdn/shop/files/Quencher_H2.0_FlowState_Tumbler_40OZ_RoseQuartz_01.jpg" alt="Stanley">
-                <h4>Stanley Quencher 40oz</h4>
-                <button onclick="pedir('Stanley Quencher')" class="btn btn-blue">Consultar Mayorista</button>
+                <img src="https://i.ibb.co/vXy0V0R/tvbox.jpg" alt="Magis">
+                <h4>TV Box 4K Ultra</h4>
+                <p style="font-size: 0.8rem; opacity: 0.6;">Pre-instalado MagisTV Pro</p>
+                <button onclick="pedir('TV Box Magis')" class="btn btn-blue">CONSULTAR</button>
             </div>
         </div>
     </section>
 
-    <section id="sec-accesorios" class="section">
-        <h2 style="font-family: 'Orbitron'; color: var(--secondary);">Ecosistema de Importación</h2>
-        <p>Selección premium para reventa internacional. Sin precios fijos, margen máximo garantizado.</p>
+    <section id="sec-stock" class="section">
+        <h2 style="font-family: 'Orbitron'; text-align: center; margin-bottom: 40px;">CATÁLOGO DE IMPORTACIÓN</h2>
         <div class="grid">
-            <div class="card"><img src="https://i.ibb.co/L9B6X7X/perfume.jpg" alt="Perfume"><h4>Perfumes Árabes (Lattafa)</h4><button onclick="pedir('Perfumes Árabes')" class="btn btn-blue">Pedir Lista</button></div>
-            <div class="card"><img src="https://i.ibb.co/vYm6vMv/charger.jpg" alt="Carga"><h4>Combos Carga 20W Apple</h4><button onclick="pedir('Combos Apple')" class="btn btn-blue">Pedir Lista</button></div>
-            <div class="card"><img src="https://i.ibb.co/k0mX99B/smartwatch.jpg" alt="Watch"><h4>Smartwatch Ultra 2 BIG</h4><button onclick="pedir('Smartwatch Ultra 2')" class="btn btn-blue">Pedir Lista</button></div>
-            <div class="card"><img src="https://i.ibb.co/vXy0V0R/tvbox.jpg" alt="TV"><h4>TV Box 4K MagisTV</h4><button onclick="pedir('TV Box Magis')" class="btn btn-blue">Pedir Lista</button></div>
+            <div class="card"><img src="https://m.media-amazon.com/images/I/61SUj2W96aL._AC_SL1500_.jpg" alt=""><h4>AirPods 4 Gen</h4><button onclick="pedir('AirPods 4')" class="btn btn-blue">MAYORISTA</button></div>
+            <div class="card"><img src="https://www.stanley1913.com/cdn/shop/files/Quencher_H2.0_FlowState_Tumbler_40OZ_RoseQuartz_01.jpg" alt=""><h4>Stanley Quencher</h4><button onclick="pedir('Stanley')" class="btn btn-blue">MAYORISTA</button></div>
+            <div class="card"><img src="https://i.ibb.co/k0mX99B/smartwatch.jpg" alt=""><h4>Watch Ultra 2</h4><button onclick="pedir('Watch Ultra')" class="btn btn-blue">MAYORISTA</button></div>
+            <div class="card"><img src="https://www.jbl.com.ar/dw/image/v2/AAUJ_PRD/on/demandware.static/-/Sites-masterCatalog_Harman/default/dw10620251/JBL_GO_4_HERO_BLUE_0126_x1.png" alt=""><h4>JBL GO 4</h4><button onclick="pedir('JBL GO')" class="btn btn-blue">MAYORISTA</button></div>
         </div>
-    </section>
-
-    <section id="sec-hardware" class="section">
-        <h2 style="font-family: 'Orbitron';"><i class="fas fa-microchip"></i> Hardware Real-Time</h2>
-        <div class="hw-monitor">
-            <div style="color: var(--secondary); margin-bottom: 15px; border-bottom: 1px solid var(--secondary);">>>> SYSTEM_SPEC_REPORT_2026</div>
-            <div class="hw-row"><span>Processor:</span> <span style="color: var(--gold);">Intel Core i9-13900K @ 5.8GHz</span></div>
-            <div class="hw-row"><span>Cores/Threads:</span> <span>24C / 32T</span></div>
-            <div class="hw-row"><span>Memory:</span> <span>32GB DDR5 6000MHz</span></div>
-            <div class="hw-row"><span>GPU:</span> <span style="color: var(--success);">NVIDIA RTX 4090 (24GB VRAM)</span></div>
-            <div class="hw-row"><span>Mainboard:</span> <span>ASUS ROG MAXIMUS Z790</span></div>
-            
-            <div style="margin-top: 20px;">
-                <span>CPU Load:</span>
-                <div class="stat-bar"><div class="stat-progress" style="width: 28%; background: var(--secondary);"></div></div>
-            </div>
-            <div style="margin-top: 10px;">
-                <span>RAM Usage (Cleaning Optimized):</span>
-                <div class="stat-bar"><div class="stat-progress" style="width: 42%; background: var(--success);"></div></div>
-            </div>
-        </div>
-        <button class="btn btn-blue" style="margin-top: 20px; width: auto;" onclick="alert('Optimizando núcleos y limpiando registros...')"><i class="fas fa-broom"></i> Ejecutar Limpieza Profunda</button>
     </section>
 
     <section id="sec-software" class="section">
-        <div style="text-align: center; padding: 40px; background: #000; border: 2px solid var(--gold); border-radius: 30px;">
-            <i class="fas fa-rocket fa-4x" style="color: var(--gold); margin-bottom: 20px;"></i>
-            <h1 style="font-family: 'Orbitron'; margin: 0;">MASTER PLATINUM <span style="color: var(--gold);">2026</span></h1>
-            <p style="color: #94a3b8;">The Ultimate Performance Suite</p>
+        <div style="background: #000; padding: 60px; border-radius: 40px; border: 2px solid var(--secondary); text-align: center; position: relative; overflow: hidden;">
+            <img src="icono.png" alt="Master Platinum" style="width: 150px; margin-bottom: 20px; filter: drop-shadow(0 0 20px var(--secondary));">
+            <h1 style="font-family: 'Orbitron'; font-size: 3rem; margin: 0;">MASTER PLATINUM <span style="color: var(--secondary);">2026</span></h1>
+            <p style="color: var(--secondary); letter-spacing: 5px; font-weight: 800; margin-bottom: 40px;">SOFTWARE ELITE OPTIMIZER</p>
             
-            <div class="grid" style="margin-top: 40px; text-align: left;">
-                <div class="card" style="border: 1px solid var(--gold);">
-                    <i class="fas fa-memory text-gold"></i>
-                    <h4>RAM Clear Agile</h4>
-                    <p style="font-size: 0.8rem; opacity: 0.7;">Libera memoria standby y optimiza el consumo en tiempo real.</p>
+            <div class="grid" style="text-align: left; margin-bottom: 40px;">
+                <div class="card" style="background: rgba(0,210,255,0.05); border-color: var(--secondary);">
+                    <i class="fas fa-memory fa-2x" style="color: var(--secondary);"></i>
+                    <h4>RAM PURGE</h4>
+                    <p style="font-size: 0.8rem;">Limpieza de memoria en tiempo real para agilizar procesos pesados.</p>
                 </div>
-                <div class="card" style="border: 1px solid var(--gold);">
-                    <i class="fas fa-gamepad text-gold"></i>
-                    <h4>FPS Ultra Booster</h4>
-                    <p style="font-size: 0.8rem; opacity: 0.7;">Desbloquea latencia cero y prioriza procesos de gaming.</p>
+                <div class="card" style="background: rgba(0,210,255,0.05); border-color: var(--secondary);">
+                    <i class="fas fa-shield-halved fa-2x" style="color: var(--secondary);"></i>
+                    <h4>SYSTEM CLEAN</h4>
+                    <p style="font-size: 0.8rem;">Eliminación total de telemetría y basura del sistema Windows.</p>
                 </div>
-                <div class="card" style="border: 1px solid var(--gold);">
-                    <i class="fas fa-shield-virus text-gold"></i>
-                    <h4>International Cleaner</h4>
-                    <p style="font-size: 0.8rem; opacity: 0.7;">Elimina archivos basura y telemetría de Windows universalmente.</p>
+                <div class="card" style="background: rgba(0,210,255,0.05); border-color: var(--secondary);">
+                    <i class="fas fa-tachometer-alt fa-2x" style="color: var(--secondary);"></i>
+                    <h4>FPS BOOSTER</h4>
+                    <p style="font-size: 0.8rem;">Optimización de núcleos para rendimiento máximo en juegos.</p>
                 </div>
             </div>
-            <button onclick="pedir('Licencia Master Platinum 2026')" class="btn btn-gold" style="margin-top: 30px; max-width: 400px; margin-left: auto; margin-right: auto;">ADQUIRIR LICENCIA PREMIUM</button>
+            
+            <button onclick="pedir('Licencia Master Platinum')" class="btn btn-gold" style="max-width: 400px; margin: 0 auto;">SOLICITAR LICENCIA REVENDEDOR</button>
         </div>
     </section>
 
-    <section id="sec-cuenta" class="section">
-        <div style="max-width: 500px; margin: 0 auto; background: var(--card-bg); padding: 40px; border-radius: 20px; border: 1px solid var(--secondary);">
-            <h2 style="text-align: center;"><i class="fas fa-user-tie"></i> Registro de Revendedores</h2>
-            <p style="text-align: center; font-size: 0.9rem; opacity: 0.7;">Accede a precios de contenedor y soporte 24/7.</p>
-            <input type="text" id="reg-nombre" placeholder="Nombre o Empresa">
-            <input type="email" id="reg-email" placeholder="Correo Electrónico">
-            <select id="reg-tipo">
-                <option value="Mayorista">Revendedor / Local</option>
-                <option value="Distribuidor">Distribuidor Regional</option>
-                <option value="Cliente">Cliente Final</option>
-            </select>
-            <button class="btn btn-blue" onclick="registrar()">REGISTRARME EN SERVITECNO</button>
+    <section id="sec-mayorista" class="section">
+        <div style="text-align: center; max-width: 700px; margin: 0 auto;">
+            <h2 style="font-family: 'Orbitron'; color: var(--gold); font-size: 2.5rem;">ALIANZA ESTRATÉGICA</h2>
+            <p>¿Tienes un local o eres revendedor? Únete a nuestra red y accede a precios directos de importación.</p>
+            <div style="background: var(--card-bg); padding: 40px; border-radius: 30px; margin-top: 30px; border: 1px solid var(--gold);">
+                <i class="fas fa-truck-loading fa-4x" style="color: var(--gold); margin-bottom: 20px;"></i>
+                <h3>BENEFICIOS VIP</h3>
+                <ul style="text-align: left; line-height: 2; font-weight: 600;">
+                    <li><i class="fas fa-check text-gold"></i> Envíos a todo el país y el exterior.</li>
+                    <li><i class="fas fa-check text-gold"></i> Garantía oficial Servitecno.</li>
+                    <li><i class="fas fa-check text-gold"></i> Material publicitario para tu Instagram.</li>
+                </ul>
+                <button onclick="pedir('Ser Distribuidor')" class="btn btn-gold" style="margin-top: 20px;">HABLAR CON AGUSTIN</button>
+            </div>
         </div>
     </section>
 
 </main>
 
 <script>
-    let user = JSON.parse(localStorage.getItem('servitecno_pro_user')) || null;
-
     function nav(s) {
         document.querySelectorAll('.section').forEach(sec => sec.classList.remove('active'));
         document.getElementById(`sec-${s}`).classList.add('active');
         document.querySelectorAll('.nav-link').forEach(l => l.classList.remove('active'));
         if(event) event.currentTarget.classList.add('active');
-    }
-
-    function registrar() {
-        const nombre = document.getElementById('reg-nombre').value;
-        const email = document.getElementById('reg-email').value;
-        const tipo = document.getElementById('reg-tipo').value;
-
-        if(!nombre || !email) return alert("Por favor, completa los datos para continuar.");
-
-        user = { nombre, email, tipo };
-        localStorage.setItem('servitecno_pro_user', JSON.stringify(user));
-        alert("¡Bienvenido al sistema VIP de Servitecno!");
-        nav('inicio');
+        window.scrollTo(0,0);
     }
 
     function pedir(item) {
         const tel = "543492697600";
-        let ident = user ? `Soy ${user.nombre} (${user.tipo})` : "Hola! Soy un nuevo cliente";
-        const msg = `Hola Agustin! 👋 ${ident}. Me gustaría recibir información mayorista de: *${item}*`;
+        const msg = `Hola Agustin! 👋 Vengo desde la web oficial. Me interesa información mayorista sobre: *${item}*`;
         window.open(`https://wa.me/${tel}?text=${encodeURIComponent(msg)}`, '_blank');
     }
 </script>
 
 </body>
 </html>
-
-
 
 
 
