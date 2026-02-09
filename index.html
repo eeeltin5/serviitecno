@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Servitecno | Pro Ecosystem 2026</title>
+    <title>Servitecno | Ecosistema Tecnológico 2026</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
@@ -15,22 +15,14 @@
             --bg: #0b0f1a;
             --card-bg: #1e293b;
             --text: #f8fafc;
-            --sidebar-width: 280px;
             --accent: #ff4757;
+            --sidebar-width: 260px;
         }
 
         * { box-sizing: border-box; scroll-behavior: smooth; }
+        body { font-family: 'Inter', sans-serif; margin: 0; background: var(--bg); color: var(--text); display: flex; }
 
-        body {
-            font-family: 'Inter', sans-serif;
-            margin: 0;
-            background-color: var(--bg);
-            color: var(--text);
-            display: flex;
-            min-height: 100vh;
-        }
-
-        /* --- SIDEBAR MEJORADA --- */
+        /* --- SIDEBAR --- */
         .sidebar {
             width: var(--sidebar-width);
             background: var(--primary);
@@ -40,236 +32,201 @@
             display: flex;
             flex-direction: column;
             z-index: 1000;
-            transition: 0.4s cubic-bezier(0.4, 0, 0.2, 1);
         }
-
-        .sidebar-header { padding: 30px; text-align: center; border-bottom: 1px solid rgba(255,255,255,0.05); }
-        .sidebar-header img { width: 160px; filter: drop-shadow(0 0 10px rgba(0,210,255,0.3)); }
-
-        .nav-menu { flex-grow: 1; padding: 20px 15px; list-style: none; }
-        .nav-item { margin-bottom: 8px; }
+        .sidebar-header { padding: 25px; text-align: center; }
+        .sidebar-header img { width: 140px; }
+        .nav-menu { flex-grow: 1; padding: 10px; list-style: none; }
         .nav-link {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-            padding: 14px 20px;
-            color: #94a3b8;
-            text-decoration: none;
-            border-radius: 12px;
-            font-weight: 600;
-            transition: 0.3s;
+            display: flex; align-items: center; gap: 12px; padding: 15px;
+            color: #94a3b8; text-decoration: none; border-radius: 12px;
+            font-weight: 600; transition: 0.3s; margin-bottom: 5px;
         }
-        .nav-link:hover, .nav-link.active {
-            background: rgba(0, 210, 255, 0.1);
-            color: var(--secondary);
-            box-shadow: inset 4px 0 0 var(--secondary);
-        }
+        .nav-link:hover, .nav-link.active { background: rgba(0, 210, 255, 0.1); color: var(--secondary); }
 
-        /* --- CONTENIDO PRINCIPAL --- */
-        .main-content {
-            margin-left: var(--sidebar-width);
-            flex-grow: 1;
-            padding: 40px;
-            width: calc(100% - var(--sidebar-width));
-        }
-
-        .section { display: none; animation: fadeIn 0.5s ease; }
+        /* --- MAIN CONTENT --- */
+        .main-content { margin-left: var(--sidebar-width); flex-grow: 1; padding: 30px; width: calc(100% - var(--sidebar-width)); }
+        .section { display: none; animation: fadeIn 0.4s ease-out; }
         .section.active { display: block; }
-
         @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
 
-        /* --- AUTH SYSTEM (LOGIN/REGISTRO) --- */
-        .auth-card {
-            max-width: 450px;
-            margin: 40px auto;
-            background: var(--card-bg);
-            padding: 40px;
-            border-radius: 24px;
-            border: 1px solid rgba(0, 210, 255, 0.2);
-            box-shadow: 0 25px 50px rgba(0,0,0,0.5);
-        }
-        .auth-tabs { display: flex; gap: 10px; margin-bottom: 30px; background: #0f172a; padding: 5px; border-radius: 12px; }
-        .auth-tab { flex: 1; padding: 12px; text-align: center; cursor: pointer; border-radius: 8px; font-weight: 700; transition: 0.3s; }
-        .auth-tab.active { background: var(--brand-blue); color: white; }
-
-        .form-group { margin-bottom: 20px; }
-        .form-group label { display: block; margin-bottom: 8px; font-size: 0.85rem; color: var(--secondary); font-weight: 700; }
-        .form-group input, .form-group select {
-            width: 100%; padding: 14px; border-radius: 10px; border: 1px solid #334155; background: #0f172a; color: white; outline: none;
-        }
-
-        /* --- CATALOGO & CARDS --- */
-        .product-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 25px; }
-        .product-card { 
-            background: var(--card-bg); border-radius: 20px; padding: 20px; 
-            border: 1px solid rgba(255,255,255,0.05); transition: 0.3s;
-            display: flex; flex-direction: column;
-        }
-        .product-card:hover { transform: translateY(-10px); border-color: var(--secondary); }
-        .product-card img { width: 100%; height: 180px; object-fit: contain; margin-bottom: 15px; }
-
-        .btn-action {
-            width: 100%; padding: 14px; border-radius: 12px; border: none;
-            background: var(--brand-blue); color: white; font-weight: 800;
-            cursor: pointer; transition: 0.3s; text-transform: uppercase;
-        }
-        .btn-action:hover { background: var(--secondary); color: var(--primary); transform: scale(1.02); }
-
-        /* --- USER INFO BAR --- */
+        /* --- USER BAR --- */
         .user-status-bar {
-            background: rgba(0, 210, 255, 0.1);
-            padding: 15px 25px;
-            border-radius: 15px;
-            margin-bottom: 30px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
+            background: linear-gradient(90deg, #1e293b, #0f172a);
+            padding: 15px 25px; border-radius: 15px; margin-bottom: 30px;
+            display: flex; justify-content: space-between; align-items: center;
             border: 1px solid rgba(0,210,255,0.2);
         }
 
-        /* Responsive */
-        @media (max-width: 992px) {
-            .sidebar { transform: translateX(-100%); width: 240px; }
-            .sidebar.open { transform: translateX(0); }
-            .main-content { margin-left: 0; width: 100%; padding: 20px; }
-            .mobile-nav { display: block; }
+        /* --- CARDS & GRID --- */
+        .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 25px; margin-bottom: 40px; }
+        .card { 
+            background: var(--card-bg); border-radius: 20px; padding: 25px; 
+            border: 1px solid rgba(255,255,255,0.05); transition: 0.3s;
+        }
+        .card:hover { transform: translateY(-5px); border-color: var(--secondary); }
+        .card img { width: 100%; height: 200px; object-fit: contain; margin-bottom: 15px; background: white; border-radius: 15px; padding: 10px; }
+
+        /* --- BOTONES --- */
+        .btn {
+            width: 100%; padding: 12px; border-radius: 10px; border: none;
+            font-weight: 800; cursor: pointer; transition: 0.3s;
+            display: flex; align-items: center; justify-content: center; gap: 8px;
+            text-decoration: none; font-size: 0.9rem;
+        }
+        .btn-blue { background: var(--brand-blue); color: white; }
+        .btn-green { background: var(--success); color: white; }
+        .btn-outline { background: transparent; border: 1px solid var(--secondary); color: var(--secondary); }
+        .btn:hover { opacity: 0.9; transform: scale(1.02); }
+
+        /* --- FORMS --- */
+        .auth-container { max-width: 400px; margin: 50px auto; background: var(--card-bg); padding: 30px; border-radius: 20px; border: 1px solid var(--secondary); }
+        input, select { width: 100%; padding: 12px; margin: 10px 0; border-radius: 8px; border: 1px solid #334155; background: #0f172a; color: white; }
+
+        .badge-promo { background: var(--accent); color: white; padding: 4px 10px; border-radius: 8px; font-size: 0.7rem; font-weight: 800; margin-bottom: 10px; display: inline-block; }
+
+        @media (max-width: 900px) {
+            .sidebar { width: 70px; }
+            .sidebar span, .sidebar-header img { display: none; }
+            .main-content { margin-left: 70px; width: calc(100% - 70px); }
         }
     </style>
 </head>
 <body>
 
-<aside class="sidebar" id="sidebar">
-    <div class="sidebar-header">
-        <img src="aaa.png" alt="Servitecno">
+<aside class="sidebar">
+    <div class="sidebar-header"><img src="aaa.png" alt="Servitecno"></div>
+    <nav class="nav-menu">
+        <a href="#" class="nav-link active" onclick="nav('inicio')"><i class="fas fa-home"></i> <span>Inicio</span></a>
+        <a href="#" class="nav-link" onclick="nav('accesorios')"><i class="fas fa-plug"></i> <span>Accesorios</span></a>
+        <a href="#" class="nav-link" onclick="nav('software')"><i class="fas fa-microchip"></i> <span>Software Elite</span></a>
+        <a href="#" class="nav-link" onclick="nav('cuenta')"><i class="fas fa-user-circle"></i> <span>Mi Cuenta</span></a>
+    </nav>
+    <div style="padding: 20px;">
+        <a href="https://whatsapp.com/channel/TU_ID_DE_CANAL" target="_blank" class="btn btn-green" style="font-size: 0.7rem;">
+            <i class="fab fa-whatsapp"></i> CANAL OFICIAL
+        </a>
     </div>
-    <ul class="nav-menu">
-        <li class="nav-item"><a href="#" class="nav-link active" onclick="nav('inicio')"><i class="fas fa-home"></i> Inicio</a></li>
-        <li class="nav-item"><a href="#" class="nav-link" onclick="nav('catalogo')"><i class="fas fa-bolt"></i> Accesorios</a></li>
-        <li class="nav-item"><a href="#" class="nav-link" onclick="nav('software')"><i class="fas fa-code"></i> Software Elite</a></li>
-        <li class="nav-item"><a href="#" class="nav-link" onclick="nav('mayorista')"><i class="fas fa-shuttle-van"></i> Mayoristas</a></li>
-        <li class="nav-item" style="margin-top: 50px;"><a href="#" class="nav-link" onclick="nav('cuenta')"><i class="fas fa-user-circle"></i> Mi Cuenta</a></li>
-    </ul>
 </aside>
 
 <main class="main-content">
     
     <div id="user-bar" class="user-status-bar" style="display: none;">
-        <div><i class="fas fa-user-check text-secondary"></i> Hola, <span id="display-user-name">Invitado</span>!</div>
-        <div id="badge-tipo" style="background: var(--brand-blue); padding: 5px 12px; border-radius: 20px; font-size: 0.7rem; font-weight: 800;">CLIENTE</div>
+        <div><i class="fas fa-circle-user text-secondary"></i> <span id="user-name-display">Invitado</span></div>
+        <div id="user-type-badge" style="background: var(--brand-blue); padding: 5px 15px; border-radius: 20px; font-size: 0.8rem; font-weight: 800;">CLIENTE</div>
     </div>
 
     <section id="sec-inicio" class="section active">
-        <div style="text-align: center; padding: 60px 0;">
-            <h1 style="font-size: 3rem; font-weight: 800; margin-bottom: 10px;">PRO ECOSYSTEM <span style="color: var(--secondary);">2026</span></h1>
-            <p style="opacity: 0.7; font-size: 1.2rem;">Hardware Seleccionado & Software de Alto Rendimiento para el Mundo.</p>
+        <div style="background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('hero-bg.jpg'); padding: 60px; border-radius: 30px; text-align: center; margin-bottom: 40px;">
+            <h1 style="font-size: 3rem; margin: 0;">Servitecno <span style="color: var(--secondary);">2026</span></h1>
+            <p>Importación Directa & Optimización de Sistemas a Nivel Global.</p>
         </div>
-        <div class="product-grid">
-            <div class="product-card">
-                <img src="AirPods 4GEN.jpeg" alt="">
-                <h3>AirPods 4ta Gen</h3>
-                <p>Novedad Mundial</p>
-                <button class="btn-action" onclick="pedir('AirPods 4ta Gen')">Ver Detalle</button>
+
+        <div class="card" style="background: linear-gradient(135deg, #1e293b, #0f172a); border: 2px solid var(--secondary); margin-bottom: 30px;">
+            <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 20px;">
+                <div>
+                    <h2 style="margin: 0;"><i class="fas fa-shuttle-van"></i> Canal Mayorista Directo</h2>
+                    <p style="opacity: 0.8;">Precios especiales para locales y revendedores de todo el país.</p>
+                </div>
+                <button onclick="pedir('Lista de Precios Mayorista')" class="btn btn-blue" style="width: auto; padding: 15px 40px;">SOLICITAR LISTA</button>
             </div>
-            <div class="product-card">
+        </div>
+
+        <h3><i class="fas fa-star text-secondary"></i> Destacados de la Semana</h3>
+        <div class="grid">
+            <div class="card">
+                <div class="badge-promo">NOVEDAD</div>
+                <img src="AirPods 4GEN.jpeg" alt="">
+                <h4>AirPods 4ta Generación</h4>
+                <button onclick="pedir('AirPods 4ta Gen')" class="btn btn-outline">Consultar</button>
+            </div>
+            <div class="card">
                 <img src="icono.png" alt="">
-                <h3>Master Platinum</h3>
-                <p>Optimización Real</p>
-                <button class="btn-action" onclick="nav('software')">Optimizar PC</button>
+                <h4>Master Platinum 2026</h4>
+                <button onclick="nav('software')" class="btn btn-blue">Ver Suite</button>
             </div>
         </div>
     </section>
 
-    <section id="sec-catalogo" class="section">
-        <h2 class="section-title"><i class="fas fa-list"></i> Catálogo Premium</h2>
-        <div class="product-grid" id="contenedor-productos">
-            <div class="product-card">
+    <section id="sec-accesorios" class="section">
+        <h2>Catálogo de Accesorios Premium</h2>
+        <div class="grid">
+            <div class="card">
                 <img src="CABEZAL CON CABLE.jpeg" alt="">
-                <h3>Combo Carga Pro</h3>
+                <h4>Combo Carga Pro (Lightning)</h4>
                 <p style="color: var(--secondary); font-weight: 800;">$35.000</p>
-                <button class="btn-action" onclick="pedir('Combo Carga Pro')">Comprar</button>
+                <button onclick="pedir('Combo Lightning')" class="btn btn-blue"><i class="fab fa-whatsapp"></i> Lo quiero</button>
             </div>
-            <div class="product-card">
+            <div class="card">
+                <img src="CABEZAL CON CABLE C A C.jpeg" alt="">
+                <h4>Combo Carga Ultra (USB-C)</h4>
+                <p style="color: var(--secondary); font-weight: 800;">$35.000</p>
+                <button onclick="pedir('Combo USB-C')" class="btn btn-blue"><i class="fab fa-whatsapp"></i> Lo quiero</button>
+            </div>
+            <div class="card">
                 <img src="SAMSUNG C A C.jpeg" alt="">
-                <h3>Samsung 25W</h3>
+                <h4>Samsung Wall Charger 25W</h4>
                 <p style="color: var(--secondary); font-weight: 800;">$18.000</p>
-                <button class="btn-action" onclick="pedir('Cargador Samsung')">Comprar</button>
+                <button onclick="pedir('Cargador Samsung')" class="btn btn-blue"><i class="fab fa-whatsapp"></i> Lo quiero</button>
+            </div>
+            <div class="card">
+                <img src="Adaptador.jpeg" alt="">
+                <h4>Adaptador Universal</h4>
+                <p style="color: var(--secondary); font-weight: 800;">$1.500</p>
+                <button onclick="pedir('Adaptador Universal')" class="btn btn-blue"><i class="fab fa-whatsapp"></i> Lo quiero</button>
             </div>
         </div>
     </section>
 
     <section id="sec-software" class="section">
-        <div style="background: linear-gradient(135deg, #0f172a, #1a4a8e); padding: 50px; border-radius: 30px; border: 1px solid var(--secondary);">
-            <div style="display: flex; flex-wrap: wrap; gap: 30px; align-items: center;">
-                <img src="icono.png" style="width: 150px;" alt="">
-                <div style="flex: 1;">
-                    <h2 style="color: var(--secondary); font-size: 2.5rem;">MASTER PLATINUM 2026</h2>
-                    <p>Optimización nivel CPU-Z y limpieza de RAM en tiempo real.</p>
-                    <ul style="padding: 0; list-style: none; display: grid; grid-template-columns: 1fr 1fr; gap: 10px;">
-                        <li><i class="fas fa-check-circle text-success"></i> Monitor de Hardware</li>
-                        <li><i class="fas fa-check-circle text-success"></i> RAM Cleaner Pro</li>
-                    </ul>
-                    <button class="btn-action" style="max-width: 300px; background: var(--success);" onclick="pedir('Software Master Platinum')">OBTENER LICENCIA</button>
-                </div>
-            </div>
+        <div style="background: #0f172a; padding: 40px; border-radius: 25px; border-left: 5px solid var(--secondary); margin-bottom: 30px;">
+            <h2 style="color: var(--secondary);">Master Platinum 2026</h2>
+            <p>La herramienta definitiva de optimización: Limpieza de RAM, Monitor de Hardware estilo CPU-Z y Booster de FPS.</p>
+            <button onclick="pedir('Software Master Platinum')" class="btn btn-green" style="max-width: 300px;">OBTENER LICENCIA</button>
         </div>
-    </section>
 
-    <section id="sec-mayorista" class="section">
-        <div id="mayorista-lock" style="text-align: center; padding: 100px 20px;">
-            <i class="fas fa-lock fa-4x" style="color: var(--accent); margin-bottom: 20px;"></i>
-            <h2>Acceso para Mayoristas</h2>
-            <p>Debes estar registrado como "Mayorista" para ver la lista de precios de importación.</p>
-            <button class="btn-action" style="max-width: 200px;" onclick="nav('cuenta')">IR A MI CUENTA</button>
-        </div>
-        <div id="mayorista-content" style="display: none;">
-            <h2>📦 Panel de Importación Directa</h2>
-            <div class="user-status-bar" style="background: #059669;">
-                Línea Mayorista Habilitada - Precios en USD/ARS para Revendedores.
+        <h3>Nuestras Soluciones de Desarrollo</h3>
+        <div class="grid">
+            <div class="card">
+                <i class="fas fa-code fa-2x text-secondary"></i>
+                <h4>Software a Medida</h4>
+                <p>Programas de escritorio y sistemas de gestión para empresas.</p>
+                <button onclick="pedir('Desarrollo de Software Custom')" class="btn btn-outline">Consultar</button>
             </div>
-            <button class="btn-action" onclick="pedir('Lista Mayorista Completa')">DESCARGAR EXCEL DE PRECIOS</button>
+            <div class="card">
+                <i class="fas fa-globe fa-2x text-secondary"></i>
+                <h4>Webs de Alto Impacto</h4>
+                <p>Landing pages y E-commerce optimizados para venta.</p>
+                <button onclick="pedir('Desarrollo Web')" class="btn btn-outline">Consultar</button>
+            </div>
+            <div class="card">
+                <i class="fas fa-file-excel fa-2x text-secondary"></i>
+                <h4>Automatización Excel</h4>
+                <p>Macros avanzadas para procesar datos en segundos.</p>
+                <button onclick="pedir('Automatización Excel/Macros')" class="btn btn-outline">Consultar</button>
+            </div>
         </div>
     </section>
 
     <section id="sec-cuenta" class="section">
-        <div class="auth-card">
-            <div class="auth-tabs">
-                <div id="tab-login" class="auth-tab active" onclick="switchTab('login')">Ingresar</div>
-                <div id="tab-reg" class="auth-tab" onclick="switchTab('reg')">Registrarse</div>
+        <div class="auth-container">
+            <h2 id="auth-title">Crear Cuenta Pro</h2>
+            <p style="font-size: 0.8rem; opacity: 0.7;">Regístrate para guardar tus datos y agilizar tus pedidos internacionales.</p>
+            
+            <div id="form-registro">
+                <input type="text" id="reg-nombre" placeholder="Nombre Completo o Empresa">
+                <input type="email" id="reg-email" placeholder="Email">
+                <select id="reg-tipo">
+                    <option value="Cliente Final">Cliente Final</option>
+                    <option value="Mayorista">Mayorista / Revendedor</option>
+                </select>
+                <button onclick="registrar()" class="btn btn-blue">GUARDAR DATOS</button>
             </div>
 
-            <div id="form-login">
-                <div class="form-group">
-                    <label>Email</label>
-                    <input type="email" id="l-email" placeholder="tu@email.com">
-                </div>
-                <div class="form-group">
-                    <label>Contraseña</label>
-                    <input type="password" id="l-pass" placeholder="••••••••">
-                </div>
-                <button class="btn-action" onclick="login()">ACCEDER AL ECOSISTEMA</button>
-            </div>
-
-            <div id="form-reg" style="display: none;">
-                <div class="form-group">
-                    <label>Nombre Completo / Empresa</label>
-                    <input type="text" id="r-nombre" placeholder="Nombre o Razón Social">
-                </div>
-                <div class="form-group">
-                    <label>Email Internacional</label>
-                    <input type="email" id="r-email" placeholder="ejemplo@web.com">
-                </div>
-                <div class="form-group">
-                    <label>WhatsApp (Con código de país)</label>
-                    <input type="tel" id="r-tel" placeholder="+54 9 ...">
-                </div>
-                <div class="form-group">
-                    <label>Tipo de Perfil</label>
-                    <select id="r-tipo">
-                        <option value="Cliente Final">Cliente Final (Retail)</option>
-                        <option value="Mayorista">Mayorista (Revendedor)</option>
-                    </select>
-                </div>
-                <button class="btn-action" style="background: var(--success);" onclick="registrar()">CREAR CUENTA PRO</button>
+            <div id="perfil-logueado" style="display: none; text-align: center;">
+                <i class="fas fa-check-circle text-success fa-3x"></i>
+                <h3>¡Sesión Activa!</h3>
+                <p id="perfil-info"></p>
+                <button onclick="cerrarSesion()" class="btn btn-outline">Cerrar Sesión</button>
             </div>
         </div>
     </section>
@@ -277,86 +234,61 @@
 </main>
 
 <script>
-    // BASE DE DATOS LOCAL (Simulada para que funcione el Login)
-    let userData = JSON.parse(localStorage.getItem('user_servitecno')) || null;
+    let user = JSON.parse(localStorage.getItem('servitecno_user')) || null;
 
-    // NAVEGACIÓN SPA
-    function nav(section) {
-        document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
-        document.getElementById(`sec-${section}`).classList.add('active');
-        
+    function nav(s) {
+        document.querySelectorAll('.section').forEach(sec => sec.classList.remove('active'));
+        document.getElementById(`sec-${s}`).classList.add('active');
         document.querySelectorAll('.nav-link').forEach(l => l.classList.remove('active'));
         event.currentTarget.classList.add('active');
-
-        checkAccess();
+        updateUI();
     }
 
-    // SWITCH LOGIN/REG
-    function switchTab(type) {
-        document.getElementById('form-login').style.display = type === 'login' ? 'block' : 'none';
-        document.getElementById('form-reg').style.display = type === 'reg' ? 'block' : 'none';
-        document.getElementById('tab-login').classList.toggle('active', type === 'login');
-        document.getElementById('tab-reg').classList.toggle('active', type === 'reg');
-    }
-
-    // REGISTRO
     function registrar() {
-        const user = {
-            nombre: document.getElementById('r-nombre').value,
-            email: document.getElementById('r-email').value,
-            tel: document.getElementById('r-tel').value,
-            tipo: document.getElementById('r-tipo').value
-        };
+        const nombre = document.getElementById('reg-nombre').value;
+        const email = document.getElementById('reg-email').value;
+        const tipo = document.getElementById('reg-tipo').value;
 
-        if(!user.nombre || !user.email) return alert("Por favor completa los datos básicos.");
+        if(!nombre || !email) return alert("Completa los campos.");
 
-        localStorage.setItem('user_servitecno', JSON.stringify(user));
-        userData = user;
-        alert("¡Cuenta creada con éxito!");
+        user = { nombre, email, tipo };
+        localStorage.setItem('servitecno_user', JSON.stringify(user));
+        alert("Datos guardados. Ahora tus pedidos serán automáticos.");
         updateUI();
         nav('inicio');
     }
 
-    // LOGIN
-    function login() {
-        if(userData) {
-            updateUI();
-            nav('inicio');
-        } else {
-            alert("No hay cuentas registradas. Por favor regístrate.");
-            switchTab('reg');
-        }
-    }
-
-    // ACTUALIZAR INTERFAZ SEGUN USUARIO
     function updateUI() {
-        if(userData) {
+        if(user) {
             document.getElementById('user-bar').style.display = 'flex';
-            document.getElementById('display-user-name').innerText = userData.nombre;
-            document.getElementById('badge-tipo').innerText = userData.tipo.toUpperCase();
-            
-            if(userData.tipo === 'Mayorista') {
-                document.getElementById('mayorista-lock').style.display = 'none';
-                document.getElementById('mayorista-content').style.display = 'block';
-            }
+            document.getElementById('user-name-display').innerText = user.nombre;
+            document.getElementById('user-type-badge').innerText = user.tipo.toUpperCase();
+            document.getElementById('form-registro').style.display = 'none';
+            document.getElementById('perfil-logueado').style.display = 'block';
+            document.getElementById('perfil-info').innerText = `${user.nombre} | ${user.tipo}`;
+            document.getElementById('auth-title').innerText = "Tu Perfil";
+        } else {
+            document.getElementById('user-bar').style.display = 'none';
+            document.getElementById('form-registro').style.display = 'block';
+            document.getElementById('perfil-logueado').style.display = 'none';
         }
     }
 
-    // CONTROL DE ACCESO
-    function checkAccess() {
+    function cerrarSesion() {
+        localStorage.removeItem('servitecno_user');
+        user = null;
         updateUI();
+        location.reload();
     }
 
-    // PEDIR POR WHATSAPP (Con datos de usuario para que sepas quién es)
     function pedir(item) {
-        const num = "543492697600";
-        let userString = userData ? `Soy ${userData.nombre} (${userData.tipo})` : "Soy un nuevo cliente";
-        const msg = `Hola Agustin! 👋 ${userString}. Me interesa: *${item}*. ¿Me das más info?`;
-        window.open(`https://wa.me/${num}?text=${encodeURIComponent(msg)}`, '_blank');
+        const tel = "543492697600";
+        let ident = user ? `Soy ${user.nombre} (${user.tipo})` : "Soy un nuevo cliente";
+        const msg = `Hola Agustin! 👋 ${ident}. Me interesa: *${item}*`;
+        window.open(`https://wa.me/${tel}?text=${encodeURIComponent(msg)}`, '_blank');
     }
 
-    // Inicializar
-    checkAccess();
+    updateUI();
 </script>
 
 </body>
