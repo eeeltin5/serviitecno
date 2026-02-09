@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Servitecno | Distribuidora Mayorista 2026</title>
+    <title>Servitecno | Ecosistema Tecnológico 2026</title>
+    <link rel="icon" type="image/x-icon" href="icono.ico">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
@@ -16,97 +17,104 @@
             --text: #1e293b;
             --white: #ffffff;
             --accent: #ff4757;
+            --dark-section: #0f172a;
             --insta: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
         }
 
-        body { font-family: 'Inter', sans-serif; margin: 0; background-color: var(--bg); color: var(--text); line-height: 1.6; scroll-behavior: smooth; }
+        body { font-family: 'Inter', sans-serif; margin: 0; background-color: var(--bg); color: var(--text); line-height: 1.6; scroll-behavior: smooth; overflow-x: hidden; }
 
-        /* REGISTRO MAYORISTA OBLIGATORIO */
+        /* --- LOGIN OVERLAY (ACCESO EXCLUSIVO) --- */
         #login-overlay {
             position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-            background: rgba(15, 23, 42, 0.98); z-index: 10000; 
-            display: flex; align-items: center; justify-content: center; backdrop-filter: blur(15px);
+            background: radial-gradient(circle at center, var(--brand-blue), var(--primary));
+            z-index: 10000; display: flex; align-items: center; justify-content: center; backdrop-filter: blur(20px);
         }
         .login-card {
-            background: white; padding: 40px; border-radius: 30px; width: 90%; max-width: 450px;
-            text-align: center; box-shadow: 0 25px 60px rgba(0,0,0,0.5);
+            background: white; padding: 50px; border-radius: 35px; width: 90%; max-width: 480px;
+            text-align: center; box-shadow: 0 40px 100px rgba(0,0,0,0.6); position: relative;
         }
+        .login-card h2 { color: var(--primary); font-weight: 800; margin-bottom: 10px; font-size: 1.8rem; }
         .login-card input {
-            width: 100%; padding: 15px; margin: 10px 0; border-radius: 12px;
-            border: 1px solid #ddd; box-sizing: border-box; font-size: 1rem;
+            width: 100%; padding: 18px; margin: 12px 0; border-radius: 15px;
+            border: 2px solid #eee; box-sizing: border-box; font-size: 1rem; outline: none; transition: 0.3s;
         }
+        .login-card input:focus { border-color: var(--secondary); }
+        .btn-entrar {
+            width: 100%; background: var(--primary); color: var(--secondary); border: none;
+            padding: 20px; border-radius: 15px; font-weight: 800; cursor: pointer;
+            margin-top: 15px; font-size: 1.1rem; transition: 0.3s;
+        }
+        .btn-entrar:hover { background: var(--brand-blue); color: white; transform: scale(1.02); }
 
-        /* NAVBAR */
+        /* --- NAVBAR --- */
         nav {
             background: rgba(15, 23, 42, 0.9); padding: 1.2rem; position: sticky; top: 0;
             z-index: 1000; backdrop-filter: blur(12px); display: flex; justify-content: center;
             gap: 25px; border-bottom: 1px solid rgba(0, 210, 255, 0.2);
         }
-        nav a { color: white; text-decoration: none; font-weight: 700; font-size: 0.85rem; text-transform: uppercase; transition: 0.3s; }
+        nav a { color: white; text-decoration: none; font-weight: 700; font-size: 0.85rem; letter-spacing: 1px; transition: 0.3s; text-transform: uppercase; }
         nav a:hover { color: var(--secondary); }
 
-        /* HEADER PRO */
+        /* --- HEADER --- */
         header {
             background: radial-gradient(circle at top right, var(--brand-blue), var(--primary));
-            color: white; padding: 5rem 1rem 8rem; text-align: center; position: relative;
+            color: white; padding: 6rem 1rem 12rem; text-align: center; position: relative; overflow: hidden;
         }
         .logo-wrapper { background: white; padding: 15px 30px; border-radius: 20px; display: inline-block; box-shadow: 0 10px 30px rgba(0,0,0,0.2); }
         .header-logo { max-width: 220px; height: auto; }
+        .hero-tagline { font-weight: 800; font-size: 2rem; margin-top: 25px; text-shadow: 0 2px 15px rgba(0,0,0,0.3); }
+        .hero-visuals { display: flex; justify-content: center; gap: 40px; margin-top: 40px; flex-wrap: wrap; align-items: center; }
+        .personaje-img { max-width: 200px; filter: drop-shadow(0 15px 25px rgba(0,0,0,0.4)); }
+        
+        .code-mockup {
+            background: #0d1117; border-radius: 12px; padding: 20px; box-shadow: 0 25px 50px rgba(0,0,0,0.5);
+            font-family: 'Fira Code', monospace; font-size: 0.85rem; text-align: left; border: 1px solid #30363d;
+            max-width: 300px; color: #c9d1d9;
+        }
 
-        .container { max-width: 1200px; margin: -60px auto 50px; padding: 0 1.5rem; position: relative; z-index: 10; }
+        /* --- CONTENIDO --- */
+        .container { max-width: 1200px; margin: -80px auto 50px; padding: 0 1.5rem; position: relative; z-index: 10; }
 
         .catalog-title { 
-            text-align: center; margin: 50px auto 30px; padding: 15px 40px;
-            background: white; width: fit-content; border-radius: 100px;
-            box-shadow: 0 15px 35px rgba(0,0,0,0.1); font-weight: 800; font-size: 1.8rem;
-            color: var(--brand-blue); display: flex; align-items: center; gap: 15px;
+            text-align: center; margin: 60px auto 40px; padding: 15px 40px; background: white;
+            width: fit-content; border-radius: 100px; box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+            font-weight: 800; font-size: 1.8rem; color: var(--brand-blue); display: flex; align-items: center; gap: 15px;
             border: 1px solid rgba(0, 210, 255, 0.3);
         }
 
-        /* GRID DE PRODUCTOS */
+        /* --- GRID PRODUCTOS --- */
         .product-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 30px; }
         .product-card { 
-            background: white; border-radius: 24px; overflow: hidden; 
-            box-shadow: 0 10px 20px rgba(0,0,0,0.04); transition: 0.4s; 
-            display: flex; flex-direction: column; position: relative; border: 1px solid #edf2f7;
+            background: white; border-radius: 24px; overflow: hidden; box-shadow: 0 10px 20px rgba(0,0,0,0.04); 
+            transition: 0.4s; display: flex; flex-direction: column; position: relative; border: 1px solid #edf2f7;
         }
         .product-card:hover { transform: translateY(-12px); box-shadow: 0 20px 40px rgba(0,0,0,0.1); }
-        
-        .badge-qty { 
-            position: absolute; top: 15px; left: 15px; background: var(--primary); 
-            color: var(--secondary); padding: 6px 14px; border-radius: 50px; 
-            font-size: 0.7rem; font-weight: 800; z-index: 2; 
-        }
-
         .product-img-box { width: 100%; height: 260px; display: flex; align-items: center; justify-content: center; padding: 20px; }
-        .product-img-box img { max-width: 100%; max-height: 100%; object-fit: contain; transition: 0.5s; }
+        .product-img-box img { max-width: 100%; max-height: 100%; object-fit: contain; }
+        .product-content { padding: 25px; flex-grow: 1; }
+        .product-price { font-size: 1.6rem; font-weight: 800; color: var(--primary); margin: 10px 0; }
         
-        .product-content { padding: 25px; flex-grow: 1; display: flex; flex-direction: column; }
-        .product-name { font-weight: 700; font-size: 1.15rem; margin-bottom: 8px; color: var(--primary); }
-        .product-name small { display: block; color: #64748b; font-weight: 400; font-size: 0.85rem; }
-        
-        .price-box { margin-bottom: 20px; }
-        .price-label { font-size: 0.75rem; font-weight: 700; color: #94a3b8; text-transform: uppercase; }
-        .price-value { font-size: 1.5rem; font-weight: 800; color: var(--success); }
+        .badge-mayorista { position: absolute; top: 15px; left: 15px; background: var(--success); color: white; padding: 5px 12px; border-radius: 50px; font-size: 0.7rem; font-weight: 800; }
 
-        .btn-order { 
-            background: #f8fafc; color: var(--brand-blue); text-decoration: none; 
-            padding: 14px; border-radius: 15px; text-align: center; font-weight: 700; 
-            transition: 0.3s; display: flex; align-items: center; justify-content: center; 
-            gap: 10px; border: 1px solid #e2e8f0; cursor: pointer;
-        }
-        .btn-order:hover { background: var(--brand-blue); color: white; }
+        /* --- SOFTWARE SECCION --- */
+        .solutions-section { background: var(--dark-section); padding: 80px 30px; border-radius: 50px; color: white; margin: 80px 0; }
+        .solutions-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; margin-top: 40px; }
+        .solution-card { background: rgba(255,255,255,0.03); padding: 30px; border-radius: 24px; border-left: 5px solid var(--secondary); transition: 0.3s; cursor: pointer; }
+        .solution-card:hover { background: rgba(255,255,255,0.08); transform: scale(1.03); }
 
-        /* FOOTER */
-        footer { text-align: center; padding: 4rem 2rem; background: var(--primary); color: white; margin-top: 100px; }
-        .social-btn { 
-            display: flex; align-items: center; justify-content: center; gap: 12px; 
-            background: var(--insta); color: white; text-decoration: none; 
-            padding: 18px 40px; border-radius: 100px; max-width: 350px; 
-            margin: 30px auto; font-weight: 800;
+        .software-card { 
+            background: linear-gradient(145deg, #0f172a, #1e293b); color: white; padding: 3rem; 
+            border-radius: 30px; border: 1px solid rgba(0, 210, 255, 0.4); margin: 50px 0; 
+            display: flex; flex-wrap: wrap; gap: 40px; align-items: center;
         }
 
-        @media (max-width: 768px) { .product-grid { grid-template-columns: 1fr 1fr; } }
+        /* --- FOOTER --- */
+        footer { text-align: center; padding: 4rem 2rem; background: #fff; border-top: 1px solid #eee; }
+        .social-btn { display: flex; align-items: center; justify-content: center; gap: 12px; background: var(--insta); color: white; text-decoration: none; padding: 18px 40px; border-radius: 100px; max-width: 350px; margin: 30px auto; font-weight: 800; }
+
+        .fab-whatsapp { position: fixed; bottom: 30px; right: 30px; background: var(--success); color: white; width: 65px; height: 65px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 35px; box-shadow: 0 10px 25px rgba(37, 211, 102, 0.4); z-index: 999; cursor: pointer; }
+
+        @media (max-width: 768px) { .product-grid { grid-template-columns: 1fr 1fr; } .hero-tagline { font-size: 1.5rem; } }
     </style>
 </head>
 <body>
@@ -114,130 +122,157 @@
 <div id="login-overlay">
     <div class="login-card">
         <img src="aaa.png" alt="Servitecno" style="width: 180px; margin-bottom: 20px;">
-        <h2 style="color: var(--primary)">ACCESO MAYORISTA</h2>
-        <p>Ingresá tus datos para ver el catálogo de distribución 2026.</p>
-        <input type="text" id="nombre" placeholder="Nombre completo o Local">
-        <input type="text" id="ciudad" placeholder="Ciudad / Provincia">
-        <button onclick="entrarMayorista()" style="width: 100%; background: var(--success); color: white; border: none; padding: 18px; border-radius: 15px; font-weight: 800; cursor: pointer; margin-top: 10px;">VER PRECIOS MAYORISTAS</button>
+        <h2>ACCESO EXCLUSIVO</h2>
+        <p>Registrate para acceder al Ecosistema de Software y Catálogo Mayorista 2026.</p>
+        <input type="text" id="reg-nombre" placeholder="Tu Nombre o Negocio">
+        <input type="text" id="reg-ciudad" placeholder="Ciudad / Provincia">
+        <button class="btn-entrar" onclick="activarEcosistema()">INGRESAR AL SISTEMA</button>
+        <p style="font-size: 0.8rem; margin-top: 15px; color: #666;">Al ingresar, aceptas los términos de distribución de Servitecno.</p>
     </div>
 </div>
 
+<div class="fab-whatsapp" onclick="window.open('https://wa.me/543492697600')"><i class="fab fa-whatsapp"></i></div>
+
 <nav>
-    <a href="#perfumeria">Perfumería</a>
-    <a href="#tecnologia">Tecnología</a>
-    <a href="#termicos">Térmicos</a>
-    <a href="#apple">Accesorios Apple</a>
+    <a href="#inicio">Inicio</a>
+    <a href="#accesorios">Hardware</a>
+    <a href="#software">Software</a>
+    <a href="#servicio">Servicio Técnico</a>
 </nav>
 
-<header>
-    <div class="logo-wrapper"><img src="aaa.png" alt="Servitecno" class="header-logo"></div>
-    <h1 style="font-size: 2.2rem; margin-top: 20px; font-weight: 800;">DISTRIBUIDORA DE ALTO RENDIMIENTO</h1>
+<header id="inicio">
+    <div class="header-content">
+        <div class="logo-wrapper"><img src="aaa.png" alt="Servitecno" class="header-logo"></div>
+        <div class="hero-tagline">Rendimiento Extremo: <br><span style="color: var(--secondary);">Hardware Seleccionado & Software de Elite.</span></div>
+        <div class="hero-visuals">
+            <img src="personaje.png" alt="Técnico" class="personaje-img">
+            <div class="code-mockup">
+                <span style="color: #569cd6;">class</span> <span style="color: #4ec9b0;">MasterPlatinum</span> {<br>
+                &nbsp;&nbsp;power() { <span style="color: #ce9178;">'100%'</span>; }<br>
+                &nbsp;&nbsp;ram() { <span style="color: #ce9178;">'Optimized'</span>; }<br>
+                }
+            </div>
+        </div>
+    </div>
 </header>
 
 <div class="container">
     
-    <h2 class="catalog-title" id="perfumeria"><i class="fas fa-sparkles"></i> Perfumería Árabe</h2>
+    <h2 class="catalog-title" id="accesorios"><i class="fas fa-bolt"></i> Catálogo de Distribución</h2>
     <div class="product-grid">
         <div class="product-card">
-            <div class="badge-qty">MÍNIMO 3u</div>
-            <div class="product-img-box"><img src="personaje.png" alt="Lattafa Asad"></div>
+            <div class="badge-mayorista">NUEVO</div>
+            <div class="product-img-box"><img src="AirPods 4GEN.jpeg"></div>
             <div class="product-content">
-                <div class="product-name">Lattafa Asad Black / Bourbon<small>100ml - Importado</small></div>
-                <div class="price-box">
-                    <div class="price-label">Precio Mayorista</div>
-                    <div class="price-value">CONSULTAR</div>
-                </div>
-                <button onclick="consultar('Lattafa Asad')" class="btn-order"><i class="fab fa-whatsapp"></i> COTIZAR</button>
+                <div style="font-weight: 700;">AirPods 4ta Generación<small style="display:block; color:#666;">Audio Espacial / USB-C</small></div>
+                <div class="product-price">Consultar</div>
+                <button onclick="pedir('AirPods 4')" class="btn-entrar" style="padding:12px; font-size: 0.9rem;">CONSULTAR STOCK</button>
             </div>
         </div>
+
         <div class="product-card">
-            <div class="badge-qty">MÍNIMO 3u</div>
-            <div class="product-img-box"><img src="personaje.png" alt="Lattafa Yara"></div>
+            <div class="badge-mayorista">MÍNIMO 5u</div>
+            <div class="product-img-box"><img src="CABEZAL CON CABLE.jpeg"></div>
             <div class="product-content">
-                <div class="product-name">Lattafa Yara (Rosa/Candy)<small>100ml - Viral TikTok</small></div>
-                <div class="price-box"><div class="price-label">Precio Mayorista</div><div class="price-value">CONSULTAR</div></div>
-                <button onclick="consultar('Lattafa Yara')" class="btn-order"><i class="fab fa-whatsapp"></i> COTIZAR</button>
+                <div style="font-weight: 700;">Combo Carga iPhone 20W<small style="display:block; color:#666;">Cabezal + Cable Lightning</small></div>
+                <div class="product-price">$35.000</div>
+                <button onclick="pedir('Combo iPhone 20W')" class="btn-entrar" style="padding:12px; font-size: 0.9rem;">PEDIR AHORA</button>
+            </div>
+        </div>
+
+        <div class="product-card">
+            <div class="product-img-box"><img src="SAMSUNG C A C.jpeg"></div>
+            <div class="product-content">
+                <div style="font-weight: 700;">Cargador Samsung 25W<small style="display:block; color:#666;">Tipo C a C / Carga Ultra</small></div>
+                <div class="product-price">$18.000</div>
+                <button onclick="pedir('Cargador Samsung')" class="btn-entrar" style="padding:12px; font-size: 0.9rem;">PEDIR AHORA</button>
             </div>
         </div>
     </div>
 
-    <h2 class="catalog-title" id="apple"><i class="fab fa-apple"></i> Accesorios Apple Style</h2>
-    <div class="product-grid">
-        <div class="product-card">
-            <div class="badge-qty">MÍNIMO 5u</div>
-            <div class="product-img-box"><img src="CABEZAL CON CABLE.jpeg" alt="Combo 20W"></div>
-            <div class="product-content">
-                <div class="product-name">Combo Carga Rápida 20W<small>Cabezal + Cable Lightning</small></div>
-                <div class="price-box"><div class="price-label">Precio Mayorista</div><div class="price-value">CONSULTAR</div></div>
-                <button onclick="consultar('Combo Apple 20W')" class="btn-order"><i class="fab fa-whatsapp"></i> COTIZAR</button>
+    <div class="solutions-section" id="software">
+        <h2 style="text-align: center; font-size: 2.5rem; font-weight: 800; margin: 0;">Servitecno Solutions</h2>
+        <p style="text-align: center; color: var(--secondary);">Desarrollo y Optimización de Alto Nivel</p>
+        <div class="solutions-grid">
+            <div class="solution-card" onclick="pedir('Software a Medida')">
+                <i class="fas fa-layer-group fa-2x" style="color:var(--secondary)"></i>
+                <h3>Software a Medida</h3>
+                <p>Sistemas exactos para escalar tu negocio al siguiente nivel.</p>
             </div>
-        </div>
-        <div class="product-card">
-            <div class="badge-qty">MÍNIMO 3u</div>
-            <div class="product-img-box"><img src="AirPods 4GEN.jpeg" alt="AirPods 4"></div>
-            <div class="product-content">
-                <div class="product-name">AirPods 4ta Generación<small>Premium Box / USB-C</small></div>
-                <div class="price-box"><div class="price-label">Precio Mayorista</div><div class="price-value">CONSULTAR</div></div>
-                <button onclick="consultar('AirPods 4')" class="btn-order"><i class="fab fa-whatsapp"></i> COTIZAR</button>
+            <div class="solution-card" onclick="pedir('Webs Impacto')">
+                <i class="fas fa-rocket fa-2x" style="color:var(--secondary)"></i>
+                <h3>Webs de Impacto</h3>
+                <p>Landing pages diseñadas para convertir visitas en ventas.</p>
+            </div>
+            <div class="solution-card" onclick="pedir('Excel Pro')">
+                <i class="fas fa-file-excel fa-2x" style="color:var(--secondary)"></i>
+                <h3>Excel & Macros</h3>
+                <p>Automatización total de procesos administrativos.</p>
             </div>
         </div>
     </div>
 
-    <h2 class="catalog-title" id="tecnologia"><i class="fas fa-microchip"></i> Tecnología & Audio</h2>
-    <div class="product-grid">
-        <div class="product-card">
-            <div class="badge-qty">MÍNIMO 3u</div>
-            <div class="product-img-box"><img src="personaje.png" alt="JBL Flip 6"></div>
-            <div class="product-content">
-                <div class="product-name">Parlante JBL Flip 6<small>Waterproof / Sonido Pro</small></div>
-                <div class="price-box"><div class="price-label">Precio Mayorista</div><div class="price-value">CONSULTAR</div></div>
-                <button onclick="consultar('JBL Flip 6')" class="btn-order"><i class="fab fa-whatsapp"></i> COTIZAR</button>
-            </div>
+    <div class="software-card">
+        <div style="flex: 1; min-width: 300px;">
+            <h2 style="color: var(--secondary); font-size: 2.2rem; margin: 0;">Master Platinum 2026</h2>
+            <p>La suite definitiva para llevar tu PC al 100% de su capacidad real.</p>
+            <ul style="list-style: none; padding: 0; display: grid; grid-template-columns: 1fr 1fr; gap: 15px; font-weight: 600;">
+                <li><i class="fas fa-microchip" style="color:var(--secondary)"></i> Monitor CPU-Z Style</li>
+                <li><i class="fas fa-memory" style="color:var(--secondary)"></i> Limpieza RAM</li>
+                <li><i class="fas fa-broom" style="color:var(--secondary)"></i> Deep Junk Clean</li>
+                <li><i class="fas fa-tachometer-alt" style="color:var(--secondary)"></i> FPS Boost</li>
+            </ul>
         </div>
-        <div class="product-card">
-            <div class="badge-qty">MÍNIMO 3u</div>
-            <div class="product-img-box"><img src="personaje.png" alt="Smartwatch"></div>
-            <div class="product-content">
-                <div class="product-name">Smartwatch Big Ultra 2<small>7 Mallas / Serie 9</small></div>
-                <div class="price-box"><div class="price-label">Precio Mayorista</div><div class="price-value">CONSULTAR</div></div>
-                <button onclick="consultar('Smartwatch Ultra 2')" class="btn-order"><i class="fab fa-whatsapp"></i> COTIZAR</button>
-            </div>
+        <div style="background: rgba(255,255,255,0.05); padding: 30px; border-radius: 24px; border: 1px solid rgba(0,210,255,0.3);">
+            <select id="modalidad" style="width:100%; padding:15px; border-radius:12px; margin-bottom:15px; font-weight:700;">
+                <option>A Distancia (AnyDesk)</option>
+                <option>Presencial (Rafaela)</option>
+            </select>
+            <button onclick="comprarMaster()" class="btn-entrar" style="background: var(--success); color: white; margin: 0;">OBTENER AHORA</button>
         </div>
     </div>
 
     <a href="https://www.instagram.com/serviitecno/" target="_blank" class="social-btn">
-        <i class="fab fa-instagram fa-2xl"></i> SEGUINOS PARA NOVEDADES
+        <i class="fab fa-instagram fa-2xl"></i> SEGUINOS EN INSTAGRAM
     </a>
 </div>
 
 <footer>
-    <p>© 2026 SERVITECNO | Rafaela, Santa Fe.</p>
-    <a href="https://whatsapp.com/channel/0029VbByJuH9MF8z9ucnXj1B" style="color: var(--secondary); text-decoration: none; font-weight: 700;">UNITE AL CANAL DE OFERTAS</a>
+    <p>© 2026 Servitecno | Tecnología y Software de Alto Rendimiento.</p>
+    <p style="font-size: 0.7rem; opacity: 0.5;">Desarrollado con precisión quirúrgica en Rafaela, SF.</p>
 </footer>
 
 <script>
     const numTel = "543492697600";
+    let cliente = "";
 
-    function entrarMayorista() {
-        const n = document.getElementById('nombre').value;
-        const c = document.getElementById('ciudad').value;
+    function activarEcosistema() {
+        const n = document.getElementById('reg-nombre').value;
+        const c = document.getElementById('reg-ciudad').value;
         if(n && c) {
-            document.getElementById('login-overlay').style.display = 'none';
-            // Mensaje automático al dueño
-            const msg = `Hola Agustin! Soy ${n} de ${c}, acabo de entrar a la web mayorista para ver productos.`;
-            console.log("Registro de:", n);
+            cliente = n;
+            document.getElementById('login-overlay').style.opacity = '0';
+            setTimeout(() => document.getElementById('login-overlay').style.display = 'none', 500);
+            console.log("Acceso concedido a:", n);
         } else {
-            alert("Completá los datos para ver los precios de reventa.");
+            alert("Por favor, ingresá tus datos para el registro de cliente.");
         }
     }
 
-    function consultar(prod) {
-        const msg = `Hola Agustin! 👋 Me interesa cotizar por mayor: *${prod}*.`;
+    function pedir(prod) {
+        const msg = `Hola Agustin! 👋 Soy ${cliente}. Me interesa: *${prod}*`;
+        window.open(`https://wa.me/${numTel}?text=${encodeURIComponent(msg)}`, '_blank');
+    }
+
+    function comprarMaster() {
+        const mod = document.getElementById('modalidad').value;
+        const msg = `Hola Agustin! 👋 Soy ${cliente}. Quiero el *Master Platinum 2026* (${mod})`;
         window.open(`https://wa.me/${numTel}?text=${encodeURIComponent(msg)}`, '_blank');
     }
 </script>
 </body>
 </html>
+
 
 
 
