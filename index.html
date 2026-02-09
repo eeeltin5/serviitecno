@@ -3,291 +3,204 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Servitecno | Global Ecosystem 2026</title>
+    <title>Servitecno | Distribuidora Global</title>
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         :root {
-            --primary: #020617;
-            --brand-blue: #0062ff;
-            --secondary: #00d2ff;
-            --success: #25d366;
-            --bg: #020617;
-            --card-bg: rgba(30, 41, 59, 0.7);
-            --text: #f8fafc;
+            --bg: #050505;
+            --accent: #00d2ff;
             --gold: #ffcf4b;
-            --sidebar-width: 280px;
+            --card: #111111;
+            --text: #ffffff;
+            --success: #25d366;
         }
 
-        * { box-sizing: border-box; scroll-behavior: smooth; }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
         body { 
             font-family: 'Inter', sans-serif; 
-            margin: 0; 
-            background: var(--bg); 
-            color: var(--text); 
-            display: flex;
-            background-image: radial-gradient(circle at 50% 50%, #0f172a 0%, #020617 100%);
-            min-height: 100vh;
+            background-color: var(--bg); 
+            color: var(--text);
+            line-height: 1.6;
+            overflow-x: hidden;
         }
 
-        /* --- SIDEBAR --- */
-        .sidebar {
-            width: var(--sidebar-width);
-            background: rgba(2, 6, 23, 0.98);
-            height: 100vh;
+        /* --- NAVEGACIÓN --- */
+        nav {
+            background: rgba(0, 0, 0, 0.9);
+            padding: 20px 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
             position: fixed;
-            border-right: 1px solid rgba(0, 210, 255, 0.3);
+            width: 100%;
+            z-index: 1000;
+            border-bottom: 1px solid rgba(255,207,75,0.2);
+            backdrop-filter: blur(10px);
+        }
+        .logo { font-family: 'Orbitron'; font-weight: 900; color: var(--gold); font-size: 1.5rem; display: flex; align-items: center; gap: 10px; }
+
+        /* --- HERO SECTION --- */
+        .hero {
+            height: 80vh;
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://i.ibb.co/VpByS6p/WhatsApp-Image-2026-02-09-at-17-10-55.jpg');
+            background-size: cover;
+            background-position: center;
             display: flex;
             flex-direction: column;
-            backdrop-filter: blur(15px);
-            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 0 20px;
         }
-        .sidebar-header { padding: 30px 20px; text-align: center; }
-        .logo-main { width: 80px; filter: drop-shadow(0 0 10px var(--secondary)); }
-        
-        .nav-menu { flex-grow: 1; padding: 20px; }
-        .nav-link {
-            display: flex; align-items: center; gap: 15px; padding: 15px;
-            color: #94a3b8; text-decoration: none; border-radius: 12px;
-            font-weight: 700; transition: 0.3s; margin-bottom: 8px;
-            text-transform: uppercase; letter-spacing: 1px; font-size: 0.75rem;
-        }
-        .nav-link:hover, .nav-link.active { 
-            background: linear-gradient(90deg, rgba(0, 98, 255, 0.2), transparent); 
-            color: var(--secondary);
-            border-left: 4px solid var(--secondary);
-        }
-
-        /* --- MAIN CONTENT --- */
-        .main-content { margin-left: var(--sidebar-width); flex-grow: 1; padding: 40px; width: calc(100% - var(--sidebar-width)); }
-        .section { display: none; animation: fadeIn 0.5s ease-out; }
-        .section.active { display: block; }
-        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
-
-        /* --- HARDWARE MONITOR (ESTILO CPU-Z) --- */
-        .hw-monitor {
-            background: #000;
-            border: 1px solid var(--secondary);
-            border-radius: 15px;
-            padding: 20px;
-            font-family: 'monospace';
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 20px;
-            margin-bottom: 30px;
-        }
-        .hw-stat { background: #111; padding: 15px; border-radius: 8px; border-left: 3px solid var(--secondary); }
-        .hw-label { color: var(--secondary); font-size: 0.7rem; text-transform: uppercase; }
-        .hw-value { font-size: 1.2rem; font-weight: bold; color: #fff; margin-top: 5px; }
-
-        /* --- PRODUCT GRID --- */
-        .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 25px; }
-        .card { 
-            background: var(--card-bg); border-radius: 20px; padding: 15px; 
-            border: 1px solid rgba(255,255,255,0.05); transition: 0.4s;
-            overflow: hidden; display: flex; flex-direction: column;
-        }
-        .card:hover { transform: translateY(-10px); border-color: var(--secondary); box-shadow: 0 10px 30px rgba(0,210,255,0.2); }
-        .card img { 
-            width: 100%; height: 200px; object-fit: cover; 
-            border-radius: 12px; margin-bottom: 15px;
-            background: white; /* Para resaltar los productos de las fotos */
-        }
-        .card h4 { font-family: 'Orbitron'; font-size: 0.9rem; margin: 10px 0; min-height: 40px; }
-
-        .price-tag { color: var(--gold); font-weight: 800; font-size: 1.1rem; margin-bottom: 15px; display: block;}
+        .hero h1 { font-family: 'Orbitron'; font-size: 3.5rem; margin-bottom: 10px; color: white; text-transform: uppercase; }
+        .hero p { font-size: 1.2rem; color: var(--gold); font-weight: 600; letter-spacing: 2px; }
 
         /* --- BOTONES --- */
+        .btn-group { display: flex; gap: 20px; margin-top: 30px; flex-wrap: wrap; justify-content: center; }
         .btn {
-            width: 100%; padding: 12px; border-radius: 8px; border: none;
-            font-weight: 800; cursor: pointer; transition: 0.3s;
-            display: flex; align-items: center; justify-content: center; gap: 8px;
-            text-decoration: none; text-transform: uppercase; font-size: 0.75rem;
+            padding: 15px 35px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 800;
+            font-family: 'Orbitron';
+            font-size: 0.8rem;
+            transition: 0.3s;
+            text-transform: uppercase;
         }
-        .btn-blue { background: var(--brand-blue); color: white; }
-        .btn-gold { background: var(--gold); color: #000; font-family: 'Orbitron'; }
-        .btn-whatsapp { background: var(--success); color: white; }
-        .btn-danger { background: #ef4444; color: white; margin-top: 10px; }
+        .btn-main { background: var(--gold); color: black; border: 2px solid var(--gold); }
+        .btn-main:hover { background: transparent; color: var(--gold); }
+        .btn-whatsapp { background: var(--success); color: white; border: 2px solid var(--success); }
+        .btn-whatsapp:hover { background: transparent; color: var(--success); }
 
-        @media (max-width: 1024px) {
-            .sidebar { width: 70px; }
-            .sidebar span, .sidebar-header h2, .sidebar-header small { display: none; }
-            .main-content { margin-left: 70px; width: calc(100% - 70px); }
+        /* --- SECCIONES --- */
+        section { padding: 80px 10%; }
+        h2 { font-family: 'Orbitron'; text-align: center; font-size: 2rem; margin-bottom: 50px; position: relative; }
+        h2::after { content: ''; width: 60px; height: 4px; background: var(--gold); position: absolute; bottom: -15px; left: 50%; transform: translateX(-50%); }
+
+        /* --- GRID DE PRODUCTOS --- */
+        .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 30px; }
+        .card {
+            background: var(--card);
+            border-radius: 20px;
+            padding: 20px;
+            border: 1px solid #222;
+            transition: 0.4s;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        .card:hover { transform: translateY(-10px); border-color: var(--gold); box-shadow: 0 10px 30px rgba(255,207,75,0.1); }
+        .card img { width: 100%; height: 250px; object-fit: cover; border-radius: 15px; margin-bottom: 20px; }
+        .card h3 { font-family: 'Orbitron'; font-size: 1rem; margin-bottom: 15px; color: #ddd; }
+        .badge { background: var(--gold); color: black; padding: 5px 15px; border-radius: 50px; font-size: 0.7rem; font-weight: 800; position: absolute; top: 30px; right: 30px; }
+
+        /* --- MASTER PLATINUM SECTION --- */
+        .master-section {
+            background: linear-gradient(45deg, #000, #001f3f);
+            border: 2px solid var(--accent);
+            border-radius: 30px;
+            padding: 60px;
+            text-align: center;
+            margin: 40px 0;
+        }
+
+        /* --- FOOTER --- */
+        footer { background: #000; padding: 40px; text-align: center; border-top: 1px solid #222; }
+        .social-links { display: flex; justify-content: center; gap: 30px; margin-bottom: 20px; }
+        .social-links a { color: var(--text); font-size: 1.5rem; transition: 0.3s; }
+        .social-links a:hover { color: var(--gold); }
+
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2rem; }
+            section { padding: 60px 5%; }
         }
     </style>
 </head>
 <body>
 
-<aside class="sidebar">
-    <div class="sidebar-header">
-        <i class="fas fa-microchip fa-3x" style="color: var(--secondary);"></i>
-        <h2 style="font-family: 'Orbitron'; color: var(--secondary); margin: 10px 0 0 0; font-size: 1rem;">SERVITECNO</h2>
-        <small style="color: var(--gold); letter-spacing: 1px; font-weight: 800; font-size: 0.6rem;">MAYORISTA INTERNACIONAL</small>
+<nav>
+    <div class="logo"><i class="fas fa-bolt"></i> SERVITECNO</div>
+    <div class="nav-links">
+        <a href="https://wa.me/543492697600" style="color: var(--gold); text-decoration: none; font-weight: 700;">ACCESO MAYORISTA</a>
     </div>
-    
-    <nav class="nav-menu">
-        <a href="#" class="nav-link active" onclick="nav('inicio')"><i class="fas fa-home"></i> <span>Inicio</span></a>
-        <a href="#" class="nav-link" onclick="nav('hardware')"><i class="fas fa-desktop"></i> <span>Hardware Monitor</span></a>
-        <a href="#" class="nav-link" onclick="nav('stock')"><i class="fas fa-shopping-cart"></i> <span>Catálogo Real</span></a>
-        <a href="#" class="nav-link" onclick="nav('software')"><i class="fas fa-rocket"></i> <span>Master Platinum</span></a>
-    </nav>
+</nav>
 
-    <div style="padding: 20px;">
-        <a href="https://wa.me/543492697600" target="_blank" class="btn btn-whatsapp">
-            <i class="fab fa-whatsapp"></i> CONTACTO DIRECTO
-        </a>
+<header class="hero">
+    <h1>Importación Directa Premium</h1>
+    <p>LOS PRODUCTOS MÁS VIRALES, AL MEJOR PRECIO</p>
+    <div class="btn-group">
+        <a href="#catalogo" class="btn btn-main">VER CATÁLOGO</a>
+        <a href="https://wa.me/543492697600" class="btn btn-whatsapp"><i class="fab fa-whatsapp"></i> PEDIR LISTA EXCEL</a>
     </div>
-</aside>
+</header>
 
-<main class="main-content">
-
-    <section id="sec-inicio" class="section active">
-        <div style="background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://i.ibb.co/VpByS6p/WhatsApp-Image-2026-02-09-at-17-10-55.jpg'); background-size: cover; padding: 60px; border-radius: 30px; border: 1px solid var(--gold); margin-bottom: 30px;">
-            <h1 style="font-family: 'Orbitron'; font-size: 3rem; margin: 0;">BIENVENIDO AL <br><span style="color: var(--gold);">ECOSISTEMA</span></h1>
-            <p style="font-size: 1.2rem; max-width: 500px;">Importación directa y optimización de sistemas en una sola plataforma.</p>
+<section id="catalogo">
+    <h2>NUESTRO STOCK REAL</h2>
+    <div class="grid">
+        <div class="card">
+            <span class="badge">ORIGINAL</span>
+            <img src="https://i.ibb.co/F0rPrPj/image-8799bb.jpg" alt="JBL Stock">
+            <h3>Línea JBL & Audio</h3>
+            <p style="font-size: 0.8rem; color: #888; margin-bottom: 15px;">Go 4, Flip 6, Tune 510BT, Quantum</p>
+            <a href="https://wa.me/543492697600" class="btn btn-main" style="display: block;">CONSULTAR STOCK</a>
         </div>
 
-        <div class="grid">
-            <div class="card">
-                <img src="https://i.ibb.co/L9B6X7X/perfume.jpg" alt="Perfumes">
-                <h4>Fragancias Árabes Lattafa</h4>
-                <span class="price-tag">Desde $12.50 USD</span>
-                <button onclick="nav('stock')" class="btn btn-blue">VER LISTA COMPLETA</button>
-            </div>
-            <div class="card">
-                <img src="https://i.ibb.co/vYm6vMv/charger.jpg" alt="Apple">
-                <h4>Apple Original 20W</h4>
-                <span class="price-tag">$5.00 USD (Costo)</span>
-                <button onclick="nav('stock')" class="btn btn-blue">VER LISTA COMPLETA</button>
-            </div>
-        </div>
-    </section>
-
-    <section id="sec-hardware" class="section">
-        <h2 style="font-family: 'Orbitron'; color: var(--secondary);"><i class="fas fa-microchip"></i> REAL-TIME SYSTEM MONITOR</h2>
-        
-        <div class="hw-monitor">
-            <div class="hw-stat">
-                <div class="hw-label">Procesador (CPU)</div>
-                <div class="hw-value" id="cpu-load">Simulando...</div>
-            </div>
-            <div class="hw-stat">
-                <div class="hw-label">Memoria RAM</div>
-                <div class="hw-value" id="ram-usage">8.2 GB / 16 GB</div>
-            </div>
-            <div class="hw-stat">
-                <div class="hw-label">Disco (SSD/HDD)</div>
-                <div class="hw-value">Salud: 99% (Perfecta)</div>
-            </div>
-            <div class="hw-stat">
-                <div class="hw-label">Temperatura</div>
-                <div class="hw-value" id="temp-val">42°C</div>
-            </div>
+        <div class="card">
+            <span class="badge">TENDENCIA</span>
+            <img src="https://i.ibb.co/vYxTz5z/image-8799da.jpg" alt="Stanley Stock">
+            <h3>Stanley Quencher & Classic</h3>
+            <p style="font-size: 0.8rem; color: #888; margin-bottom: 15px;">Todos los colores y modelos disponibles</p>
+            <a href="https://wa.me/543492697600" class="btn btn-main" style="display: block;">VER COLORES</a>
         </div>
 
-        <div style="background: var(--card-bg); padding: 25px; border-radius: 20px; border: 1px solid var(--success);">
-            <h3 style="margin-top: 0; color: var(--success);"><i class="fas fa-broom"></i> RAM CLEANER & OPTIMIZER</h3>
-            <p>Este proceso cerrará servicios innecesarios y liberará caché del sistema para aumentar los FPS y la velocidad de respuesta.</p>
-            <button onclick="limpiarRAM()" id="btn-clean" class="btn btn-whatsapp" style="max-width: 300px; font-size: 1rem;">
-                <i class="fas fa-bolt"></i> EJECUTAR LIMPIEZA TOTAL
-            </button>
-            <p id="clean-status" style="margin-top: 15px; font-weight: bold; color: var(--gold); display: none;">¡Limpieza completada! 2.4GB Liberados.</p>
+        <div class="card">
+            <span class="badge">LUJO</span>
+            <img src="https://i.ibb.co/L9B6X7X/perfume.jpg" alt="Perfumes Arabes">
+            <h3>Fragancias Árabes Lattafa</h3>
+            <p style="font-size: 0.8rem; color: #888; margin-bottom: 15px;">Asad, Yara, Khamrah y más</p>
+            <a href="https://wa.me/543492697600" class="btn btn-main" style="display: block;">PEDIR CATÁLOGO</a>
         </div>
-    </section>
 
-    <section id="sec-stock" class="section">
-        <h2 style="font-family: 'Orbitron'; text-align: center;">CATÁLOGO DE PRODUCTOS REALES</h2>
-        <div class="grid">
-            <div class="card">
-                <img src="https://www.jbl.com.ar/dw/image/v2/AAUJ_PRD/on/demandware.static/-/Sites-masterCatalog_Harman/default/dw10620251/JBL_GO_4_HERO_BLUE_0126_x1.png" alt="JBL">
-                <h4>Línea JBL (Go 4, Flip 6, Tune)</h4>
-                <span class="price-tag">Desde $12 USD</span>
-                <button onclick="pedir('JBL')" class="btn btn-blue">SOLICITAR EXCEL</button>
-            </div>
-            <div class="card">
-                <img src="https://www.stanley1913.com/cdn/shop/files/Quencher_H2.0_FlowState_Tumbler_40OZ_RoseQuartz_01.jpg" alt="Stanley">
-                <h4>Termos Stanley Quencher / Classic</h4>
-                <span class="price-tag">Stock Permanente</span>
-                <button onclick="pedir('Stanley')" class="btn btn-blue">VER COLORES</button>
-            </div>
-            <div class="card">
-                <img src="https://m.media-amazon.com/images/I/41-pY2V+9FL._AC_SL1000_.jpg" alt="Apple">
-                <h4>Apple Accessories (MagSafe/Cables)</h4>
-                <span class="price-tag">Costo Mayorista</span>
-                <button onclick="pedir('Apple')" class="btn btn-blue">VER LISTA</button>
-            </div>
-            <div class="card">
-                <img src="https://i.ibb.co/k0mX99B/smartwatch.jpg" alt="Smartwatch">
-                <h4>Watch Ultra 2 / Big Ultra 2</h4>
-                <span class="price-tag">Desde $13 USD</span>
-                <button onclick="pedir('Relojes')" class="btn btn-blue">VER MODELOS</button>
-            </div>
+        <div class="card">
+            <span class="badge">IMPORTADO</span>
+            <img src="https://i.ibb.co/vYm6vMv/charger.jpg" alt="Apple Accessories">
+            <h3>Accesorios Apple Eco</h3>
+            <p style="font-size: 0.8rem; color: #888; margin-bottom: 15px;">MagSafe, Cabezales 20W, Silicone Cases</p>
+            <a href="https://wa.me/543492697600" class="btn btn-main" style="display: block;">SOLICITAR PRECIOS</a>
         </div>
-    </section>
+    </div>
+</section>
 
-    <section id="sec-software" class="section">
-        <div style="background: #000; padding: 50px; border-radius: 40px; border: 2px solid var(--secondary); text-align: center;">
-            <i class="fas fa-rocket fa-4x" style="color: var(--secondary); margin-bottom: 20px;"></i>
-            <h1 style="font-family: 'Orbitron';">MASTER PLATINUM 2026</h1>
-            <p style="letter-spacing: 3px; color: var(--secondary);">SOFTWARE DE ALTO RENDIMIENTO</p>
-            
-            <div class="grid" style="text-align: left; margin: 40px 0;">
-                <div class="card" style="border-color: var(--secondary);">
-                    <i class="fas fa-eye-slash fa-2x"></i>
-                    <h4>Anti-Telemetría</h4>
-                    <p>Elimina el rastreo de Windows para mayor privacidad y velocidad.</p>
-                </div>
-                <div class="card" style="border-color: var(--secondary);">
-                    <i class="fas fa-gamepad fa-2x"></i>
-                    <h4>Gaming Mode</h4>
-                    <p>Prioridad máxima de CPU para procesos de juegos.</p>
-                </div>
-            </div>
-            <button onclick="pedir('Licencia Master Platinum')" class="btn btn-gold" style="max-width: 400px; margin: 0 auto;">ADQUIRIR LICENCIA</button>
-        </div>
-    </section>
+<section>
+    <div class="master-section">
+        <i class="fas fa-rocket fa-4x" style="color: var(--accent); margin-bottom: 20px;"></i>
+        <h2 style="margin-bottom: 20px; border: none;">MASTER PLATINUM 2026</h2>
+        <p style="max-width: 600px; margin: 0 auto 30px auto; font-size: 1.1rem; color: #aaa;">
+            Optimización extrema para tu PC. Limpieza de RAM en tiempo real, modo gaming y eliminación de telemetría. Software diseñado para potenciar tu equipo al máximo.
+        </p>
+        <a href="https://wa.me/543492697600" class="btn btn-main" style="border-color: var(--accent); color: var(--accent);">ADQUIRIR LICENCIA</a>
+    </div>
+</section>
 
-</main>
+<footer>
+    <div class="social-links">
+        <a href="#"><i class="fab fa-instagram"></i></a>
+        <a href="https://wa.me/543492697600"><i class="fab fa-whatsapp"></i></a>
+        <a href="#"><i class="fas fa-paper-plane"></i></a> </div>
+    <p style="font-family: 'Orbitron'; font-size: 0.8rem; color: #555;">&copy; 2026 SERVITECNO GLOBAL - AGUSTÍN COMERCIALIZACIÓN</p>
+</footer>
 
 <script>
-    // Navegación agilizada
-    function nav(s) {
-        document.querySelectorAll('.section').forEach(sec => sec.classList.remove('active'));
-        document.getElementById(`sec-${s}`).classList.add('active');
-        document.querySelectorAll('.nav-link').forEach(l => l.classList.remove('active'));
-        if(event) event.currentTarget.classList.add('active');
-        window.scrollTo(0,0);
-    }
-
-    // Pedidos por WhatsApp
-    function pedir(item) {
-        const tel = "543492697600";
-        const msg = `Hola Agustin! 👋 Me interesa el stock mayorista de: *${item}*. Enviame la lista actualizada.`;
-        window.open(`https://wa.me/${tel}?text=${encodeURIComponent(msg)}`, '_blank');
-    }
-
-    // Simulación de Hardware en tiempo real (Agilidad de Software)
-    setInterval(() => {
-        const cpu = Math.floor(Math.random() * (15 - 5 + 1) + 5);
-        const temp = Math.floor(Math.random() * (45 - 38 + 1) + 38);
-        document.getElementById('cpu-load').innerText = `${cpu}% Usage`;
-        document.getElementById('temp-val').innerText = `${temp}°C`;
-    }, 2000);
-
-    // Función de Limpieza de RAM (Visual y lógica)
-    function limpiarRAM() {
-        const btn = document.getElementById('btn-clean');
-        const status = document.getElementById('clean-status');
-        btn.innerText = "PROCESANDO...";
-        btn.disabled = true;
-
-        setTimeout(() => {
-            document.getElementById('ram-usage').innerText = "4.1 GB / 16 GB";
-            status.style.display = "block";
-            btn.innerText = "SISTEMA OPTIMIZADO";
-            btn.style.background = "#25d366";
-        }, 1500);
-    }
+    // Navegación suave
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            document.querySelector(this.getAttribute('href')).scrollIntoView({
+                behavior: 'smooth'
+            });
+        });
+    });
 </script>
 
 </body>
