@@ -3,332 +3,282 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Servitecno | Distribuidora Tecnológica 2026</title>
-    <link rel="icon" type="image/x-icon" href="icono.ico">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <title>Servitecno | Mayorista & Software 2026</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         :root {
             --primary: #0f172a;
-            --brand-blue: #1a4a8e;
             --secondary: #00d2ff;
-            --gold: #ffcc00; /* Color para resaltar rentabilidad */
             --success: #25d366;
-            --bg: #f8fafc;
-            --text: #1e293b;
-            --white: #ffffff;
-            --accent: #ff4757;
-            --insta: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+            --light-bg: #fdfdfd;
+            --card-border: #eef2f6;
         }
 
         body {
             font-family: 'Inter', sans-serif;
             margin: 0;
-            background-color: var(--bg);
-            color: var(--text);
-            line-height: 1.6;
-            scroll-behavior: smooth;
+            background-color: var(--light-bg);
+            color: #334155;
+            line-height: 1.5;
         }
 
-        /* --- NAVBAR --- */
+        /* NAVBAR SIMPLE */
         nav {
-            background: rgba(15, 23, 42, 0.95);
+            background: #fff;
             padding: 1rem;
+            text-align: center;
+            border-bottom: 1px solid #f1f5f9;
             position: sticky;
             top: 0;
-            z-index: 1000;
-            backdrop-filter: blur(12px);
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-            border-bottom: 2px solid var(--secondary);
+            z-index: 100;
         }
 
         nav a {
-            color: white;
             text-decoration: none;
-            font-weight: 700;
-            font-size: 0.75rem;
-            text-transform: uppercase;
-            transition: 0.3s;
+            color: var(--primary);
+            font-weight: 600;
+            margin: 0 15px;
+            font-size: 0.9rem;
         }
 
-        nav a:hover { color: var(--secondary); }
-
-        /* --- HERO SECTION --- */
+        /* HERO CLEAN */
         header {
-            background: radial-gradient(circle at center, #1e3a8a, #0f172a);
-            color: white;
-            padding: 4rem 1rem 8rem;
+            padding: 80px 20px;
             text-align: center;
-            position: relative;
+            background: #fff;
         }
 
-        .hero-tagline {
+        .header-logo { max-width: 180px; margin-bottom: 20px; }
+
+        .hero-title {
+            font-size: 2.5rem;
             font-weight: 800;
-            font-size: clamp(1.5rem, 5vw, 2.8rem);
-            margin-top: 20px;
-            line-height: 1.1;
+            color: var(--primary);
+            margin-bottom: 15px;
+            letter-spacing: -1px;
         }
 
-        .highlight-gold { color: var(--gold); text-shadow: 0 0 15px rgba(255, 204, 0, 0.4); }
-
-        /* --- STATS BAR (Genera Confianza) --- */
-        .stats-bar {
-            display: flex;
-            justify-content: center;
-            gap: 30px;
-            margin-top: 40px;
-            flex-wrap: wrap;
+        .hero-subtitle {
+            color: #64748b;
+            max-width: 600px;
+            margin: 0 auto 30px;
+            font-size: 1.1rem;
         }
 
-        .stat-item { background: rgba(255,255,255,0.1); padding: 10px 20px; border-radius: 12px; border: 1px solid rgba(255,255,255,0.2); }
-        .stat-item strong { display: block; font-size: 1.2rem; color: var(--secondary); }
-
-        /* --- CONTENEDOR PRINCIPAL --- */
-        .container { max-width: 1200px; margin: -60px auto 50px; padding: 0 1.5rem; position: relative; z-index: 10; }
-
-        /* --- CALL TO ACTION MAYORISTA --- */
-        .wholesale-card {
-            background: white;
-            padding: 40px;
-            border-radius: 30px;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
-            display: grid;
-            grid-template-columns: 1fr 300px;
-            gap: 30px;
-            align-items: center;
-            border: 1px solid #e2e8f0;
-        }
-
-        @media (max-width: 768px) { .wholesale-card { grid-template-columns: 1fr; text-align: center; } }
-
-        .btn-download {
+        /* SECCIÓN MAYORISTA - EL GANCHO */
+        .wholesale-strip {
             background: var(--primary);
             color: white;
-            padding: 20px;
-            border-radius: 15px;
+            padding: 40px 20px;
+            text-align: center;
+            border-radius: 20px;
+            margin: 0 20px;
+        }
+
+        .btn-main {
+            background: var(--secondary);
+            color: var(--primary);
+            padding: 15px 35px;
+            border-radius: 50px;
             text-decoration: none;
             font-weight: 800;
-            text-align: center;
+            display: inline-block;
             transition: 0.3s;
             border: none;
             cursor: pointer;
-            box-shadow: 0 10px 20px rgba(15, 23, 42, 0.3);
         }
 
-        .btn-download:hover { background: var(--brand-blue); transform: scale(1.03); }
+        .btn-main:hover { transform: translateY(-3px); box-shadow: 0 10px 20px rgba(0, 210, 255, 0.3); }
 
-        /* --- GRID DE PRODUCTOS --- */
-        .section-title { text-align: center; margin: 60px 0 30px; font-size: 2rem; font-weight: 800; color: var(--primary); }
+        /* GRID DE PRODUCTOS MINIMALISTA */
+        .container { max-width: 1100px; margin: 60px auto; padding: 0 20px; }
         
-        .product-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 25px; }
-        
-        .card-reseller {
-            background: white;
-            border-radius: 20px;
-            padding: 20px;
-            border: 1px solid #eee;
+        .section-header { margin-bottom: 40px; }
+        .section-header h2 { font-size: 1.8rem; font-weight: 800; }
+
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+            gap: 20px;
+        }
+
+        .product-card {
+            background: #fff;
+            border: 1px solid var(--card-border);
+            border-radius: 16px;
+            padding: 15px;
             transition: 0.3s;
-            position: relative;
+            text-align: center;
         }
 
-        .card-reseller:hover { transform: translateY(-10px); box-shadow: 0 15px 30px rgba(0,0,0,0.1); }
+        .product-card:hover { border-color: var(--secondary); }
+
+        .product-card img {
+            width: 100%;
+            height: 160px;
+            object-fit: contain;
+            margin-bottom: 15px;
+            border-radius: 10px;
+        }
+
+        .product-card h3 { font-size: 0.95rem; margin-bottom: 5px; color: var(--primary); }
+        .product-card p { font-size: 0.8rem; color: #94a3b8; margin-bottom: 15px; }
+
+        /* MASTER PLATINUM SECTION (SIMPLE) */
+        .software-box {
+            background: #f8fafc;
+            border-radius: 24px;
+            padding: 50px;
+            display: flex;
+            align-items: center;
+            gap: 40px;
+            margin-top: 60px;
+            border: 1px solid #e2e8f0;
+        }
+
+        .software-text { flex: 1; }
+        .software-text h2 { color: var(--primary); font-size: 2rem; margin-bottom: 15px; }
         
-        .profit-badge {
-            position: absolute;
-            top: 10px;
-            left: 10px;
-            background: var(--success);
-            color: white;
-            padding: 5px 12px;
-            border-radius: 8px;
-            font-weight: 800;
-            font-size: 0.7rem;
+        .feature-list {
+            list-style: none;
+            padding: 0;
+            margin-bottom: 25px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+            font-size: 0.9rem;
         }
 
-        .product-img { width: 100%; height: 180px; object-fit: contain; margin-bottom: 15px; }
+        .feature-list li i { color: var(--secondary); margin-right: 8px; }
 
-        /* --- SOFTWARE MASTER PLATINUM 2026 (RESELLER EDITION) --- */
-        .software-platinum {
-            background: linear-gradient(135deg, #0f172a 0%, #1e4a8e 100%);
-            border-radius: 40px;
-            padding: 60px 40px;
-            color: white;
-            margin: 80px 0;
-            border: 2px solid var(--secondary);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .software-platinum::after {
-            content: "OPTIMIZACIÓN 2026";
-            position: absolute;
-            bottom: -20px;
-            right: -10px;
-            font-size: 6rem;
-            font-weight: 900;
-            opacity: 0.05;
-        }
-
-        /* --- WHATSAPP FLOATING --- */
-        .whatsapp-float {
+        /* FLOATING WHATSAPP */
+        .whatsapp-btn {
             position: fixed;
             bottom: 30px;
             right: 30px;
             background: var(--success);
-            width: 65px;
-            height: 65px;
+            width: 60px;
+            height: 60px;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 30px;
             color: white;
-            box-shadow: 0 10px 25px rgba(37,211,102,0.4);
-            z-index: 1000;
+            font-size: 30px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
             cursor: pointer;
+            z-index: 1000;
         }
 
-        /* --- FOOTER --- */
-        footer { background: #0f172a; color: white; padding: 60px 20px; text-align: center; margin-top: 100px; }
+        footer {
+            text-align: center;
+            padding: 60px 20px;
+            background: #fff;
+            border-top: 1px solid #f1f5f9;
+            color: #94a3b8;
+            font-size: 0.8rem;
+        }
+
+        @media (max-width: 768px) {
+            .software-box { flex-direction: column; text-align: center; padding: 30px; }
+            .hero-title { font-size: 1.8rem; }
+            .feature-list { grid-template-columns: 1fr; }
+        }
     </style>
 </head>
 <body>
 
     <nav>
-        <a href="#inicio">Inicio</a>
-        <a href="#precios">Precios Mayoristas</a>
-        <a href="#productos">Lo más Vendido</a>
-        <a href="#software">Master Platinum</a>
+        <a href="#productos">Catálogo</a>
+        <a href="#software">Software</a>
+        <a href="https://www.instagram.com/serviitecno/">Instagram</a>
     </nav>
 
-    <header id="inicio">
-        <div class="logo-wrapper" style="background:white; display:inline-block; padding:10px 30px; border-radius:15px; margin-bottom:20px;">
-            <img src="aaa.png" alt="Servitecno" style="max-width: 180px;">
-        </div>
-        <h1 class="hero-tagline">
-            Tu Socio Estratégico en <br>
-            <span class="highlight-gold">Tecnología de Alta Rentabilidad</span>
-        </h1>
-        <p style="max-width: 700px; margin: 20px auto; opacity: 0.9; font-size: 1.1rem;">
-            Importadores directos de hardware seleccionado y desarrolladores del software de optimización líder en Argentina.
-        </p>
-        
-        <div class="stats-bar">
-            <div class="stat-item"><strong>+500</strong> Revendedores</div>
-            <div class="stat-item"><strong>Envios</strong> Todo el país</div>
-            <div class="stat-item"><strong>Stock</strong> Real 2026</div>
+    <header>
+        <img src="aaa.png" alt="Servitecno" class="header-logo">
+        <h1 class="hero-title">Impulsamos tu Negocio Tecnológico</h1>
+        <p class="hero-subtitle">Convertite en revendedor de hardware premium y software de alto rendimiento. Importación directa y soporte técnico constante.</p>
+        <div class="wholesale-strip">
+            <h2 style="margin-bottom: 20px; font-size: 1.4rem;">¿Tenés un local o sos revendedor?</h2>
+            <button onclick="pedirMayorista()" class="btn-main">OBTENER LISTA MAYORISTA 2026</button>
         </div>
     </header>
 
-    <div class="container">
-        <div class="wholesale-card" id="precios">
-            <div>
-                <h2 style="margin:0; font-size: 1.8rem;">📦 Lista de Precios Gremios</h2>
-                <p style="color: #64748b; margin-top: 10px;">Accede a valores exclusivos por cantidad. Margen de ganancia superior al 40% en accesorios seleccionados.</p>
-                <div style="display:flex; gap:15px; margin-top:20px;">
-                    <span style="font-size: 0.8rem; font-weight:700;"><i class="fas fa-check-circle" style="color:var(--secondary)"></i> Sin mínimo de compra</span>
-                    <span style="font-size: 0.8rem; font-weight:700;"><i class="fas fa-check-circle" style="color:var(--secondary)"></i> Garantía Directa</span>
-                </div>
-            </div>
-            <button onclick="pedirMayorista()" class="btn-download">
-                <i class="fas fa-file-download"></i> SOLICITAR LISTA
-            </button>
+    <div class="container" id="productos">
+        <div class="section-header">
+            <h2>Lo más vendido para revendedores</h2>
+            <p>Productos con alto margen de ganancia y salida inmediata.</p>
         </div>
 
-        <h2 class="section-title" id="productos">Tendencias de Venta Rápida</h2>
-        
         <div class="product-grid">
-            <div class="card-reseller">
-                <div class="profit-badge">ALTA ROTACIÓN</div>
-                <img src="AirPods 4GEN.jpeg" class="product-img" alt="AirPods">
-                <h3 style="font-size: 1rem; margin:10px 0;">AirPods 4ta Gen (Importado)</h3>
-                <p style="font-size: 0.8rem; color: #64748b;">Calidad Triple A - El producto más buscado del mes.</p>
-                <button onclick="pedirProducto('AirPods 4 Gen Mayorista')" class="btn-download" style="padding:10px; width:100%; font-size:0.8rem;">PRECIO GREMIO</button>
+            <div class="product-card">
+                <img src="AirPods 4GEN.jpeg" alt="AirPods 4">
+                <h3>AirPods 4ta Gen</h3>
+                <p>Calidad Premium / Audio Espacial</p>
+                <button onclick="pedirProducto('AirPods 4')" class="btn-main" style="width:100%; font-size: 0.8rem;">Consultar Gremio</button>
             </div>
 
-            <div class="card-reseller">
-                <div class="profit-badge">HOT ITEM</div>
-                <img src="stanly.jpg" class="product-img" alt="Stanley">
-                <h3 style="font-size: 1rem; margin:10px 0;">Stanley Quencher 1.2L</h3>
-                <p style="font-size: 0.8rem; color: #64748b;">Colores 2026. Importación directa.</p>
-                <button onclick="pedirProducto('Stanley Quencher Mayorista')" class="btn-download" style="padding:10px; width:100%; font-size:0.8rem;">PRECIO GREMIO</button>
+            <div class="product-card">
+                <img src="stanly.jpg" alt="Stanley">
+                <h3>Stanley Quencher 1.2L</h3>
+                <p>Original / Frío 24hs / Varios Colores</p>
+                <button onclick="pedirProducto('Stanley')" class="btn-main" style="width:100%; font-size: 0.8rem;">Consultar Gremio</button>
             </div>
 
-            <div class="card-reseller">
-                <div class="profit-badge">PREMIUM</div>
-                <img src="parlantes_jbl.jpg" class="product-img" alt="JBL">
-                <h3 style="font-size: 1rem; margin:10px 0;">JBL GO 4 Original</h3>
-                <p style="font-size: 0.8rem; color: #64748b;">Garantía oficial. Stock limitado para revendedores.</p>
-                <button onclick="pedirProducto('JBL GO 4 Mayorista')" class="btn-download" style="padding:10px; width:100%; font-size:0.8rem;">PRECIO GREMIO</button>
+            <div class="product-card">
+                <img src="parlantes_jbl.jpg" alt="JBL">
+                <h3>JBL GO 4</h3>
+                <p>Resistente al agua / Sonido Pro</p>
+                <button onclick="pedirProducto('JBL GO 4')" class="btn-main" style="width:100%; font-size: 0.8rem;">Consultar Gremio</button>
             </div>
 
-            <div class="card-reseller">
-                <div class="profit-badge">MARGEN +50%</div>
-                <img src="CABEZAL CON CABLE.jpeg" class="product-img" alt="Cargador">
-                <h3 style="font-size: 1rem; margin:10px 0;">Combo Carga 20W (Caja)</h3>
-                <p style="font-size: 0.8rem; color: #64748b;">Esencial en cualquier local técnico.</p>
-                <button onclick="pedirProducto('Combos Carga Mayorista')" class="btn-download" style="padding:10px; width:100%; font-size:0.8rem;">PRECIO GREMIO</button>
+            <div class="product-card">
+                <img src="CABEZAL CON CABLE.jpeg" alt="Carga">
+                <h3>Combo Carga iPhone</h3>
+                <p>Cabezal 20W + Cable Lightning</p>
+                <button onclick="pedirProducto('Combos Carga')" class="btn-main" style="width:100%; font-size: 0.8rem;">Consultar Gremio</button>
             </div>
         </div>
 
-        <div class="software-platinum" id="software">
-            <div style="max-width: 600px;">
-                <span style="background: var(--secondary); color: var(--primary); padding: 5px 15px; border-radius: 50px; font-weight: 800; font-size: 0.8rem;">EXCLUSIVO SERVITECNO</span>
-                <h2 style="font-size: 2.5rem; margin: 15px 0;">Master Platinum 2026</h2>
-                <p style="font-size: 1.1rem; opacity: 0.9;">
-                    Ofrece en tu local el servicio de optimización definitiva. 
-                    Monitorización real tipo <strong>CPU-Z</strong> y limpieza de RAM inteligente. 
-                    Ideal para Gaming y productividad.
-                </p>
-                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin: 30px 0;">
-                    <div><i class="fas fa-microchip"></i> Hardware en Tiempo Real</div>
-                    <div><i class="fas fa-memory"></i> Purga de RAM</div>
-                    <div><i class="fas fa-rocket"></i> FPS Boost</div>
-                    <div><i class="fas fa-globe"></i> Uso Universal</div>
-                </div>
-                <button onclick="comprarSoftware()" class="btn-download" style="background:var(--success); color:white; border:none; padding: 20px 40px;">
-                    CONSULTAR LICENCIAS PARA LOCALES
-                </button>
+        <div class="software-box" id="software">
+            <div class="software-text">
+                <span style="color: var(--secondary); font-weight: 800; font-size: 0.8rem; text-transform: uppercase;">Exclusivo Servitecno</span>
+                <h2>Master Platinum 2026</h2>
+                <p>El complemento ideal para tu servicio técnico. Una suite que limpia RAM, monitorea hardware en tiempo real y acelera cualquier PC.</p>
+                <ul class="feature-list">
+                    <li><i class="fas fa-check"></i> Monitor Real-Time (Estilo CPU-Z)</li>
+                    <li><i class="fas fa-check"></i> Limpieza de RAM Inteligente</li>
+                    <li><i class="fas fa-check"></i> Optimización de FPS</li>
+                    <li><i class="fas fa-check"></i> Borrado de Archivos Basura</li>
+                </ul>
+                <button onclick="comprarSoftware()" class="btn-main">DISTRIBUIR SOFTWARE</button>
             </div>
-        </div>
-
-        <div style="text-align: center;">
-            <h3>Seguí nuestro día a día en Instagram</h3>
-            <p>Vea los ingresos de mercadería y testeos de software en vivo.</p>
-            <a href="https://www.instagram.com/serviitecno/" target="_blank" class="btn-download" style="background: var(--insta); display: inline-flex; align-items: center; gap: 10px;">
-                <i class="fab fa-instagram fa-2xl"></i> @SERVIITECNO
-            </a>
+            <div style="flex: 0 0 200px;">
+                <img src="icono.png" style="width: 100%; filter: drop-shadow(0 10px 20px rgba(0, 210, 255, 0.2));">
+            </div>
         </div>
     </div>
 
     <footer>
-        <img src="aaa.png" style="max-width: 120px; filter: brightness(0) invert(1); margin-bottom: 20px;">
-        <p>© 2026 Servitecno | Rafaela, Santa Fe, Argentina.</p>
-        <p style="opacity: 0.5; font-size: 0.8rem;">Distribución Internacional - Importación Directa.</p>
+        <p>© 2026 Servitecno | Rafaela, Santa Fe | Argentina al mundo.</p>
+        <p style="margin-top: 10px; opacity: 0.6;">Simplicidad • Potencia • Rentabilidad</p>
     </footer>
 
-    <div class="whatsapp-float" onclick="window.open('https://wa.me/543492697600')">
+    <div class="whatsapp-btn" onclick="window.open('https://wa.me/543492697600')">
         <i class="fab fa-whatsapp"></i>
     </div>
 
     <script>
         const numTel = "543492697600";
-        
         function pedirMayorista() {
-            const msg = `Hola Agustin! 👋 Vengo de la web. Quiero la *LISTA DE PRECIOS MAYORISTA* para mi negocio.`;
-            window.open(`https://wa.me/${numTel}?text=${encodeURIComponent(msg)}`, '_blank');
+            window.open(`https://wa.me/${numTel}?text=Hola! 👋 Me interesa la lista de precios MAYORISTA.`, '_blank');
         }
-
-        function pedirProducto(prod) {
-            const msg = `Hola Agustin! 👋 Me interesa el stock mayorista de: *${prod}*.`;
-            window.open(`https://wa.me/${numTel}?text=${encodeURIComponent(msg)}`, '_blank');
+        function pedirProducto(p) {
+            window.open(`https://wa.me/${numTel}?text=Hola! 👋 Consulto stock mayorista de: ${p}.`, '_blank');
         }
-
         function comprarSoftware() {
-            const msg = `Hola Agustin! 👋 Me interesa revender el *Software MASTER PLATINUM 2026* en mi local / servicio técnico.`;
-            window.open(`https://wa.me/${numTel}?text=${encodeURIComponent(msg)}`, '_blank');
+            window.open(`https://wa.me/${numTel}?text=Hola! 👋 Quiero información para vender Master Platinum en mi local.`, '_blank');
         }
     </script>
 </body>
