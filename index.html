@@ -12,94 +12,173 @@
             --brand-blue: #1a4a8e;
             --secondary: #00d2ff;
             --success: #25d366;
-            --bg: #f8fafc;
+            --bg: #f1f5f9;
         }
 
         body { font-family: 'Inter', sans-serif; margin: 0; background: var(--bg); color: var(--primary); scroll-behavior: smooth; }
 
-        /* HEADER & HERO */
-        nav { background: white; padding: 1rem; position: sticky; top: 0; z-index: 1000; box-shadow: 0 2px 10px rgba(0,0,0,0.05); display: flex; justify-content: center; gap: 20px; }
-        nav a { text-decoration: none; color: var(--primary); font-weight: 700; font-size: 0.8rem; text-transform: uppercase; }
+        /* NAVBAR MEJORADA */
+        nav { 
+            background: rgba(255, 255, 255, 0.95); 
+            backdrop-filter: blur(10px);
+            padding: 0.8rem; 
+            position: sticky; 
+            top: 0; 
+            z-index: 1000; 
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05); 
+            display: flex; 
+            justify-content: center; 
+            gap: 15px;
+            overflow-x: auto; /* Para que no se rompa en celus viejos */
+        }
+        nav a { 
+            text-decoration: none; 
+            color: var(--primary); 
+            font-weight: 700; 
+            font-size: 0.75rem; 
+            text-transform: uppercase; 
+            white-space: nowrap;
+        }
 
-        header { text-align: center; padding: 60px 20px; background: white; }
-        .main-logo { max-width: 250px; margin-bottom: 20px; }
-        .hero-badge { background: #e0f7ff; color: #0077b6; padding: 8px 20px; border-radius: 50px; font-weight: 800; font-size: 0.9rem; margin-bottom: 20px; display: inline-block; }
+        /* HERO CON COLOR PARA QUE NO QUEDE APAGADO */
+        header { 
+            text-align: center; 
+            padding: 80px 20px; 
+            background: linear-gradient(180deg, #ffffff 0%, #e2e8f0 100%);
+            border-bottom: 1px solid #e2e8f0;
+        }
+        .main-logo { 
+            max-width: 220px; /* Un toque más chico para que no sature */
+            height: auto;
+            margin-bottom: 15px; 
+            filter: drop-shadow(0 5px 15px rgba(0,0,0,0.1));
+        }
+        .hero-badge { 
+            background: var(--brand-blue); 
+            color: white; 
+            padding: 6px 18px; 
+            border-radius: 50px; 
+            font-weight: 800; 
+            font-size: 0.8rem; 
+            margin-bottom: 15px; 
+            display: inline-block;
+            letter-spacing: 1px;
+        }
+        header h1 {
+            font-size: 2.2rem;
+            margin: 10px 0;
+            line-height: 1.1;
+            color: var(--brand-blue);
+        }
 
-        /* GRID DE CATEGORÍAS */
-        .container { max-width: 1200px; margin: 0 auto; padding: 40px 20px; }
+        /* GRID DE PRODUCTOS AJUSTADO */
+        .container { max-width: 1000px; margin: 0 auto; padding: 20px; }
         
-        .category-section { margin-bottom: 80px; }
-        .category-title { font-size: 2rem; font-weight: 900; margin-bottom: 30px; display: flex; align-items: center; gap: 15px; border-left: 5px solid var(--secondary); padding-left: 20px; }
+        .category-section { margin-bottom: 60px; }
+        .category-title { 
+            font-size: 1.6rem; 
+            font-weight: 900; 
+            margin-bottom: 25px; 
+            display: flex; 
+            align-items: center; 
+            gap: 12px; 
+            color: var(--brand-blue);
+        }
 
-        .catalog-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
+        .catalog-grid { 
+            display: grid; 
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); 
+            gap: 25px; 
+        }
         
+        /* TARJETAS MÁS COMPACTAS Y LIMPIAS */
         .promo-card { 
             background: white; 
-            border-radius: 20px; 
+            border-radius: 18px; 
             overflow: hidden; 
-            box-shadow: 0 10px 30px rgba(0,0,0,0.05); 
-            transition: 0.3s; 
-            border: 1px solid #eee;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.06); 
+            transition: transform 0.3s ease;
+            border: 1px solid #e2e8f0;
         }
-        .promo-card:hover { transform: translateY(-10px); }
-        .promo-card img { width: 100%; height: auto; display: block; }
+        .promo-card:hover { transform: translateY(-5px); }
         
-        .promo-content { padding: 25px; }
-        .promo-content h3 { margin: 0 0 10px 0; font-size: 1.3rem; }
-        .promo-content ul { padding: 0; list-style: none; font-size: 0.9rem; color: #64748b; margin-bottom: 20px; }
-        .promo-content ul li { margin-bottom: 5px; display: flex; align-items: center; gap: 8px; }
-        .promo-content ul li i { color: var(--success); font-size: 0.8rem; }
+        .image-container {
+            width: 100%;
+            height: 250px; /* Altura fija para que todas las fotos se vean iguales */
+            overflow: hidden;
+            background: #f8fafc;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .promo-card img { 
+            width: 100%; 
+            height: 100%;
+            object-fit: cover; /* Ajusta la imagen sin deformarla */
+            transition: 0.3s;
+        }
+        
+        .promo-content { padding: 20px; }
+        .promo-content h3 { margin: 0 0 12px 0; font-size: 1.2rem; color: var(--primary); }
+        .promo-content ul { padding: 0; list-style: none; font-size: 0.85rem; color: #475569; margin-bottom: 20px; }
+        .promo-content ul li { margin-bottom: 6px; display: flex; align-items: center; gap: 8px; }
+        .promo-content ul li i { color: var(--success); }
 
-        /* BOTONES */
         .btn-order { 
-            background: var(--primary); 
+            background: var(--brand-blue); 
             color: white; 
             text-decoration: none; 
-            padding: 15px; 
-            border-radius: 12px; 
+            padding: 12px; 
+            border-radius: 10px; 
             display: block; 
             text-align: center; 
             font-weight: 800; 
+            font-size: 0.9rem;
             transition: 0.3s;
         }
-        .btn-order:hover { background: var(--brand-blue); }
+        .btn-order:hover { background: var(--primary); opacity: 0.9; }
 
-        /* SECCIÓN SOFTWARE */
+        /* SOFTWARE BANNER COMPACTO */
         .software-banner { 
             background: linear-gradient(135deg, #0f172a 0%, #1e4a8e 100%); 
-            border-radius: 30px; 
-            padding: 50px; 
+            border-radius: 20px; 
+            padding: 30px; 
             color: white; 
             display: flex; 
+            flex-wrap: wrap; /* Para celus */
             align-items: center; 
-            gap: 40px; 
-            margin-top: 50px;
+            gap: 25px; 
+            margin-top: 40px;
+            text-align: center;
         }
-        .software-info { flex: 1; }
-        .software-img { max-width: 150px; filter: drop-shadow(0 0 20px var(--secondary)); }
+        .software-info { flex: 1; min-width: 250px; }
+        .software-img { max-width: 100px; margin: 0 auto; filter: drop-shadow(0 0 15px var(--secondary)); }
 
-        /* FLOATING WHATSAPP */
+        /* WHATSAPP FLOTANTE */
         .fab-whatsapp { 
             position: fixed; 
-            bottom: 30px; 
-            right: 30px; 
+            bottom: 20px; 
+            right: 20px; 
             background: var(--success); 
-            width: 65px; 
-            height: 65px; 
+            width: 55px; 
+            height: 55px; 
             border-radius: 50%; 
             display: flex; 
             align-items: center; 
             justify-content: center; 
             color: white; 
-            font-size: 35px; 
-            box-shadow: 0 10px 25px rgba(37,211,102,0.3); 
-            cursor: pointer; 
+            font-size: 28px; 
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2); 
             z-index: 2000;
         }
 
-        @media (max-width: 768px) {
-            .software-banner { flex-direction: column; text-align: center; padding: 30px; }
-            .category-title { font-size: 1.5rem; }
+        /* AJUSTES CELULAR */
+        @media (max-width: 600px) {
+            header { padding: 50px 15px; }
+            header h1 { font-size: 1.8rem; }
+            .category-title { font-size: 1.3rem; }
+            .image-container { height: 200px; } /* Más chico en celu */
+            .software-banner { padding: 20px; }
         }
     </style>
 </head>
@@ -107,107 +186,115 @@
 
     <nav>
         <a href="#apple">iPhone</a>
-        <a href="#electronica">Electrónica</a>
+        <a href="#electronica">Tech</a>
         <a href="#termica">Térmica</a>
         <a href="#perfumeria">Perfumes</a>
         <a href="#software">Software</a>
     </nav>
 
     <header>
-        <div class="hero-badge">DISTRIBUIDOR OFICIAL 2026</div>
-        <img src="WhatsApp Image 2026-02-11 at 15.15.29.jpeg" alt="Servitecno Mayorista" class="main-logo">
-        <h1 style="font-size: 2.5rem; font-weight: 900; margin-top:0;">Abastecé tu negocio con los líderes.</h1>
-        <p style="color: #64748b; max-width: 600px; margin: 0 auto;">Importación directa, stock real y atención personalizada para revendedores de todo el país.</p>
+        <div class="hero-badge"><i class="fas fa-star"></i> MAYORISTA OFICIAL 2026</div><br>
+        <img src="WhatsApp Image 2026-02-11 at 15.15.29.jpeg" alt="Servitecno" class="main-logo">
+        <h1>Abastecé tu negocio</h1>
+        <p style="color: #475569; max-width: 500px; margin: 0 auto; font-size: 0.95rem;">
+            Envíos a todo el país. Stock real garantizado. <br><b>Atención exclusiva para revendedores.</b>
+        </p>
     </header>
 
     <div class="container">
         
         <div class="category-section" id="apple">
-            <h2 class="category-title"><i class="fab fa-apple"></i> Accesorios Premium iPhone</h2>
+            <h2 class="category-title"><i class="fab fa-apple"></i> Accesorios iPhone</h2>
             <div class="catalog-grid">
                 <div class="promo-card">
-                    <img src="WhatsApp Image 2026-02-11 at 15.15.05 (3).jpeg" alt="Accesorios iPhone">
+                    <div class="image-container">
+                        <img src="WhatsApp Image 2026-02-11 at 15.15.05 (3).jpeg" alt="Accesorios iPhone">
+                    </div>
                     <div class="promo-content">
-                        <h3>Combos de Carga y Magsafe</h3>
+                        <h3>Línea Apple Premium</h3>
                         <ul>
-                            <li><i class="fas fa-check"></i> Cabezales 20W y Cables</li>
-                            <li><i class="fas fa-check"></i> Fundas Silicona (11 al 17)</li>
-                            <li><i class="fas fa-check"></i> Battery Pack Magsafe</li>
+                            <li><i class="fas fa-check"></i> Cabezal 20W + Cables</li>
+                            <li><i class="fas fa-check"></i> Fundas Silicona 11 al 17</li>
+                            <li><i class="fas fa-check"></i> Cargadores MagSafe</li>
                         </ul>
-                        <a href="#" onclick="pedirCategoria('Accesorios iPhone')" class="btn-order">PEDIR LISTA IPHONE</a>
+                        <a href="#" onclick="pedirCategoria('Accesorios iPhone')" class="btn-order">PEDIR LISTA PRECIOS</a>
                     </div>
                 </div>
             </div>
         </div>
 
         <div class="category-section" id="electronica">
-            <h2 class="category-title"><i class="fas fa-bolt"></i> Audio y Electrónica</h2>
+            <h2 class="category-title"><i class="fas fa-bolt"></i> Audio y Tech</h2>
             <div class="catalog-grid">
                 <div class="promo-card">
-                    <img src="WhatsApp Image 2026-02-11 at 15.15.05 (2).jpeg" alt="Audio Electrónica">
+                    <div class="image-container">
+                        <img src="WhatsApp Image 2026-02-11 at 15.15.05 (2).jpeg" alt="Audio Electrónica">
+                    </div>
                     <div class="promo-content">
-                        <h3>Tecnología de Punta</h3>
+                        <h3>Electrónica de Punta</h3>
                         <ul>
-                            <li><i class="fas fa-check"></i> Airpods Max Premium</li>
-                            <li><i class="fas fa-check"></i> JBL Flip 6 / Go 4 / RGB</li>
-                            <li><i class="fas fa-check"></i> Smartwatches Big Ultra 2</li>
+                            <li><i class="fas fa-check"></i> AirPods Max Premium</li>
+                            <li><i class="fas fa-check"></i> JBL Flip 6 / Go 4</li>
+                            <li><i class="fas fa-check"></i> Smartwatch Big Ultra 2</li>
                         </ul>
-                        <a href="#" onclick="pedirCategoria('Audio y Electrónica')" class="btn-order">PEDIR LISTA TECH</a>
+                        <a href="#" onclick="pedirCategoria('Audio y Electrónica')" class="btn-order">VER CATÁLOGO TECH</a>
                     </div>
                 </div>
             </div>
         </div>
 
         <div class="category-section" id="termica">
-            <h2 class="category-title"><i class="fas fa-mug-hot"></i> Línea Térmica (Estilo Stanley)</h2>
+            <h2 class="category-title"><i class="fas fa-mug-hot"></i> Línea Térmica</h2>
             <div class="catalog-grid">
                 <div class="promo-card">
-                    <img src="WhatsApp Image 2026-02-11 at 15.15.05.jpeg" alt="Línea Stanley">
+                    <div class="image-container">
+                        <img src="WhatsApp Image 2026-02-11 at 15.15.05.jpeg" alt="Línea Stanley">
+                    </div>
                     <div class="promo-content">
-                        <h3>Calidad Premium Garantizada</h3>
+                        <h3>Estilo Stanley Premium</h3>
                         <ul>
-                            <li><i class="fas fa-check"></i> Termos Classic 1.2L y System 1L</li>
-                            <li><i class="fas fa-check"></i> Vasos Quencher y Cerveceros</li>
-                            <li><i class="fas fa-check"></i> Kits de Mate Completos</li>
+                            <li><i class="fas fa-check"></i> Termos 1.2L y System 1L</li>
+                            <li><i class="fas fa-check"></i> Vasos Quencher / Mates</li>
+                            <li><i class="fas fa-check"></i> Calidad Frío/Calor Pro</li>
                         </ul>
-                        <a href="#" onclick="pedirCategoria('Línea Térmica')" class="btn-order">PEDIR LISTA STANLEY</a>
+                        <a href="#" onclick="pedirCategoria('Línea Térmica')" class="btn-order">LISTA MAYORISTA</a>
                     </div>
                 </div>
             </div>
         </div>
 
         <div class="category-section" id="perfumeria">
-            <h2 class="category-title"><i class="fas fa-spray-can-sparkles"></i> Perfumería Árabe</h2>
+            <h2 class="category-title"><i class="fas fa-spray-can-sparkles"></i> Perfumes Árabes</h2>
             <div class="catalog-grid">
                 <div class="promo-card">
-                    <img src="WhatsApp Image 2026-02-11 at 15.15.05 (1).jpeg" alt="Perfumería Árabe">
+                    <div class="image-container">
+                        <img src="WhatsApp Image 2026-02-11 at 15.15.05 (1).jpeg" alt="Perfumes">
+                    </div>
                     <div class="promo-content">
-                        <h3>Los más buscados (100ml)</h3>
+                        <h3>Tendencia Mundial</h3>
                         <ul>
                             <li><i class="fas fa-check"></i> Lattafa Asad / Yara</li>
-                            <li><i class="fas fa-check"></i> Khamrah / Badee Al Oud</li>
-                            <li><i class="fas fa-check"></i> Armaf Club De Nuit Intense</li>
+                            <li><i class="fas fa-check"></i> Khamrah / Al Oud</li>
+                            <li><i class="fas fa-check"></i> Máxima Fijación 100ml</li>
                         </ul>
-                        <a href="#" onclick="pedirCategoria('Perfumería Árabe')" class="btn-order">PEDIR LISTA PERFUMES</a>
+                        <a href="#" onclick="pedirCategoria('Perfumería Árabe')" class="btn-order">PEDIR PERFUMES</a>
                     </div>
                 </div>
             </div>
         </div>
 
         <div class="software-banner" id="software">
-            <img src="icono.png" class="software-img" alt="Master Platinum">
             <div class="software-info">
-                <h2 style="margin: 0 0 10px 0;">Master Platinum 2026</h2>
-                <p>Optimizá el rendimiento de cualquier PC al máximo. Monitor de hardware estilo CPU-Z, limpieza de RAM profunda y eliminación de basura digital en un solo clic.</p>
-                <div style="margin-top: 20px;">
-                    <button onclick="pedirSoftware()" class="btn-order" style="background:var(--secondary); color:var(--primary); display:inline-block; padding: 15px 40px;">OBTENER SOFTWARE</button>
-                </div>
+                <img src="icono.png" class="software-img" alt="Master Platinum">
+                <h2 style="margin-top:15px;">Master Platinum 2026</h2>
+                <p style="font-size: 0.9rem; opacity: 0.9;">Hardware Monitor en tiempo real, Limpieza de RAM y Optimización Total para revendedores técnicos.</p>
+                <button onclick="pedirSoftware()" class="btn-order" style="background:var(--secondary); color:var(--primary); margin-top:15px; display:inline-block; padding: 12px 30px; width:auto;">DESCARGAR AHORA</button>
             </div>
         </div>
 
     </div>
 
-    <footer style="text-align: center; padding: 60px 20px; color: #94a3b8; font-size: 0.8rem;">
+    <footer style="text-align: center; padding: 40px 20px; color: #94a3b8; font-size: 0.75rem; border-top: 1px solid #e2e8f0; background: white; margin-top: 40px;">
         <p>© 2026 Servitecno Mayorista | Rafaela, Santa Fe | Argentina</p>
     </footer>
 
@@ -226,11 +313,6 @@
     </script>
 </body>
 </html>
-
-
-
-
-
 
 
 
