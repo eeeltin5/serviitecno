@@ -32,6 +32,39 @@
         h1 { font-size: 2.8rem; font-weight: 800; letter-spacing: -1px; margin: 10px 0; color: var(--primary); }
         .subtitle { color: #64748b; font-size: 1.1rem; margin-bottom: 30px; }
 
+        .opportunity-section {
+            background: #020617;
+            color: white;
+            text-align: center;
+            padding: 60px 20px;
+        }
+
+        .opportunity-section h2 {
+            font-size: 2.2rem;
+            margin-bottom: 15px;
+        }
+
+        .opportunity-section p {
+            max-width: 700px;
+            margin: 0 auto 30px auto;
+            opacity: 0.85;
+            font-size: 1.1rem;
+        }
+
+        .stats {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            flex-wrap: wrap;
+            margin-bottom: 30px;
+        }
+
+        .stats h3 {
+            color: var(--success);
+            margin: 0;
+            font-size: 1.4rem;
+        }
+
         .container { max-width: 1100px; margin: 0 auto; padding: 40px 20px; }
         .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 25px; }
 
@@ -69,16 +102,44 @@
 </nav>
 
 <header>
-    <div class="hero-badge">SUMATE A SERVITECNO MAYORISTA</div>
+    <div class="hero-badge">SUMATE A LA RED DE REVENDEDORES</div>
     <img src="WhatsApp Image 2026-02-11 at 15.15.29.jpeg" class="main-logo" alt="Servitecno">
-    <h1>Multiplicá tus ingresos</h1>
-    <p class="subtitle">Importación directa de Perfumería Árabe, Stanley y Tech.</p>
+    <h1>No solo vendemos productos.</h1>
+    <p class="subtitle">Te damos precios reales para que armes tu propio negocio con importación directa y alta rentabilidad.</p>
 </header>
+
+<section class="opportunity-section">
+    <h2>Convertite en Revendedor Servitecno</h2>
+    <p>
+        No necesitás local. No necesitás experiencia.
+        Solo necesitás acceso a productos de alta rotación con márgenes reales.
+    </p>
+
+    <div class="stats">
+        <div>
+            <h3>+60% a +100%</h3>
+            <span>Margen por unidad</span>
+        </div>
+        <div>
+            <h3>Stock real</h3>
+            <span>Disponible en Rafaela</span>
+        </div>
+        <div>
+            <h3>Mix libre</h3>
+            <span>Desde 3 unidades</span>
+        </div>
+    </div>
+
+    <a href="https://wa.me/543492697600?text=Hola! Quiero información para ser revendedor" 
+       style="background:#22c55e; padding:15px 30px; border-radius:12px; text-decoration:none; font-weight:800; color:white;">
+       QUIERO SER REVENDEDOR
+    </a>
+</section>
 
 <div class="container" id="productos">
     <div class="grid">
         <div class="card">
-            <div class="tag">MÁS VENDIDO</div>
+            <div class="tag">ALTA ROTACIÓN</div>
             <img src="WhatsApp Image 2026-02-11 at 15.15.05 (1).jpeg" alt="Perfumes">
             <h3>Perfumería Árabe</h3>
             <ul>
@@ -86,7 +147,7 @@
                 <li><i class="fas fa-check"></i> Lattafa, Armaf, Afnan</li>
                 <li><i class="fas fa-truck-fast"></i> Stock real en Rafaela</li>
             </ul>
-            <a href="https://wa.me/543492697600?text=Hola! Quiero la lista de PERFUMES para revender" class="btn">PEDIR LISTA PERFUMES</a>
+            <a href="https://wa.me/543492697600?text=Hola! Quiero la lista de PERFUMES para revender" class="btn">QUIERO REVENDER PERFUMES</a>
         </div>
 
         <div class="card">
@@ -97,26 +158,30 @@
                 <li><i class="fas fa-check"></i> Termos, Vasos y Mates</li>
                 <li><i class="fas fa-box-open"></i> Packs mixeables 3/5 unid.</li>
             </ul>
-            <a href="https://wa.me/543492697600?text=Hola! Quiero la lista de STANLEY para revender" class="btn">VER PRECIOS MAYORISTAS</a>
+            <a href="https://wa.me/543492697600?text=Hola! Quiero la lista de STANLEY para revender" class="btn">QUIERO REVENDER STANLEY</a>
         </div>
 
         <div class="card">
             <img src="WhatsApp Image 2026-02-11 at 15.15.05 (2).jpeg" alt="Apple Style">
             <h3>Tecnología & Audio</h3>
             <ul>
-                <li><i class="fas fa-bolt"></i> AirPods Max, Pro y JBL</li>
+                <li><i class="fas fa-bolt"></i> AirPods, JBL y más</li>
                 <li><i class="fas fa-check"></i> Accesorios Apple Style</li>
                 <li><i class="fas fa-arrow-trend-up"></i> Alta rotación semanal</li>
             </ul>
-            <a href="https://wa.me/543492697600?text=Hola! Quiero la lista de TECH para revender" class="btn">QUIERO EMPRENDER</a>
+            <a href="https://wa.me/543492697600?text=Hola! Quiero la lista de TECH para revender" class="btn">QUIERO EMPRENDER CON TECH</a>
         </div>
     </div>
 
     <div class="software-box" id="software">
         <div class="software-content">
             <h2 style="font-size: 2rem; margin: 0;">Master Platinum 2026</h2>
-            <p style="opacity: 0.8; margin: 15px 0 25px 0;">La herramienta definitiva de optimización. Control total de CPU, limpieza de RAM y Turbo Boost para gaming y trabajo pesado. Exclusivo de Servitecno.</p>
-            <a href="https://wa.me/543492697600?text=Hola! Me interesa el software Master Platinum" class="btn" style="background: var(--brand-blue); width: fit-content; padding: 15px 30px;">OBTENER SOFTWARE</a>
+            <p style="opacity: 0.8; margin: 15px 0 25px 0;">
+                La herramienta definitiva de optimización. Control total de CPU, limpieza de RAM y Turbo Boost.
+            </p>
+            <a href="https://wa.me/543492697600?text=Hola! Me interesa el software Master Platinum" class="btn" style="background: var(--brand-blue); width: fit-content; padding: 15px 30px;">
+                OBTENER SOFTWARE
+            </a>
         </div>
         <img src="icono.png" style="max-width: 150px; filter: drop-shadow(0 0 20px var(--brand-blue));" alt="Icono Master Platinum">
     </div>
@@ -132,7 +197,6 @@
 
 </body>
 </html>
-
 
 
 
