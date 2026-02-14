@@ -1,119 +1,279 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Servitecno | Mayorista Importador - Rafaela</title>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <style>
-        :root {
-            --primary: #020617;
-            --brand-blue: #2563eb;
-            --success: #22c55e;
-            --bg: #f8fafc;
-        }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SERVITECNO | Importador Mayorista</title>
 
-        * { -webkit-font-smoothing: antialiased; box-sizing: border-box; }
-        body { font-family: 'Plus Jakarta Sans', sans-serif; margin: 0; background: var(--bg); color: #1e293b; scroll-behavior: smooth; }
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
-        nav { 
-            background: rgba(255, 255, 255, 0.9); backdrop-filter: blur(10px);
-            padding: 1rem; position: sticky; top: 0; z-index: 1000; 
-            box-shadow: 0 2px 15px rgba(0,0,0,0.05); display: flex; justify-content: center; gap: 15px;
-        }
-        nav a { text-decoration: none; color: var(--primary); font-weight: 700; font-size: 0.75rem; text-transform: uppercase; transition: 0.3s; }
-        nav a:hover { color: var(--brand-blue); }
+<style>
+:root {
+    --primary-dark: #060c18;
+    --secondary-dark: #0b1220;
+    --brand: #00f28f;
+    --brand-strong: #00d97e;
+    --text-light: #e2e8f0;
+    --text-muted: #94a3b8;
+}
 
-        header { text-align: center; padding: 80px 20px; background: #fff; border-bottom: 1px solid #e2e8f0; }
-        .main-logo { max-width: 220px; filter: drop-shadow(0 5px 15px rgba(0,0,0,0.1)); margin-bottom: 20px; }
-        .hero-badge { background: #dbeafe; color: var(--brand-blue); padding: 6px 15px; border-radius: 50px; font-weight: 800; font-size: 0.7rem; margin-bottom: 15px; display: inline-block; }
-        
-        h1 { font-size: 2.8rem; font-weight: 800; letter-spacing: -1px; margin: 10px 0; color: var(--primary); }
-        .subtitle { color: #64748b; font-size: 1.1rem; margin-bottom: 30px; }
+* { box-sizing: border-box; }
 
-        .opportunity-section {
-            background: #020617;
-            color: white;
-            text-align: center;
-            padding: 60px 20px;
-        }
+body {
+    margin: 0;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    background: var(--primary-dark);
+    color: var(--text-light);
+}
 
-        .opportunity-section h2 {
-            font-size: 2.2rem;
-            margin-bottom: 15px;
-        }
+/* NAV */
 
-        .opportunity-section p {
-            max-width: 700px;
-            margin: 0 auto 30px auto;
-            opacity: 0.85;
-            font-size: 1.1rem;
-        }
+nav {
+    background: rgba(6,12,24,0.9);
+    backdrop-filter: blur(10px);
+    padding: 1rem;
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    border-bottom: 1px solid rgba(0,242,143,0.15);
+}
 
-        .stats {
-            display: flex;
-            justify-content: center;
-            gap: 40px;
-            flex-wrap: wrap;
-            margin-bottom: 30px;
-        }
+nav a {
+    text-decoration: none;
+    color: var(--text-light);
+    font-weight: 700;
+    font-size: 0.8rem;
+    letter-spacing: 1px;
+    transition: 0.3s;
+}
 
-        .stats h3 {
-            color: var(--success);
-            margin: 0;
-            font-size: 1.4rem;
-        }
+nav a:hover {
+    color: var(--brand);
+}
 
-        .container { max-width: 1100px; margin: 0 auto; padding: 40px 20px; }
-        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 25px; }
+/* HERO */
 
-        .card { background: #fff; border-radius: 20px; padding: 25px; border: 1px solid #e2e8f0; transition: 0.3s; position: relative; }
-        .card:hover { transform: translateY(-5px); border-color: var(--brand-blue); box-shadow: 0 15px 30px rgba(0,0,0,0.05); }
-        .card img { width: 100%; height: 200px; object-fit: cover; border-radius: 15px; margin-bottom: 15px; }
-        
-        .tag { position: absolute; top: 15px; right: 15px; background: var(--success); color: white; padding: 5px 10px; border-radius: 8px; font-weight: 800; font-size: 0.7rem; }
+header {
+    text-align: center;
+    padding: 100px 20px;
+    background: linear-gradient(180deg, #0b1220 0%, #060c18 100%);
+}
 
-        h3 { font-size: 1.4rem; margin: 10px 0; color: var(--primary); }
-        ul { padding: 0; list-style: none; margin: 15px 0 25px 0; }
-        li { margin-bottom: 8px; font-size: 0.9rem; color: #475569; display: flex; align-items: center; gap: 8px; }
-        li i { color: var(--brand-blue); font-size: 0.8rem; }
+.main-logo {
+    max-width: 250px;
+    margin-bottom: 30px;
+}
 
-        .btn { background: var(--primary); color: white; text-decoration: none; padding: 15px; border-radius: 12px; display: block; text-align: center; font-weight: 800; transition: 0.3s; }
-        .btn:hover { background: var(--brand-blue); }
+.hero-badge {
+    background: rgba(0,242,143,0.1);
+    color: var(--brand);
+    padding: 8px 18px;
+    border-radius: 50px;
+    font-weight: 800;
+    font-size: 0.75rem;
+    display: inline-block;
+    margin-bottom: 20px;
+}
 
-        .software-box { background: #020617; color: white; border-radius: 25px; padding: 40px; margin-top: 50px; display: flex; align-items: center; gap: 30px; border: 2px solid var(--brand-blue); }
-        .software-content { flex: 1; }
-        
-        .fab-whatsapp { position: fixed; bottom: 20px; right: 20px; background: var(--success); width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-size: 30px; box-shadow: 0 10px 20px rgba(34,197,94,0.3); z-index: 2000; cursor: pointer; }
+h1 {
+    font-size: 3rem;
+    font-weight: 800;
+    margin: 10px 0;
+}
 
-        @media (max-width: 768px) {
-            h1 { font-size: 2rem; }
-            .software-box { flex-direction: column; text-align: center; padding: 30px; }
-        }
-    </style>
+.subtitle {
+    color: var(--text-muted);
+    font-size: 1.2rem;
+    margin-bottom: 40px;
+}
+
+.cta-main {
+    background: linear-gradient(90deg, var(--brand), var(--brand-strong));
+    padding: 16px 40px;
+    border-radius: 12px;
+    text-decoration: none;
+    color: #000;
+    font-weight: 800;
+    display: inline-block;
+    transition: 0.3s;
+}
+
+.cta-main:hover {
+    transform: scale(1.05);
+}
+
+/* SECCIÓN OPORTUNIDAD */
+
+.opportunity-section {
+    text-align: center;
+    padding: 70px 20px;
+    background: var(--secondary-dark);
+}
+
+.opportunity-section h2 {
+    font-size: 2.2rem;
+}
+
+.opportunity-section p {
+    max-width: 700px;
+    margin: 20px auto;
+    color: var(--text-muted);
+}
+
+.stats {
+    display: flex;
+    justify-content: center;
+    gap: 50px;
+    flex-wrap: wrap;
+    margin: 40px 0;
+}
+
+.stats h3 {
+    color: var(--brand);
+    margin: 0;
+    font-size: 1.5rem;
+}
+
+/* PRODUCTOS */
+
+.container {
+    max-width: 1100px;
+    margin: auto;
+    padding: 60px 20px;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+.card {
+    background: var(--secondary-dark);
+    border-radius: 20px;
+    padding: 25px;
+    border: 1px solid rgba(0,242,143,0.1);
+    transition: 0.3s;
+}
+
+.card:hover {
+    transform: translateY(-8px);
+    border-color: var(--brand);
+}
+
+.card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 15px;
+    margin-bottom: 15px;
+}
+
+.tag {
+    background: var(--brand);
+    color: #000;
+    padding: 6px 12px;
+    border-radius: 8px;
+    font-weight: 800;
+    font-size: 0.7rem;
+    display: inline-block;
+    margin-bottom: 10px;
+}
+
+h3 {
+    margin: 10px 0;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+}
+
+li {
+    margin-bottom: 8px;
+    color: var(--text-muted);
+    font-size: 0.9rem;
+}
+
+li i {
+    color: var(--brand);
+    margin-right: 8px;
+}
+
+.btn {
+    display: block;
+    margin-top: 20px;
+    background: linear-gradient(90deg, var(--brand), var(--brand-strong));
+    text-align: center;
+    padding: 14px;
+    border-radius: 12px;
+    text-decoration: none;
+    font-weight: 800;
+    color: #000;
+}
+
+/* FOOTER */
+
+footer {
+    text-align: center;
+    padding: 50px 20px;
+    border-top: 1px solid rgba(255,255,255,0.05);
+    font-size: 0.8rem;
+    color: var(--text-muted);
+}
+
+/* WHATSAPP */
+
+.fab-whatsapp {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: var(--brand);
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #000;
+    font-size: 30px;
+    box-shadow: 0 10px 25px rgba(0,242,143,0.4);
+    cursor: pointer;
+}
+
+@media (max-width:768px){
+    h1 { font-size: 2.2rem; }
+}
+</style>
 </head>
+
 <body>
 
 <nav>
     <a href="#productos">Catálogo</a>
-    <a href="#software">Master Platinum</a>
     <a href="https://instagram.com/serviitecno">Instagram</a>
 </nav>
 
 <header>
     <div class="hero-badge">SUMATE A LA RED DE REVENDEDORES</div>
-    <img src="WhatsApp Image 2026-02-11 at 15.15.29.jpeg" class="main-logo" alt="Servitecno">
-    <h1>No solo vendemos productos.</h1>
-    <p class="subtitle">Te damos precios reales para que armes tu propio negocio con importación directa y alta rentabilidad.</p>
+    <img src="logo.png" class="main-logo" alt="SERVITECNO">
+    <h1>Construí tu negocio con márgenes reales.</h1>
+    <p class="subtitle">
+        Importación directa. Stock real. Alta rotación.
+        Te damos acceso a productos para que armes tu propio negocio.
+    </p>
+    <a href="https://wa.me/543492697600?text=Hola! Quiero información para ser revendedor" class="cta-main">
+        QUIERO SER REVENDEDOR
+    </a>
 </header>
 
 <section class="opportunity-section">
-    <h2>Convertite en Revendedor Servitecno</h2>
-    <p>
-        No necesitás local. No necesitás experiencia.
-        Solo necesitás acceso a productos de alta rotación con márgenes reales.
-    </p>
+    <h2>Oportunidad real de crecimiento</h2>
+    <p>No necesitás experiencia ni local. Solo acceso a precios mayoristas competitivos.</p>
 
     <div class="stats">
         <div>
@@ -129,66 +289,12 @@
             <span>Desde 3 unidades</span>
         </div>
     </div>
-
-    <a href="https://wa.me/543492697600?text=Hola! Quiero información para ser revendedor" 
-       style="background:#22c55e; padding:15px 30px; border-radius:12px; text-decoration:none; font-weight:800; color:white;">
-       QUIERO SER REVENDEDOR
-    </a>
 </section>
 
-<div class="container" id="productos">
-    <div class="grid">
-        <div class="card">
-            <div class="tag">ALTA ROTACIÓN</div>
-            <img src="WhatsApp Image 2026-02-11 at 15.15.05 (1).jpeg" alt="Perfumes">
-            <h3>Perfumería Árabe</h3>
-            <ul>
-                <li><i class="fas fa-money-bill-trend-up"></i> Margen superior al 60%</li>
-                <li><i class="fas fa-check"></i> Lattafa, Armaf, Afnan</li>
-                <li><i class="fas fa-truck-fast"></i> Stock real en Rafaela</li>
-            </ul>
-            <a href="https://wa.me/543492697600?text=Hola! Quiero la lista de PERFUMES para revender" class="btn">QUIERO REVENDER PERFUMES</a>
-        </div>
-
-        <div class="card">
-            <img src="WhatsApp Image 2026-02-11 at 15.15.05.jpeg" alt="Stanley">
-            <h3>Línea Térmica</h3>
-            <ul>
-                <li><i class="fas fa-star"></i> Calidad Premium garantizada</li>
-                <li><i class="fas fa-check"></i> Termos, Vasos y Mates</li>
-                <li><i class="fas fa-box-open"></i> Packs mixeables 3/5 unid.</li>
-            </ul>
-            <a href="https://wa.me/543492697600?text=Hola! Quiero la lista de STANLEY para revender" class="btn">QUIERO REVENDER STANLEY</a>
-        </div>
-
-        <div class="card">
-            <img src="WhatsApp Image 2026-02-11 at 15.15.05 (2).jpeg" alt="Apple Style">
-            <h3>Tecnología & Audio</h3>
-            <ul>
-                <li><i class="fas fa-bolt"></i> AirPods, JBL y más</li>
-                <li><i class="fas fa-check"></i> Accesorios Apple Style</li>
-                <li><i class="fas fa-arrow-trend-up"></i> Alta rotación semanal</li>
-            </ul>
-            <a href="https://wa.me/543492697600?text=Hola! Quiero la lista de TECH para revender" class="btn">QUIERO EMPRENDER CON TECH</a>
-        </div>
-    </div>
-
-    <div class="software-box" id="software">
-        <div class="software-content">
-            <h2 style="font-size: 2rem; margin: 0;">Master Platinum 2026</h2>
-            <p style="opacity: 0.8; margin: 15px 0 25px 0;">
-                La herramienta definitiva de optimización. Control total de CPU, limpieza de RAM y Turbo Boost.
-            </p>
-            <a href="https://wa.me/543492697600?text=Hola! Me interesa el software Master Platinum" class="btn" style="background: var(--brand-blue); width: fit-content; padding: 15px 30px;">
-                OBTENER SOFTWARE
-            </a>
-        </div>
-        <img src="icono.png" style="max-width: 150px; filter: drop-shadow(0 0 20px var(--brand-blue));" alt="Icono Master Platinum">
-    </div>
-</div>
-
-<footer style="text-align: center; padding: 50px; opacity: 0.6; font-size: 0.8rem;">
-    <p><b>SERVITECNO MAYORISTA - RAFAELA</b><br>Envíos nacionales e internacionales.<br>IG: @serviitecno</p>
+<footer>
+    <p><b>SERVITECNO</b><br>
+    Importador Mayorista<br>
+    IG: @serviitecno</p>
 </footer>
 
 <div class="fab-whatsapp" onclick="window.open('https://wa.me/543492697600')">
@@ -197,14 +303,6 @@
 
 </body>
 </html>
-
-
-
-
-
-
-
-
 
 
 
